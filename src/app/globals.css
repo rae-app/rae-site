@@ -24,3 +24,30 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg-hero-radial {
+  background: radial-gradient(
+      circle 758px at 1152px 401px,
+      #ffffffc4 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 758px at 1377px 464px, 
+      #ff928c 0%, 
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 758px at 144px 555px,
+      #ffffffc4 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 758px at 200px 600px,
+      #ff928c 0%,
+      transparent 70%
+    ),
+    #ffffff;
+    
+  background-repeat: no-repeat;
+  background-size: cover;
+}
