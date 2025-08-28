@@ -12,21 +12,21 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
+  // useEffect(() => {
+  //   let lastScrollY = window.scrollY;
 
-    const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setScrolled(true); // scrolling down → hide navbar
-      } else {
-        setScrolled(false); // scrolling up → show navbar
-      }
-      lastScrollY = window.scrollY;
-    };
+  //   const handleScroll = () => {
+  //     if (window.scrollY > lastScrollY) {
+  //       setScrolled(true); // scrolling down → hide navbar
+  //     } else {
+  //       setScrolled(false); // scrolling up → show navbar
+  //     }
+  //     lastScrollY = window.scrollY;
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <motion.nav
