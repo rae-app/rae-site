@@ -1,18 +1,41 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import { LucideAppWindow, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { Grid2X2, LucideAppWindow, Menu, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import Button from "./button/Button";
+import { motion } from "motion/react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setScrolled(true); // scrolling down → hide navbar
+      } else {
+        setScrolled(false); // scrolling up → show navbar
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="flex fixed top-0 w-full z-[10000] items-center px-8 py-6 bg-transparent backdrop-blur-sm h-[98px]">
-      <div className="flex items-center">
+    <motion.nav
+      animate={{ y: scrolled ? -100 : 0 }} // hide/show effect
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="flex bg-transparent fixed top-0 w-full z-[10000] items-center px-8 py-6 h-[90px]"
+    >
+      {/* Logo */}
+      <div className="flex items-center z-20">
         <Link href="/">
           <div className="flex items-center space-x-2">
             <div className="size-5 border-4 border-black rounded-full"></div>
@@ -21,18 +44,15 @@ function Navbar() {
         </Link>
       </div>
 
-      {/* Center Links*/}
-      <div className="hidden h-full items-center md:flex flex-1 font-bold justify-center space-x-8">
-        <Link href="/info/about" className="text-zinc-800 hover:text-zinc-900 ">
+      {/* Center Links */}
+      <div className="hidden h-full z-20 items-center md:flex flex-1 font-bold justify-center space-x-8">
+        <Link href="/info/about" className="text-zinc-800 hover:text-zinc-900">
           ABOUT
         </Link>
-        <Link
-          href="/info/waitlist"
-          className="text-zinc-800 hover:text-zinc-900 "
-        >
+        <Link href="/info/waitlist" className="text-zinc-800 hover:text-zinc-900">
           WAITLIST
         </Link>
-        <a href="/info/price" className="text-zinc-800 hover:text-zinc-900 ">
+        <a href="/info/price" className="text-zinc-800 hover:text-zinc-900">
           PRICING
         </a>
       </div>
@@ -41,18 +61,18 @@ function Navbar() {
       <div className="hidden md:flex h-full items-center justify-end">
         <Button>
           <svg
-        width={18}
-        height={18}
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M11 9.5H19.75V0.75H11V9.5ZM0.5 20H9.25V11.25H0.5V20ZM0.5 9.5H9.25V0.75H0.5V9.5ZM11 20H19.75V11.25H11V20Z"
-          fill="white"
-        />
-      </svg>
-      GET STARTED
+            width={18}
+            height={18}
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 9.5H19.75V0.75H11V9.5ZM0.5 20H9.25V11.25H0.5V20ZM0.5 9.5H9.25V0.75H0.5V9.5ZM11 20H19.75V11.25H11V20Z"
+              fill="white"
+            />
+          </svg>
+          GET STARTED
         </Button>
       </div>
 
@@ -93,7 +113,7 @@ function Navbar() {
           </Link>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }
 

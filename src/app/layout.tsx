@@ -9,8 +9,8 @@ const instrumentSans = Instrument_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Kowl",
-  description: "Kowl is an invisible desktop assistant that takes care of tasks for you, right on your screen",
+  title: "Rae",
+  description: "Rae is an invisible desktop assistant that takes care of tasks for you, right on your screen",
 };
 
 export default function RootLayout({
