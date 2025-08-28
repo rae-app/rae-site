@@ -64,7 +64,7 @@ function Features() {
           ></motion.div>
           <motion.div
             style={{ opacity: scrollYProgress, y: translateContent }}
-            className="text-white size-full h-fit w-[calc(100%-32px)] absolute top-0  px-5 py-4 flex flex-col"
+            className="text-white  h-fit w-[calc(100vw-64px)] absolute top-0  px-5 py-4 flex flex-col"
           >
             <div className="flex flex-col gap-2 ">
               <div className="text-2xl font-semibold">FEATURE #1</div>
