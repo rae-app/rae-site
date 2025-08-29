@@ -6,18 +6,20 @@ interface ButtonProps {
   children: ReactNode;
   variant?: "filled" | "outline";
   depth?: string;
+  onClick?: () => void;
 }
 
 const Button = ({
   children,
   depth = "10px",
+  onClick,
   variant = "filled",
 }: ButtonProps) => {
   const router = useRouter();
   return (
     <motion.button
    
-      onClick={() => router.push("/get-started")}
+      onClick={onClick}
       className="flex items-center  h-full px-5 py-2 bg-gradient-to-r from-zinc-900 to-zinc-800 cursor-pointer hover:to-zinc-950 hover:from-zinc-950 transition-colors group  text-white font-semibold rounded-xl relative overflow-hidden"
     >
       <motion.div className="z-10 flex gap-4 text-sm items-center">{children}</motion.div>

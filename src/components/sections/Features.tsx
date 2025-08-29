@@ -41,7 +41,7 @@ function Features() {
   );
   const roundedPage = useTransform(scrollYProgress, [0, 1], ["0rem", "1rem"]);
   return (
-    <div className="h-[300vh]  relative z-40 flex justify-center ">
+    <div className="h-[300vh] w-[1200px]  relative z-40 flex justify-center ">
       {/* <div className="z-50 text-white">hello</div> */}
       <motion.div
         style={{
@@ -64,7 +64,7 @@ function Features() {
           ></motion.div>
           <motion.div
             style={{ opacity: scrollYProgress, y: translateContent }}
-            className="text-white  h-fit w-[calc(100vw-64px)] absolute top-0  px-5 py-4 flex flex-col"
+            className="text-white  h-fit w-[1140px] absolute top-0  px-5 py-4 flex flex-col"
           >
             <div className="flex flex-col gap-2 ">
               <div className="text-2xl font-semibold">FEATURE #1</div>

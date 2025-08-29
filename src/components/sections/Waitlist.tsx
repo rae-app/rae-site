@@ -28,7 +28,7 @@ const Waitlist: React.FC = () => {
   };
 
   return (
-    <section className="bg-hero-radial min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="max-w-[1200px]  min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}

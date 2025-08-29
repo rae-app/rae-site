@@ -10,6 +10,7 @@ interface HeroButtonProps {
   height?: string;
   width?: string;
   className?: string;
+  onClick?: () => void;
   colors?: {
     border?: string;
     backgroundStart?: string;
@@ -26,6 +27,7 @@ const HeroButton = ({
   height = "auto",
   width = "auto",
   className = "",
+  onClick,
   colors = {
     border: "#000000",
     backgroundStart: "#18181b",
@@ -59,7 +61,7 @@ const HeroButton = ({
             // background: `linear-gradient(to right, ${colors.hoverBackground}, ${colors.hoverBackground})`,
           },
         }}
-        onClick={() => router.push("/get-started")}
+        onClick={onClick}
         style={{
           height,
           width,

@@ -32,7 +32,7 @@ function Navbar() {
     <motion.nav
       animate={{ y: scrolled ? -100 : 0 }} // hide/show effect
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="flex bg-transparent fixed top-0 w-full z-[10000] items-center px-8 py-6 h-[90px]"
+      className="flex max-w-[1200px] left-1/2 -translate-x-1/2 bg-transparent fixed top-0 w-full z-[10000] items-center px-8 py-6 h-[90px]"
     >
       {/* Logo */}
       <div className="flex items-center z-20">
