@@ -33,7 +33,7 @@ const Waitlist: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left order-1 lg:order-1">
-            <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl text-black leading-tight mb-2">
+            <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl text-black leading-tight mb-2">
               Interested?
             </h1>
             <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-black leading-tight mb-6">

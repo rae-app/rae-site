@@ -3,9 +3,55 @@
 import { LucideAppWindow, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Button from "./button/Button";
 import { motion } from "motion/react";
+
+const NavbarButton = ({
+  children,
+  to,
+}: {
+  children: ReactNode;
+  to: string;
+}) => {
+  const router = useRouter();
+  return (
+    <>
+      <motion.div
+        onClick={() => router.push(to)}
+        whileHover="hover"
+        className="h-[20px] overflow-hidden w-fit text-black relative cursor-pointer"
+      >
+        <motion.div
+          // style={{ transformOrigin: "bottom left" }}
+          initial={{ y: "100%" }}
+          transition={{ type: "tween", ease: "circInOut" }}
+          variants={{
+            hover: {
+              rotateZ: "0deg",
+              y: "0",
+            },
+          }}
+          className="absolute"
+        >
+          {children}
+        </motion.div>
+        <motion.div
+          // style={{ transformOrigin: "bottom left" }}
+          variants={{
+            hover: {
+              // rotateZ: "-90deg",
+              y: "-100%",
+            },
+          }}
+          transition={{ type: "tween", ease: "circInOut" }}
+        >
+          {children}
+        </motion.div>
+      </motion.div>
+    </>
+  );
+};
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,15 +92,9 @@ function Navbar() {
 
       {/* Center Links */}
       <div className="hidden h-full z-20 items-center md:flex flex-1 font-bold justify-center space-x-8">
-        <Link href="/info/about" className="text-zinc-800 hover:text-zinc-900">
-          ABOUT
-        </Link>
-        <Link href="/info/waitlist" className="text-zinc-800 hover:text-zinc-900">
-          WAITLIST
-        </Link>
-        <a href="/info/price" className="text-zinc-800 hover:text-zinc-900">
-          PRICING
-        </a>
+        <NavbarButton to="/info/about">ABOUT</NavbarButton>
+        <NavbarButton to="/info/waitlist">WAITLIST</NavbarButton>
+        <NavbarButton to="/info/price">PRICING</NavbarButton>
       </div>
 
       {/* CTA (hidden on mobile) */}

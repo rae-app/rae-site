@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={` ${instrumentSans.className} bg-white text-black antialiased`}
+        className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased`}
       >
         <ReactLenis root>
           {children}

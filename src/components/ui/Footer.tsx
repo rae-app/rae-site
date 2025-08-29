@@ -1,10 +1,67 @@
-import React from "react";
+"use client";
+import { useScroll, useSpring, motion, useTransform } from "motion/react";
+import React, { useRef } from "react";
+import HeroButton from "./button/HeroButton";
+import Button from "./button/Button";
 
 function Footer() {
+  const footerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"],
+  });
+
+  // const transY = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"]);
   return (
-    <footer className="bg-black w-full text-gray-400 py-6">
-      <div className="max-w-6xl mx-auto px-4 flex justify-center sm:flex-row items-center gap-4">
-        <p className="text-sm">&copy; {new Date().getFullYear()} Rae. All rights reserved.</p>
+    <footer
+      ref={footerRef}
+      className="bg-zinc-950 flex-col relative flex items-center justify-center w-full h-fit min-h-[]"
+    >
+      {/* <div className="top-0 absolute w-full h-[10vh] bg-gradient-to-t from-transparent to-zinc-950 z-30" ></div> */}
+      <div className="w-[1200px] flex   px-4 sm:px-6 lg:px-16 min-h-[calc(100vh-178px)]">
+        <div className="w-[40%] flex gap-2 pr-8 pb-8 flex-col border-r shrink-0 border-zinc-800">
+          <div className="text-white shrink-0 mt-12 h-[80px] text-[82px] font-bold  gap-4 flex items-center overflow-hidden">
+            <motion.div
+              style={{
+                scale: useSpring(scrollYProgress, {
+                  stiffness: 100,
+                  damping: 20,
+                }),
+              }}
+              className="border-[12px] border-white aspect-square rounded-full shrink-0 size-[64px] "
+            ></motion.div>
+            <div className="flex ">
+              {"Rae.".split("").map((letter, index) => {
+                return (
+                  <motion.div
+                    style={{
+                      // opacity: scrollYProgress,
+                      y: useSpring(
+                        useTransform(
+                          scrollYProgress,
+                          [index * 0.1, 1],
+                          ["-100%", "0%"]
+                        ),
+                        { stiffness: 100, damping: 20 }
+                      ),
+                    }}
+                    key={index + "rae-letter"}
+                  >
+                    {letter}
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="flex flex-col w-full h-full gap-4">
+            {/*contact */}
+          </div>
+        </div>
+      </div>
+      <div className="h-[80px] border-t border-zinc-800 w-full items-center flex ">
+        <div className="w-[1400px] px-4 sm:px-6 lg:px-8 font-bold text-zinc-500">
+          COPYRIGHT @ 2025 RAE. ALL RIGHTS RESERVED.
+        </div>
       </div>
     </footer>
   );

@@ -42,6 +42,7 @@ const HeroButton = ({
   return (
     <motion.button
       whileHover={"hover"}
+      whileTap={"tap"}
       style={{
         borderColor: colors.border,
         backgroundColor: colors.hoverBackground,
@@ -57,9 +58,12 @@ const HeroButton = ({
         }}
         variants={{
           hover: {
-            y: "0px",
+            y: "-2px",
             // background: `linear-gradient(to right, ${colors.hoverBackground}, ${colors.hoverBackground})`,
           },
+          tap: {
+            y: "0px"
+          }
         }}
         onClick={onClick}
         style={{
