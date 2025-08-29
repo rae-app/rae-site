@@ -1,15 +1,18 @@
-import Footer from '@/components/ui/Footer'
-import Navbar from '@/components/ui/Navbar'
-import React from 'react'
+import Footer from '@/components/ui/Footer';
+import Navbar from '@/components/ui/Navbar';
+import Waitlist from '@/components/sections/Waitlist';
+import React from 'react';
 
-function page() {
+function WaitlistPage() {
     return (
-        <div>
+        <div className="min-h-screen flex flex-col">
             <Navbar />
-            Waitlist
+            <main className="flex-1">
+                <Waitlist />
+            </main>
             <Footer />
         </div>
-    )
+    );
 }
 
-export default page
+export default WaitlistPage;

@@ -53,3 +53,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+::selection {
+  background: black;
+  color: white;
+}

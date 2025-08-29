@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
+import ReactLenis from "lenis/react";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -26,7 +27,9 @@ export default function RootLayout({
       <body
         className={` ${instrumentSans.className} bg-white text-black antialiased`}
       >
-        {children}
+        <ReactLenis root>
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );
