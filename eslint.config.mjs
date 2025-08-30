@@ -20,6 +20,21 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      // 👇 Turn off or relax unused vars/imports
+      "@typescript-eslint/no-unused-vars": [
+        "warn", // or "off" if you don’t want to see them at all
+        { argsIgnorePattern: "^_" }, // ignore vars prefixed with _
+      ],
+
+      // 👇 If you want to silence unused imports
+      "no-unused-vars": "off", // disable core rule (TS handles it)
+
+      // 👇 Optional: disable prop-types (since you use TS)
+      "react/prop-types": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

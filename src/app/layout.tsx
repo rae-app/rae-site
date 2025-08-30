@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
-import ReactLenis from "lenis/react";
-import "./globals.css";
 import Blobs from "@/components/ui/Blobs";
-import Navbar from "@/components/ui/Navbar";
 import Loader from "@/components/ui/Loader";
+import Navbar from "@/components/ui/Navbar";
+import ReactLenis from "lenis/react";
+import type { Metadata } from "next";
+import { Instrument_Sans } from "next/font/google";
+import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],

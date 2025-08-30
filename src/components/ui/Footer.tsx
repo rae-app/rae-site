@@ -1,8 +1,25 @@
 "use client";
-import { useScroll, useSpring, motion, useTransform } from "motion/react";
+import { useScroll, useSpring, motion, useTransform, MotionValue } from "motion/react";
 import React, { useRef } from "react";
 import HeroButton from "./button/HeroButton";
 import Button from "./button/Button";
+
+function AnimatedLetter({
+  letter,
+  index,
+  scrollYProgress,
+}: {
+  letter: string;
+  index: number;
+  scrollYProgress: MotionValue<number>;
+}) {
+  const y = useSpring(
+    useTransform(scrollYProgress, [index * 0.1, 1], ["-100%", "0%"]),
+    { stiffness: 100, damping: 20 }
+  );
+
+  return <motion.div style={{ y }}>{letter}</motion.div>;
+}
 
 function Footer() {
   const footerRef = useRef(null);
@@ -11,19 +28,12 @@ function Footer() {
     offset: ["0 1", "0.75 1"],
   });
 
-  // Precompute transforms for each letter
-  const letters = "Rae.".split("");
-  const letterTransforms = letters.map((_, index) =>
-    useSpring(
-      useTransform(scrollYProgress, [index * 0.1, 1], ["-100%", "0%"]),
-      { stiffness: 100, damping: 20 }
-    )
-  );
-
   const circleScale = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 20,
   });
+
+  const letters = "Rae.".split("");
 
   return (
     <footer
@@ -39,16 +49,16 @@ function Footer() {
             />
             <div className="flex">
               {letters.map((letter, index) => (
-                <motion.div
-                  style={{ y: letterTransforms[index] }}
+                <AnimatedLetter
                   key={index + "rae-letter"}
-                >
-                  {letter}
-                </motion.div>
+                  letter={letter}
+                  index={index}
+                  scrollYProgress={scrollYProgress}
+                />
               ))}
             </div>
           </div>
-          <div className="flex flex-col w-full h-full gap-4">{/*contact */}</div>
+          <div className="flex flex-col w-full h-full gap-4">{/* contact */}</div>
         </div>
       </div>
       <div className="h-[80px] justify-center border-t border-zinc-800 w-full items-center flex">
