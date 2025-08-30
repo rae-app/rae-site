@@ -8,7 +8,7 @@ function Footer() {
   const footerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: footerRef,
-    offset: ["start end", "end end"],
+    offset: ["0 1", "0.75 1"],
   });
 
   // const transY = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"]);
