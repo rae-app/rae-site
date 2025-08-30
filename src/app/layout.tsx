@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Sans } from "next/font/google";
 import ReactLenis from "lenis/react";
 import "./globals.css";
+import Blobs from "@/components/ui/Blobs";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body
         className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased`}
       >
+        <Blobs />
         <ReactLenis root>
           {children}
         </ReactLenis>
