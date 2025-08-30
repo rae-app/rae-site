@@ -11,54 +11,47 @@ function Footer() {
     offset: ["0 1", "0.75 1"],
   });
 
-  // const transY = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"]);
+  // Precompute transforms for each letter
+  const letters = "Rae.".split("");
+  const letterTransforms = letters.map((_, index) =>
+    useSpring(
+      useTransform(scrollYProgress, [index * 0.1, 1], ["-100%", "0%"]),
+      { stiffness: 100, damping: 20 }
+    )
+  );
+
+  const circleScale = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 20,
+  });
+
   return (
     <footer
       ref={footerRef}
-      className="bg-zinc-950 flex-col relative flex items-center justify-center w-full h-fit min-h-[]"
+      className="bg-zinc-950 flex-col relative flex items-center justify-center w-full h-fit"
     >
-      {/* <div className="top-0 absolute w-full h-[10vh] bg-gradient-to-t from-transparent to-zinc-950 z-30" ></div> */}
-      <div className="w-[1400px] flex   px-4 sm:px-6 lg:px-16 min-h-[calc(100vh-178px)]">
+      <div className="w-[1400px] flex px-4 sm:px-6 lg:px-16 min-h-[calc(100vh-178px)]">
         <div className="w-[40%] flex gap-2 pr-8 pb-8 flex-col border-r shrink-0 border-zinc-800">
-          <div className="text-white shrink-0 mt-12 h-[80px] text-[82px] font-bold  gap-4 flex items-center overflow-hidden">
+          <div className="text-white shrink-0 mt-12 h-[80px] text-[82px] font-bold gap-4 flex items-center overflow-hidden">
             <motion.div
-              style={{
-                scale: useSpring(scrollYProgress, {
-                  stiffness: 100,
-                  damping: 20,
-                }),
-              }}
-              className="border-[12px] border-white aspect-square rounded-full shrink-0 size-[64px] "
-            ></motion.div>
-            <div className="flex ">
-              {"Rae.".split("").map((letter, index) => {
-                return (
-                  <motion.div
-                    style={{
-                      // opacity: scrollYProgress,
-                      y: useSpring(
-                        useTransform(
-                          scrollYProgress,
-                          [index * 0.1, 1],
-                          ["-100%", "0%"]
-                        ),
-                        { stiffness: 100, damping: 20 }
-                      ),
-                    }}
-                    key={index + "rae-letter"}
-                  >
-                    {letter}
-                  </motion.div>
-                );
-              })}
+              style={{ scale: circleScale }}
+              className="border-[12px] border-white aspect-square rounded-full shrink-0 size-[64px]"
+            />
+            <div className="flex">
+              {letters.map((letter, index) => (
+                <motion.div
+                  style={{ y: letterTransforms[index] }}
+                  key={index + "rae-letter"}
+                >
+                  {letter}
+                </motion.div>
+              ))}
             </div>
           </div>
-          <div className="flex flex-col w-full h-full gap-4">
-            {/*contact */}
-          </div>
+          <div className="flex flex-col w-full h-full gap-4">{/*contact */}</div>
         </div>
       </div>
-      <div className="h-[80px] justify-center border-t border-zinc-800 w-full items-center flex ">
+      <div className="h-[80px] justify-center border-t border-zinc-800 w-full items-center flex">
         <div className="w-[1400px] px-4 sm:px-6 lg:px-8 font-bold text-zinc-500">
           COPYRIGHT @ 2025 RAE. ALL RIGHTS RESERVED.
         </div>
