@@ -5,9 +5,9 @@ import React from 'react';
 
 function WaitlistPage() {
     return (
-        <div className="min-h-screen flex flex-col">
-            <Navbar />
-            <main className="flex-1">
+        <div className="min-h-screen flex flex-col z-40">
+            {/* <Navbar /> */}
+            <main className="flex-1 z-40">
                 <Waitlist />
             </main>
             <Footer />

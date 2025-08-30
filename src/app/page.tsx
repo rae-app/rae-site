@@ -7,7 +7,7 @@ import Footer from "@/components/ui/Footer";
 export default function Home() {
   return (
       <div className="font-instrument-sans flex flex-col items-center w-full  ">
-      <Navbar />
+      
       <Hero />
       <Features />
       <Waitlist />
