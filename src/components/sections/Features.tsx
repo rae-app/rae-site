@@ -41,7 +41,7 @@ function Features() {
   );
   const roundedPage = useTransform(scrollYProgress, [0, 1], ["0rem", "1rem"]);
   return (
-    <div className="h-[300vh] w-[1200px]  relative z-40 flex justify-center ">
+    <div className="h-[300vh] w-[1400px]  relative z-40 flex justify-center ">
       {/* <div className="z-50 text-white">hello</div> */}
       <motion.div
         style={{

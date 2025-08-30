@@ -20,7 +20,7 @@ const NavbarButton = ({
       <motion.div
         onClick={() => router.push(to)}
         whileHover="hover"
-        className="h-[20px] overflow-hidden w-fit text-black relative cursor-pointer"
+        className="h-[20px] px-8  overflow-hidden  text-black relative cursor-pointer"
       >
         <motion.div
           // style={{ transformOrigin: "bottom left" }}
@@ -37,6 +37,7 @@ const NavbarButton = ({
           {children}
         </motion.div>
         <motion.div
+        className="w-fit"
           // style={{ transformOrigin: "bottom left" }}
           variants={{
             hover: {
@@ -78,7 +79,7 @@ function Navbar() {
     <motion.nav
       animate={{ y: scrolled ? -100 : 0 }} // hide/show effect
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="flex max-w-[1200px] left-1/2 -translate-x-1/2 bg-transparent fixed top-0 w-full z-[10000] items-center px-8 py-6 h-[90px]"
+      className="flex max-w-[1400px] left-1/2 -translate-x-1/2 bg-transparent fixed top-0 w-full z-[10000] items-center px-8 py-6 h-[90px]"
     >
       {/* Logo */}
       <div className="flex items-center z-20">
@@ -91,15 +92,17 @@ function Navbar() {
       </div>
 
       {/* Center Links */}
-      <div className="hidden h-full z-20 items-center md:flex flex-1 font-bold justify-center space-x-8">
-        <NavbarButton to="/info/about">ABOUT</NavbarButton>
+      <div className="hidden h-full  z-20 items-center md:flex flex-1 font-bold justify-center ">
+        
+          <NavbarButton to="/info/about">ABOUT</NavbarButton>
         <NavbarButton to="/info/waitlist">WAITLIST</NavbarButton>
         <NavbarButton to="/info/price">PRICING</NavbarButton>
+        
       </div>
 
       {/* CTA (hidden on mobile) */}
       <div className="hidden md:flex h-full items-center justify-end">
-        <Button>
+        <Button >
           <svg
             width={18}
             height={18}

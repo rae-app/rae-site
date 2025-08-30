@@ -18,7 +18,7 @@ function Footer() {
       className="bg-zinc-950 flex-col relative flex items-center justify-center w-full h-fit min-h-[]"
     >
       {/* <div className="top-0 absolute w-full h-[10vh] bg-gradient-to-t from-transparent to-zinc-950 z-30" ></div> */}
-      <div className="w-[1200px] flex   px-4 sm:px-6 lg:px-16 min-h-[calc(100vh-178px)]">
+      <div className="w-[1400px] flex   px-4 sm:px-6 lg:px-16 min-h-[calc(100vh-178px)]">
         <div className="w-[40%] flex gap-2 pr-8 pb-8 flex-col border-r shrink-0 border-zinc-800">
           <div className="text-white shrink-0 mt-12 h-[80px] text-[82px] font-bold  gap-4 flex items-center overflow-hidden">
             <motion.div
@@ -58,7 +58,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="h-[80px] border-t border-zinc-800 w-full items-center flex ">
+      <div className="h-[80px] justify-center border-t border-zinc-800 w-full items-center flex ">
         <div className="w-[1400px] px-4 sm:px-6 lg:px-8 font-bold text-zinc-500">
           COPYRIGHT @ 2025 RAE. ALL RIGHTS RESERVED.
         </div>
