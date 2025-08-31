@@ -29,8 +29,8 @@ export async function sendWelcomeEmails(batchSize: number = 10) {
       return { success: true, message: 'No users found in waitlist', sent: 0 };
     }
 
-    let totalSent = 0;
-    let errors: string[] = [];
+  let totalSent = 0;
+  const errors: string[] = [];
 
     // Process users in batches to avoid rate limits
     for (let i = 0; i < users.length; i += batchSize) {
