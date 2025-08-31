@@ -75,11 +75,24 @@ function Navbar() {
   //   return () => window.removeEventListener("scroll", handleScroll);
   // }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      }
+      else {
+        setScrolled(false);
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  })
+
   return (
     <motion.nav
-      animate={{ y: scrolled ? -100 : 0 }} // hide/show effect
+      animate={{ y: 0 }} // hide/show effect
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="flex max-w-[1400px] left-1/2 -translate-x-1/2 bg-transparent fixed top-0 w-full z-[1000] items-center px-8 py-6 h-[90px]"
+      className={`flex max-w-[1400px] left-1/2 -translate-x-1/2 bg-transparent fixed top-0 w-full z-[1000] items-center px-8 py-6 h-[90px]  ${scrolled ? "bg-yellow-50/60 backdrop-blur-sm" : "bg-transparent"} transition-colors`}
     >
       {/* Logo */}
       <div className="flex items-center z-20">

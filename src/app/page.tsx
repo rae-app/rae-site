@@ -5,7 +5,7 @@ import Footer from "@/components/ui/Footer";
 
 export default function Home() {
   return (
-      <div className="font-instrument-sans flex flex-col items-center w-full  ">
+      <div className="font-instrument-sans flex flex-col items-center w-full  z-40">
       
       <Hero />
       <Features />
