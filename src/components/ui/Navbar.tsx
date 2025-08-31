@@ -3,7 +3,7 @@
 import { LucideAppWindow, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import Button from "./button/Button";
 import { motion } from "motion/react";
 
@@ -56,8 +56,6 @@ const NavbarButton = ({
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const router = useRouter();
 
   // useEffect(() => {
   //   let lastScrollY = window.scrollY;
@@ -77,7 +75,7 @@ function Navbar() {
 
   return (
     <motion.nav
-      animate={{ y: scrolled ? -100 : 0 }} // hide/show effect
+      animate={{ y: 0 }} // static position
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="flex max-w-[1400px] left-1/2 -translate-x-1/2 bg-transparent fixed top-0 w-full z-[1000] items-center px-8 py-6 h-[90px]"
     >
@@ -94,7 +92,7 @@ function Navbar() {
       {/* Center Links */}
       <div className="hidden h-full  z-20 items-center md:flex flex-1 font-bold justify-center ">
         
-          <NavbarButton to="/info/about">ABOUT</NavbarButton>
+        <NavbarButton to="/info/about">ABOUT</NavbarButton>
         <NavbarButton to="/info/waitlist">WAITLIST</NavbarButton>
         <NavbarButton to="/info/price">PRICING</NavbarButton>
         
