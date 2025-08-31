@@ -1,10 +1,8 @@
-import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
 import {motion } from "motion/react"
 
 interface ButtonProps {
   children: ReactNode;
-  variant?: "filled" | "outline";
   depth?: string;
   onClick?: () => void;
 }
@@ -13,9 +11,7 @@ const Button = ({
   children,
   depth = "10px",
   onClick,
-  variant = "filled",
 }: ButtonProps) => {
-  const router = useRouter();
   return (
     <motion.button
    
