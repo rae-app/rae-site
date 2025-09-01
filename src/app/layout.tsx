@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased`}
       >
-        <DefaultSeo {...SEO} />
+        {/*<DefaultSeo {...SEO} />*/}
         <Loader />
         <Navbar />
         <Blobs />
