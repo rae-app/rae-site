@@ -49,6 +49,7 @@ export async function addToWaitlist(formData: WaitlistData) {
       );
     } catch (emailError) {
       // Email failure doesn't break the signup process
+      console.error('Failed to send welcome email:', emailError);
     }
 
     return { success: true, data };

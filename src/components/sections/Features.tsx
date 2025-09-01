@@ -1,5 +1,10 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import {
+  ArrowElbowDownLeftIcon,
+  CornersOutIcon,
+  MicrophoneIcon,
+  PushPinIcon
+} from "@phosphor-icons/react";
 import {
   AnimatePresence,
   motion,
@@ -7,14 +12,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import {
-  ArrowElbowDownLeftIcon,
-  CaretLineDownIcon,
-  CornersOutIcon,
-  MicrophoneIcon,
-  PaperPlaneRightIcon,
-  PushPinIcon,
-} from "@phosphor-icons/react";
+import { useEffect, useRef, useState } from "react";
 
 const stops = [30, 60, 150]
 
@@ -178,7 +176,7 @@ const Features = () => {
                         </div>
                       </div>
                       <div className="text-sm w-full h-full flex border-r border-zinc-700 items-center px-4 text-zinc-400 font-semibold whitespace-nowrap">
-                        What's 800 + 245?
+                        Whats 800 + 245?
                       </div>
                       <div className="h-full border-r border-zinc-700 hover:text-accent  text-white flex items-center justify-center hover:bg-zinc-900 text-xl aspect-square shrink-0">
                         <ArrowElbowDownLeftIcon />
