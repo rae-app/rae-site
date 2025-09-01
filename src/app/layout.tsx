@@ -4,20 +4,24 @@ import Navbar from "@/components/ui/Navbar";
 import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
+
 import "./globals.css";
+
+import { DefaultSeo } from "next-seo";
+import SEO from "../next-seo.config";
 
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-instrument-sans",
   weight: ["400", "500", "600", "700"],
-})
+});
 
 export const metadata: Metadata = {
   title: "Rae",
-  description: "Rae is an invisible desktop assistant that takes care of tasks for you, right on your screen",
+  description: "Rae is the first True AI Assistant.",
   icons: {
-    icon: "/"
-  }
+    icon: "/",
+  },
 };
 
 export default function RootLayout({
@@ -30,12 +34,11 @@ export default function RootLayout({
       <body
         className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased`}
       >
+        <DefaultSeo {...SEO} />
         <Loader />
         <Navbar />
         <Blobs />
-        <ReactLenis root>
-          {children}
-        </ReactLenis>
+        <ReactLenis root>{children}</ReactLenis>
       </body>
     </html>
   );
