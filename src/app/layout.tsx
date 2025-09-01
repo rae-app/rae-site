@@ -7,9 +7,6 @@ import { Instrument_Sans } from "next/font/google";
 
 import "./globals.css";
 
-import { DefaultSeo } from "next-seo";
-import SEO from "../next-seo.config";
-
 const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   variable: "--font-instrument-sans",
@@ -34,7 +31,6 @@ export default function RootLayout({
       <body
         className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased`}
       >
-        {/*<DefaultSeo {...SEO} />*/}
         <Loader />
         <Navbar />
         <Blobs />
