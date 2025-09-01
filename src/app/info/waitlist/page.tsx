@@ -1,13 +1,13 @@
 import Footer from '@/components/ui/Footer';
-import Navbar from '@/components/ui/Navbar';
 import Waitlist from '@/components/sections/Waitlist';
 import React from 'react';
+import Navbar from '@/components/ui/Navbar';
 
 function WaitlistPage() {
     return (
-        <div className="min-h-screen flex flex-col z-40">
-            {/* <Navbar /> */}
-            <main className="flex-1 z-40">
+        <div className="min-h-screen bg-hero-radial">
+            <Navbar />
+            <main className="min-h-[calc(100vh-120px)] flex items-center justify-center">
                 <Waitlist />
             </main>
             <Footer />

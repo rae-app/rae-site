@@ -1,5 +1,4 @@
 "use client";
-import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
 import { motion } from "motion/react";
 import { twMerge } from "tailwind-merge";
@@ -37,8 +36,6 @@ const HeroButton = ({
     innerEnd: "#18181b",
   },
 }: HeroButtonProps) => {
-  const router = useRouter();
-
   return (
     <motion.button
       whileHover={"hover"}

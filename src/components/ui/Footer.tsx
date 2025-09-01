@@ -1,8 +1,6 @@
 "use client";
 import { useScroll, useSpring, motion, useTransform, MotionValue } from "motion/react";
 import React, { useRef } from "react";
-import HeroButton from "./button/HeroButton";
-import Button from "./button/Button";
 
 function AnimatedLetter({
   letter,

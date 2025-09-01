@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, FormEvent } from 'react';
+import { addToWaitlist } from '@/app/actions/waitlist';
 
 interface WaitlistFormData {
   email: string;
@@ -10,21 +11,29 @@ interface WaitlistFormData {
 const Waitlist: React.FC = () => {
   const [formData, setFormData] = useState<WaitlistFormData>({ email: '', name: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isSubmitting || !formData.email.trim()) return;
     
     setIsSubmitting(true);
+    setStatus('idle');
     
-    // TODO: Add Supabase + Resend Logic
-    console.log('Form submitted:', formData);
-    
-    setIsSubmitting(false);
+    try {
+      await addToWaitlist(formData);
+      setFormData({ email: '', name: '' });
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: keyof WaitlistFormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    if (status !== 'idle') setStatus('idle'); // Reset status on input change
   };
 
   return (
@@ -74,16 +83,33 @@ const Waitlist: React.FC = () => {
                       required
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className="w-full px-4 py-3 border text-black border-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 bg-white/50 text-sm sm:text-base"
-                      placeholder="your.mail@example.com"
+                      className="w-full px-4 py-3 border text-black border-gray-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 bg-white/50 text-sm sm:text-base"
+                      placeholder="your.email@example.com"
                     />
                   </div>
+
+                  {/* Status */}
+                  {status === 'success' && (
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-3 text-center">
+                      <p className="text-green-800 font-semibold text-sm">
+                        Successfully joined! We&apos;ll keep you posted with every Rae update.
+                      </p>
+                    </div>
+                  )}
+                  
+                  {status === 'error' && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-center">
+                      <p className="text-red-800 font-semibold text-sm">
+                        Something went wrong. Please try again.
+                      </p>
+                    </div>
+                  )}
 
                   <div className="flex justify-center">
                     <button
                       type="submit"
                       disabled={isSubmitting || !formData.email.trim()}
-                      className="w-full sm:w-auto bg-gradient-to-r from-[#FC1D21FF] to-[#FF3B3EFF] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:from-[#921012FF] hover:to-[#921012FF] focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-80 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
+                      className="w-full sm:w-auto bg-gradient-to-r from-[#FC1D21FF] to-[#FF3B3EFF] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:from-[#921012FF] hover:to-[#921012FF] focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
                     >
                       {isSubmitting ? "JOINING..." : "JOIN WAITLIST"}
                     </button>
