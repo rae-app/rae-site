@@ -5,6 +5,7 @@ import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 
+import Footer from "@/components/ui/Footer";
 import "./globals.css";
 
 const instrumentSans = Instrument_Sans({
@@ -13,6 +14,7 @@ const instrumentSans = Instrument_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+
 export const metadata: Metadata = {
   title: "Rae",
   description: "Rae is the first True AI Assistant.",
@@ -20,6 +22,7 @@ export const metadata: Metadata = {
     icon: "/",
   },
 };
+
 
 export default function RootLayout({
   children,
@@ -35,6 +38,7 @@ export default function RootLayout({
         <Navbar />
         <Blobs />
         <ReactLenis root>{children}</ReactLenis>
+        <Footer />  
       </body>
     </html>
   );

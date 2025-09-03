@@ -1,18 +1,15 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import {
-  ArrowElbowDownLeftIcon,
-  CornersOutIcon,
-  MicrophoneIcon,
-  PushPinIcon,
+    ArrowElbowDownLeftIcon,
+    CornersOutIcon,
+    MicrophoneIcon,
+    PushPinIcon,
 } from "@phosphor-icons/react";
 import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useSpring,
-  useTransform,
+    AnimatePresence,
+    motion
 } from "motion/react";
+import { useEffect, useState } from "react";
 
 const APP_CONSTANTS = {
   notch: {
@@ -25,7 +22,7 @@ const APP_CONSTANTS = {
     height: "60px",
   },
   features: {
-    trigger: 1,
+    trigger: 1.2,
     width: "1400px",
     height: "150vh",
   },

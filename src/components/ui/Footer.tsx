@@ -43,7 +43,7 @@ function Footer() {
           <div className="text-white shrink-0 mt-12 h-[80px] text-[82px] font-bold gap-4 flex items-center overflow-hidden">
             <motion.div
               style={{ scale: circleScale }}
-              className="border-[12px] border-white aspect-square rounded-full shrink-0 size-[64px]"
+              className="border-[12px]  border-accent aspect-square rounded-full shrink-0 size-[64px]"
             />
             <div className="flex">
               {letters.map((letter, index) => (
