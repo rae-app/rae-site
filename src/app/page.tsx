@@ -1,4 +1,4 @@
-import Features from "@/components/sections/Features";
+import Features from "@/components/sections/Features_new";
 import Hero from "@/components/sections/Hero";
 import Waitlist from "@/components/sections/Waitlist";
 import Footer from "@/components/ui/Footer";

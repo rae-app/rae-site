@@ -4,17 +4,17 @@ import HeroButton from "../ui/button/HeroButton";
 const Hero: React.FC = () => {
   return (
     <section className="relative w-full h-[calc(100dvh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 ">
-      <div className="text-center font-bold md:text-left max-w-2xl">
+      <div className="text-center font-bold md:text-left ">
         {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl text-black leadin3g-7  ">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] text-black lg:leading-[5vw]  ">
           MAKE YOUR DESKTOP
         </h1>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black leading-tight mb-6">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[6vw] text-black mb-6">
           SMARTER
         </h2>
 
         {/* Sub-Heading */}
-        <p className="text-base sm:text-lg md:text-xl lg:text-xl font-semibold text-black  mb-8 leading-6">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-black  mb-8 leading-6">
           Rae is an invisible desktop assistant that takes care of tasks for
           you, right on your screen.
         </p>

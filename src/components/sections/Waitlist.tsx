@@ -2,6 +2,7 @@
 
 import React, { useState, FormEvent } from 'react';
 import { addToWaitlist } from '@/app/actions/waitlist';
+import Button from '../ui/button/Button';
 
 interface WaitlistFormData {
   email: string;
@@ -37,7 +38,7 @@ const Waitlist: React.FC = () => {
   };
 
   return (
-    <section className="max-w-[1400px] z-40 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <section className="max-w-[1400px] mt-[35vh] z-40 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}
@@ -106,13 +107,13 @@ const Waitlist: React.FC = () => {
                   )}
 
                   <div className="flex justify-center">
-                    <button
+                    <Button
                       type="submit"
                       disabled={isSubmitting || !formData.email.trim()}
-                      className="w-full sm:w-auto bg-gradient-to-r from-[#FC1D21FF] to-[#FF3B3EFF] text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:from-[#921012FF] hover:to-[#921012FF] focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm sm:text-base"
+                      className="ml-auto"
                     >
                       {isSubmitting ? "JOINING..." : "JOIN WAITLIST"}
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
