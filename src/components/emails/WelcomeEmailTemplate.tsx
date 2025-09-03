@@ -39,6 +39,7 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
           .logo-container {
             display: flex;
             align-items: center;
+            justify-content: center;
           }
           .logo-circle {
             width: 20px;
@@ -102,7 +103,7 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
                 <span class="logo-text">Rae</span>
               </div>
             </div>
-            <p style="color: #666; margin: 0;">Your Invisible Desktop Assistant</p>
+            <p style="color: #666; margin: 0;">The First True AI Assistant</p>
           </div>
           
           <div class="content">
