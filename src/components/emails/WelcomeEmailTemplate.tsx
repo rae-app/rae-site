@@ -39,73 +39,19 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
           .logo-container {
             display: flex;
             align-items: center;
-            overflow: visible;
           }
-          .logo-circle svg {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
+          .logo-circle {
+            width: 20px;
+            height: 20px;
+            border: 4px solid #e53437;
+            border-radius: 50%;
+            margin-right: 8px;
             flex-shrink: 0;
-            animation: drawCircle 1s ease-in-out 0.1s forwards;
-          }
-
-          .logo-circle circle {
-            stroke-dasharray: 251.2;
-            stroke-dashoffset: 251.2;
-            animation: drawStroke 1s ease-in-out 0.1s forwards;
-          }
-          .logo-text-container {
-            overflow: hidden;
-            width: 0px;
-            animation: slideInText 1s ease-in-out 0.8s forwards;
           }
           .logo-text {
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: bold;
             color: #333;
-            white-space: nowrap;
-          }
-
-          @keyframes drawCircle {
-            0% {
-              transform: rotate(0deg);
-            }
-            50% {
-              transform: rotate(180deg);
-            }
-            100% {
-              transform: rotate(360deg);
-            }
-          }
-
-          @keyframes drawStroke {
-            0% {
-              stroke-dashoffset: 251.2;
-              stroke: #ffffff;
-            }
-            50% {
-              stroke-dashoffset: 131.2;
-              stroke: #ffffff;
-            }
-            75% {
-              stroke-dashoffset: 62.8;
-              stroke: #e53437;
-            }
-            100% {
-              stroke-dashoffset: 0;
-              stroke: #e53437;
-            }
-          }
-
-          @keyframes slideInText {
-            0% {
-              width: 0px;
-              margin-left: 0px;
-            }
-            100% {
-              width: 120px;
-              margin-left: 10px;
-            }
           }
           .content {
             background: rgba(255, 255, 255, 0.9);
@@ -152,21 +98,8 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
           <div class="header">
             <div class="logo">
               <div class="logo-container">
-                <div class="logo-circle">
-                  <svg width="50" height="50" viewBox="0 0 100 100">
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="40"
-                      stroke-width="14"
-                      stroke="#ffffff"
-                      fill="none"
-                    />
-                  </svg>
-                </div>
-                <div class="logo-text-container">
-                  <div class="logo-text">Rae</div>
-                </div>
+                <div class="logo-circle"></div>
+                <span class="logo-text">Rae</span>
               </div>
             </div>
             <p style="color: #666; margin: 0;">Your Invisible Desktop Assistant</p>
