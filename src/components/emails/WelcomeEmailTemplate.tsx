@@ -9,7 +9,7 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to Rae Waitlist</title>
+        <title>Thankyou for joining our waitlist!</title>
         <style>
           body {
             font-family: 'Arial', sans-serif;
@@ -112,7 +112,7 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
             </div>
             
             <div class="message">
-              🎉 <strong>Welcome to the Rae waitlist!</strong>
+              🎉 <strong>Thankyou for joining our waitlist!</strong>
               <br><br>
               We're thrilled to have you join our community of early adopters. You're now part of an exclusive group that will get <span class="highlight">first access</span> to Rae when we launch.
               <br><br>
@@ -131,14 +131,14 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
             
             <div style="text-align: center; margin: 20px 0;">
               <div style="background: #333; color: white; padding: 15px 30px; border-radius: 10px; display: inline-block;">
-                <strong>🔥 You're in the queue!</strong>
+                <strong>🔥 You're in the queue for our early access!</strong>
               </div>
             </div>
           </div>
           
           <div class="footer">
             <p>Thank you for believing in our vision!</p>
-            <p><strong>The Rae Team</strong></p>
+            <p><strong>Team Rae</strong></p>
             
             <div class="social-links">
               <a href="#">Follow us</a> • 
