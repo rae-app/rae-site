@@ -31,10 +31,59 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
             margin-bottom: 30px;
           }
           .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+          }
+          .logo-container {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+          }
+          .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 14px solid #ffffff;
+            margin-right: 10px;
+            flex-shrink: 0;
+            animation: drawCircle 1.2s ease-in-out 0.1s forwards;
+          }
+          .logo-text-container {
+            overflow: hidden;
+            width: 0px;
+            animation: slideInText 1s ease-in-out 0.8s forwards;
+          }
+          .logo-text {
             font-size: 2.5em;
             font-weight: bold;
             color: #333;
-            margin-bottom: 10px;
+            white-space: nowrap;
+          }
+
+          @keyframes drawCircle {
+            0% {
+              border-color: #ffffff;
+              transform: rotate(0deg);
+            }
+            50% {
+              border-color: #e53437;
+              transform: rotate(180deg);
+            }
+            100% {
+              border-color: #e53437;
+              transform: rotate(360deg);
+            }
+          }
+
+          @keyframes slideInText {
+            0% {
+              width: 0px;
+            }
+            100% {
+              width: 120px;
+            }
           }
           .content {
             background: rgba(255, 255, 255, 0.9);
@@ -79,7 +128,14 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
       <body>
         <div class="container">
           <div class="header">
-            <div class="logo">Rae</div>
+            <div class="logo">
+              <div class="logo-container">
+                <div class="logo-circle"></div>
+                <div class="logo-text-container">
+                  <div class="logo-text">Rae</div>
+                </div>
+              </div>
+            </div>
             <p style="color: #666; margin: 0;">Your Invisible Desktop Assistant</p>
           </div>
           
