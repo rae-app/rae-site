@@ -1,14 +1,11 @@
 "use client";
 import {
-    ArrowElbowDownLeftIcon,
-    CornersOutIcon,
-    MicrophoneIcon,
-    PushPinIcon,
+  ArrowElbowDownLeftIcon,
+  CornersOutIcon,
+  MicrophoneIcon,
+  PushPinIcon,
 } from "@phosphor-icons/react";
-import {
-    AnimatePresence,
-    motion
-} from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
 const APP_CONSTANTS = {
@@ -22,9 +19,9 @@ const APP_CONSTANTS = {
     height: "60px",
   },
   features: {
-    trigger: 1.2,
+    trigger: 1,
     width: "1400px",
-    height: "150vh",
+    height: "1200px", // fixed height for consistency
   },
 };
 
@@ -34,14 +31,16 @@ const Features_new = () => {
   const [state, setState] = useState<"notch" | "overlay" | "features">("notch");
   useEffect(() => {
     const onScroll = () => {
-      console.log(window.scrollY, window.innerHeight);
       setScroll(window.scrollY);
       setWindowHeight(window.innerHeight);
-      if (window.scrollY > window.innerHeight * APP_CONSTANTS.overlay.trigger && window.scrollY <= window.innerHeight * APP_CONSTANTS.features.trigger) {
+      // Use fixed pixel values for triggers
+      if (
+        window.scrollY > 300 &&
+        window.scrollY <= 1000
+      ) {
         setState("overlay");
       } else if (
-        window.scrollY >
-        window.innerHeight * APP_CONSTANTS.features.trigger
+        window.scrollY > 1300
       ) {
         setState("features");
       } else {
@@ -53,26 +52,26 @@ const Features_new = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <div className="h-[180vh] relative z-40 flex flex-col justify-start w-full">
-      <div className="absolute size-full">
-        <div className="mt-[60vh] text-3xl font-medium tracking-tight w-full flex items-center justify-center">
-          Always at your service <br></br>
+    <div className="min-h-[1400px] relative z-40 flex flex-col justify-start w-full">
+      <div className="absolute w-full h-full">
+        <div className="mt-[400px] text-3xl font-medium tracking-tight w-full flex items-center justify-center">
+          Always at your service <br />
           Rae is built to be your AI companion, ready to assist you anytime,
           anywhere.
         </div>
       </div>
-      <div className="h-[100vh] w-full flex items-center justify-center sticky top-[50vh]">
+      <div className="h-[800px] w-full flex items-center justify-center sticky top-[400px]">
         <motion.div
           animate={{
             height: APP_CONSTANTS[state].height,
             width: APP_CONSTANTS[state].width,
-            backgroundColor: state === "features" ? "#111111"  :  "#111111"
+            backgroundColor: state === "features" ? "#111111" : "#111111",
           }}
-          transition={{ type: "tween", duration: 0.4, ease: "backInOut" }}
-          className=" max-w-[1340px] backdrop-blur-2xl absolute overflow-hidden top-0 flex  rounded-xl"
+          transition={{ type: "tween", duration: 0.2, ease: "easeInOut" }}
+          className="max-w-[1340px] backdrop-blur-2xl absolute overflow-hidden top-0 flex rounded-xl"
         >
           <AnimatePresence>
-            {state === "notch" && <Notch />}{" "}
+            {state === "notch" && <Notch />}
             {state === "overlay" && <Overlay />}
             {state === "features" && <Features />}
           </AnimatePresence>
@@ -83,14 +82,39 @@ const Features_new = () => {
 };
 
 const Features = () => {
-    return <div className="size-full max-w-[calc(100vw-32px)] left-1/2 -translate-x-1/2 absolute p-4 flex flex-col gap-4">
-        <div className="w-full aspect-video shrink-0 bg-black rounded-xl" ></div>
-        <div className="flex justify-between h-full gap-4" >
-            <div className="h-full bg-black rounded-xl w-full" ></div>
-            <div className="h-full bg-black rounded-xl w-full" ></div>
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="w-full h-full max-w-[1400px] left-1/2 -translate-x-1/2 absolute p-4 flex flex-col gap-4"
+    >
+      <div className="w-full h-2/3 overflow-hidden rounded-xl"  >
+        <video src="/assets/notch.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      </div>
+      <div className="flex pb-4 justify-between gap-4 h-1/2">
+        <div className="w-1/2 h-full flex flex-col text-white mt-4">
+          <div className="text-3xl font-medium">Interact with other apps</div>
+          <div className="text-xl font-medium text-zinc-400 mb-4">
+            Rae allows you to generate content for other apps running on your system
+          </div>
+          <div  className="bg-black rounded-xl h-full relative w-full overflow-hidden">
+            <video src="/assets/type.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
         </div>
-    </div>
-}
+        <div className="w-1/2  h-full flex flex-col text-white mt-4">
+          <div className="text-3xl font-medium">Screen reading</div>
+          <div className="text-xl font-medium text-zinc-400 mb-4">
+            Rae can read your screen and provide context-aware assistance to help you with your tasks.
+          </div>
+          <div style={{ height: "100%" }} className="bg-black rounded-xl w-full overflow-hidden">
+            <video src="/assets/screen.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const Overlay = () => {
   const buttonBase =
