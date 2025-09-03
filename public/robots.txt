@@ -1,0 +1,18 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Block access to private/admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow access to main pages
+Allow: /
+Allow: /info/about
+Allow: /info/price
+Allow: /info/waitlist
+
+# Sitemap location
+Sitemap: https://raeai.app/sitemap.xml
