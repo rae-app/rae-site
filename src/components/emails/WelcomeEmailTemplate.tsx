@@ -50,7 +50,7 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
             flex-shrink: 0;
           }
           .logo-text {
-            font-size: 2em;
+            font-size: 24px;
             font-weight: bold;
             color: #333;
           }
