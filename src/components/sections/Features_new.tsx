@@ -40,7 +40,7 @@ const Features_new = () => {
       ) {
         setState("overlay");
       } else if (
-        window.scrollY > 1300
+        window.scrollY > 1000
       ) {
         setState("features");
       } else {
@@ -52,7 +52,7 @@ const Features_new = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <div className="min-h-[1400px] relative z-40 flex flex-col justify-start w-full">
+    <div className="min-h-[1400px] mb-[20vw] relative z-40 flex flex-col justify-start w-full">
       <div className="absolute w-full h-full">
         <div className="mt-[400px] text-3xl font-medium tracking-tight w-full flex items-center justify-center">
           Always at your service <br />
