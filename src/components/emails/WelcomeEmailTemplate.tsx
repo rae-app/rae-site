@@ -39,16 +39,20 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
           .logo-container {
             display: flex;
             align-items: center;
-            overflow: hidden;
+            overflow: visible;
           }
-          .logo-circle {
+          .logo-circle svg {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            border: 14px solid #ffffff;
             margin-right: 10px;
             flex-shrink: 0;
-            animation: drawCircle 1.2s ease-in-out 0.1s forwards;
+            animation: drawCircle 1s ease-in-out 0.1s forwards;
+          }
+
+          .logo-circle circle {
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            animation: drawStroke 1s ease-in-out 0.1s forwards;
           }
           .logo-text-container {
             overflow: hidden;
@@ -64,25 +68,43 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
 
           @keyframes drawCircle {
             0% {
-              border-color: #ffffff;
               transform: rotate(0deg);
             }
             50% {
-              border-color: #e53437;
               transform: rotate(180deg);
             }
             100% {
-              border-color: #e53437;
               transform: rotate(360deg);
+            }
+          }
+
+          @keyframes drawStroke {
+            0% {
+              stroke-dashoffset: 251.2;
+              stroke: #ffffff;
+            }
+            50% {
+              stroke-dashoffset: 131.2;
+              stroke: #ffffff;
+            }
+            75% {
+              stroke-dashoffset: 62.8;
+              stroke: #e53437;
+            }
+            100% {
+              stroke-dashoffset: 0;
+              stroke: #e53437;
             }
           }
 
           @keyframes slideInText {
             0% {
               width: 0px;
+              margin-left: 0px;
             }
             100% {
               width: 120px;
+              margin-left: 10px;
             }
           }
           .content {
@@ -130,7 +152,18 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
           <div class="header">
             <div class="logo">
               <div class="logo-container">
-                <div class="logo-circle"></div>
+                <div class="logo-circle">
+                  <svg width="50" height="50" viewBox="0 0 100 100">
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="40"
+                      stroke-width="14"
+                      stroke="#ffffff"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
                 <div class="logo-text-container">
                   <div class="logo-text">Rae</div>
                 </div>
@@ -151,10 +184,10 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
               <br><br>
               <strong>What's next?</strong>
               <ul style="margin: 15px 0; padding-left: 20px;">
-                <li>🚀 You'll be among the first to know when Rae is ready</li>
-                <li>📧 Exclusive updates and behind-the-scenes content</li>
-                <li>🎁 Special early-bird pricing and features</li>
-                <li>💬 Direct line to our development team for feedback</li>
+                <li> You'll be among the first to know when Rae is ready</li>
+                <li>Exclusive updates and behind-the-scenes content</li>
+                <li>Special early-bird pricing and features</li>
+                <li>Direct line to our development team for feedback</li>
               </ul>
               
               We're working hard to bring you something amazing. Rae will revolutionize how you interact with your desktop, making complex tasks simple and intuitive.
