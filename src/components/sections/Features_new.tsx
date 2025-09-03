@@ -5,8 +5,8 @@ import {
   MicrophoneIcon,
   PushPinIcon,
 } from "@phosphor-icons/react";
-import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 const APP_CONSTANTS = {
   notch: {
@@ -34,14 +34,9 @@ const Features_new = () => {
       setScroll(window.scrollY);
       setWindowHeight(window.innerHeight);
       // Use fixed pixel values for triggers
-      if (
-        window.scrollY > 300 &&
-        window.scrollY <= 1000
-      ) {
+      if (window.scrollY > 300 && window.scrollY <= 700) {
         setState("overlay");
-      } else if (
-        window.scrollY > 1000
-      ) {
+      } else if (window.scrollY > 700) {
         setState("features");
       } else {
         setState("notch");
@@ -51,8 +46,11 @@ const Features_new = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const pageRef = useRef(null);
+  const {scrollYProgress} = useScroll({target: pageRef, offset: ["0 0", "1 1"]});
+  const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 1200]);
   return (
-    <div className="min-h-[1400px] mb-[20vw] relative z-40 flex flex-col justify-start w-full">
+    <motion.div  ref={pageRef} className="min-h-[200vh] relative z-40 flex flex-col justify-start w-full">
       <div className="absolute w-full h-full">
         <div className="mt-[400px] text-3xl font-medium tracking-tight w-full flex items-center justify-center">
           Always at your service <br />
@@ -60,12 +58,13 @@ const Features_new = () => {
           anywhere.
         </div>
       </div>
-      <div className="h-[800px] w-full flex items-center justify-center sticky top-[400px]">
+      
+      <motion.div style={{ height: pageHeight }} className=" w-full flex items-center justify-center sticky top-[400px]">
         <motion.div
           animate={{
             height: APP_CONSTANTS[state].height,
             width: APP_CONSTANTS[state].width,
-            backgroundColor: state === "features" ? "#111111" : "#111111",
+            backgroundColor: state === "features" ? "#111111FF" : "#111111",
           }}
           transition={{ type: "tween", duration: 0.2, ease: "easeInOut" }}
           className="max-w-[1340px] backdrop-blur-2xl absolute overflow-hidden top-0 flex rounded-xl"
@@ -76,8 +75,9 @@ const Features_new = () => {
             {state === "features" && <Features />}
           </AnimatePresence>
         </motion.div>
-      </div>
-    </div>
+      </motion.div>
+      
+    </motion.div>
   );
 };
 
@@ -87,28 +87,35 @@ const Features = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="w-full h-full max-w-[1400px] left-1/2 -translate-x-1/2 absolute p-4 flex flex-col gap-4"
+      className="h-full w-[100vw] left-1/2 p-4 -translate-x-1/2 absolute  flex flex-col gap-4 bg-transparent "
     >
-      <div className="w-full h-2/3 overflow-hidden rounded-xl"  >
-        <video src="/assets/notch.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-      </div>
-      <div className="flex pb-4 justify-between gap-4 h-1/2">
-        <div className="w-1/2 h-full flex flex-col text-white mt-4">
-          <div className="text-3xl font-medium">Interact with other apps</div>
-          <div className="text-xl font-medium text-zinc-400 mb-4">
-            Rae allows you to generate content for other apps running on your system
-          </div>
-          <div  className="bg-black rounded-xl h-full relative w-full overflow-hidden">
-            <video src="/assets/type.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-          </div>
+      <div className="flex max-w-[1400px] w-full flex-col p-4 rounded-2xl bg-black size-full">
+        <div className="w-full h-2/3 overflow-hidden rounded-xl">
+          <video src="/assets/notch.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
-        <div className="w-1/2  h-full flex flex-col text-white mt-4">
-          <div className="text-3xl font-medium">Screen reading</div>
-          <div className="text-xl font-medium text-zinc-400 mb-4">
-            Rae can read your screen and provide context-aware assistance to help you with your tasks.
+        <div className="flex pb-4 justify-between gap-4 h-1/2">
+          <div className="w-1/2 h-full flex flex-col text-white mt-4">
+            <div className="text-3xl font-medium">Interact with other apps</div>
+            <div className="text-xl font-medium text-zinc-400 mb-4">
+              Rae allows you to generate content for other apps running on your
+              system
+            </div>
+            <div className="bg-black rounded-xl h-full relative w-full overflow-hidden">
+              <video src="/assets/type.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
           </div>
-          <div style={{ height: "100%" }} className="bg-black rounded-xl w-full overflow-hidden">
-            <video src="/assets/screen.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div className="w-1/2  h-full flex flex-col text-white mt-4">
+            <div className="text-3xl font-medium">Screen reading</div>
+            <div className="text-xl font-medium text-zinc-400 mb-4">
+              Rae can read your screen and provide context-aware assistance to
+              help you with your tasks.
+            </div>
+            <div
+              style={{ height: "100%" }}
+              className="bg-black rounded-xl w-full overflow-hidden"
+            >
+              <video src="/assets/screen.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
           </div>
         </div>
       </div>
