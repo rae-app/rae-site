@@ -108,7 +108,7 @@ function Navbar() {
         <div className="flex items-center z-20">
           <Link href="/">
             <div className="flex items-center space-x-2">
-              <div className="size-5 border-4 border-black rounded-full"></div>
+              <div className="size-5 border-4 rounded-full" style={{ borderColor: '#e53437' }}></div>
               <span className="text-2xl font-bold text-black">Rae</span>
             </div>
           </Link>
