@@ -54,6 +54,16 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
             font-weight: bold;
             color: #333;
           }
+          .logo-separator {
+            font-size: 20px;
+            color: #666;
+            margin: 0 4px;
+          }
+          .logo-subtitle {
+            font-size: 16px;
+            color: #666;
+            font-weight: normal;
+          }
           .content {
             background: rgba(255, 255, 255, 0.9);
             padding: 30px;
@@ -101,9 +111,10 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
               <div class="logo-container">
                 <div class="logo-circle"></div>
                 <span class="logo-text">Rae</span>
+                <span class="logo-separator"> - </span>
+                <span class="logo-subtitle">The First True AI Assistant</span>
               </div>
             </div>
-            <p style="color: #666; margin: 0;">The First True AI Assistant</p>
           </div>
           
           <div class="content">
