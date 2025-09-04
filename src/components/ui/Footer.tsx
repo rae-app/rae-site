@@ -38,7 +38,7 @@ function Footer() {
       ref={footerRef}
       className="bg-zinc-950 flex-col relative flex items-center justify-center w-full h-fit"
     >
-      <div className="max-w-[1400px] w-full flex px-4 sm:px-6 lg:px-16 min-h-[calc(100vh-178px)]">
+      <div className="max-w-[1400px] w-full flex px-4 sm:px-6 lg:px-16 min-h-[400px]">
         <div className="w-[40%] flex gap-2 pr-8 pb-8 flex-col border-r shrink-0 border-zinc-800">
           <div className="text-white shrink-0 mt-12 h-[80px] text-[82px] font-bold gap-4 flex items-center overflow-hidden">
             <motion.div
