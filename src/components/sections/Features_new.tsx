@@ -87,9 +87,9 @@ const Features = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="h-full w-[100vw] left-1/2 p-4 -translate-x-1/2 absolute  flex flex-col gap-4 bg-transparent "
+      className="h-full w-full p-4 absolute items-center flex flex-col gap-4 bg-transparent "
     >
-      <div className="flex max-w-[1400px] w-full flex-col p-4 rounded-2xl bg-black size-full">
+      <div className="flex  w-full flex-col p-4 rounded-2xl bg-black size-full">
         <div className="w-full h-2/3 overflow-hidden rounded-xl">
           <video src="/assets/notch.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
