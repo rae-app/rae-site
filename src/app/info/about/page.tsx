@@ -17,7 +17,7 @@ function page() {
         doorstep. 
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative  outline-black outline-4" >
-          <img src="/assets/images/build.jpg" className="absolute size-full object-cover " alt="" />
+          <img src="/assets/images/image1.jpeg" className="absolute size-full object-cover " alt="" />
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative  outline-black outline-4" >
           <img src="/assets/images/build.jpg" className="absolute size-full object-cover " alt="" />
