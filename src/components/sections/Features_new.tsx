@@ -34,9 +34,9 @@ const Features_new = () => {
       setScroll(window.scrollY);
       setWindowHeight(window.innerHeight);
       // Use fixed pixel values for triggers
-      if (window.scrollY > 300 && window.scrollY <= 700) {
+      if (window.scrollY > 300 && window.scrollY <= 1000) {
         setState("overlay");
-      } else if (window.scrollY > 700) {
+      } else if (window.scrollY > 1000) {
         setState("features");
       } else {
         setState("notch");
