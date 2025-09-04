@@ -75,7 +75,11 @@ const Features_new = () => {
         className=" w-full flex items-center justify-center sticky top-[400px]"
       >
         <motion.div
-          initial={{ height: "0px", width: "0px", backgroundColor: "#111111" }}
+          initial={{
+            height: "20px",
+            width: "20px",
+            backgroundColor: "#111111",
+          }}
           whileInView={{
             height: APP_CONSTANTS[state].height,
             width: APP_CONSTANTS[state].width,
@@ -97,6 +101,31 @@ const Features_new = () => {
 };
 
 const Features = () => {
+  const [showFirstVideo, setShowFirstVideo] = useState(false);
+  const [showMiddleVideo, setShowMiddleVideo] = useState(false);
+  const [showLastVideo, setShowLastVideo] = useState(false);
+
+  useEffect(() => {
+    // Stagger the video loading with different delays
+    const firstVideoTimer = setTimeout(() => {
+      setShowFirstVideo(true);
+    }, 500); // First video loads almost immediately
+
+    const middleVideoTimer = setTimeout(() => {
+      setShowMiddleVideo(true);
+    }, 1200); // Middle video loads after 1200ms
+
+    const lastVideoTimer = setTimeout(() => {
+      setShowLastVideo(true);
+    }, 1500); // Last video loads after 1500ms
+
+    return () => {
+      clearTimeout(firstVideoTimer);
+      clearTimeout(middleVideoTimer);
+      clearTimeout(lastVideoTimer);
+    };
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -106,13 +135,22 @@ const Features = () => {
     >
       <div className="flex  w-full flex-col p-4 rounded-2xl bg-black size-full">
         <div className="w-full h-2/3 overflow-hidden rounded-xl">
-          <video
-            src="/assets/notch.mp4"
-            autoPlay
-            muted
-            loop
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
+          {showFirstVideo ? (
+            <motion.video
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              src="/assets/notch.mp4"
+              autoPlay
+              muted
+              loop
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          ) : (
+            <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
+              <div className="text-zinc-400 text-sm">Loading...</div>
+            </div>
+          )}
         </div>
         <div className="flex pb-4 justify-between gap-4 h-1/2">
           <div className="w-1/2 h-full flex flex-col text-white mt-4">
@@ -122,13 +160,22 @@ const Features = () => {
               system
             </div>
             <div className="bg-black rounded-xl h-full relative w-full overflow-hidden">
-              <video
-                src="/assets/type.mp4"
-                autoPlay
-                muted
-                loop
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
+              {showMiddleVideo ? (
+                <motion.video
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  src="/assets/type.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              ) : (
+                <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
+                  <div className="text-zinc-400 text-sm">Loading...</div>
+                </div>
+              )}
             </div>
           </div>
           <div className="w-1/2  h-full flex flex-col text-white mt-4">
@@ -141,13 +188,22 @@ const Features = () => {
               style={{ height: "100%" }}
               className="bg-black rounded-xl w-full overflow-hidden"
             >
-              <video
-                src="/assets/screen.mp4"
-                autoPlay
-                muted
-                loop
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
+              {showLastVideo ? (
+                <motion.video
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  src="/assets/screen.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              ) : (
+                <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
+                  <div className="text-zinc-400 text-sm">Loading...</div>
+                </div>
+              )}
             </div>
           </div>
         </div>
