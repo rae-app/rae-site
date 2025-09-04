@@ -47,22 +47,35 @@ const Features_new = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const pageRef = useRef(null);
-  const {scrollYProgress} = useScroll({target: pageRef, offset: ["0 0", "1 1"]});
+  const { scrollYProgress } = useScroll({
+    target: pageRef,
+    offset: ["0 0", "1 1"],
+  });
   const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 1200]);
   return (
-    <motion.div  ref={pageRef} className="min-h-[200vh] relative z-40 flex flex-col justify-start w-full">
+    <motion.div
+      ref={pageRef}
+      className="min-h-[200vh] relative z-40 flex flex-col justify-start w-full"
+    >
       <div className="absolute w-full h-full">
-        <div className="mt-[400px] text-3xl font-medium tracking-tight w-full flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, ease: "circInOut" }}
+          className="mt-[200px] text-3xl font-medium tracking-tight w-full flex items-center justify-center"
+        >
           Always at your service <br />
           Rae is built to be your AI companion, ready to assist you anytime,
           anywhere.
-        </div>
+        </motion.div>
       </div>
-      
-      <motion.div style={{ height: pageHeight }} className=" w-full flex items-center justify-center sticky top-[400px]">
+
+      <motion.div
+        style={{ height: pageHeight }}
+        className=" w-full flex items-center justify-center sticky top-[400px]"
+      >
         <motion.div
-        initial={{height: "0px", width: "0px", backgroundColor: "#111111"}}
-        
+          initial={{ height: "0px", width: "0px", backgroundColor: "#111111" }}
           whileInView={{
             height: APP_CONSTANTS[state].height,
             width: APP_CONSTANTS[state].width,
@@ -79,7 +92,6 @@ const Features_new = () => {
           </AnimatePresence>
         </motion.div>
       </motion.div>
-      
     </motion.div>
   );
 };
@@ -94,7 +106,13 @@ const Features = () => {
     >
       <div className="flex  w-full flex-col p-4 rounded-2xl bg-black size-full">
         <div className="w-full h-2/3 overflow-hidden rounded-xl">
-          <video src="/assets/notch.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <video
+            src="/assets/notch.mp4"
+            autoPlay
+            muted
+            loop
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
         </div>
         <div className="flex pb-4 justify-between gap-4 h-1/2">
           <div className="w-1/2 h-full flex flex-col text-white mt-4">
@@ -104,7 +122,13 @@ const Features = () => {
               system
             </div>
             <div className="bg-black rounded-xl h-full relative w-full overflow-hidden">
-              <video src="/assets/type.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <video
+                src="/assets/type.mp4"
+                autoPlay
+                muted
+                loop
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </div>
           </div>
           <div className="w-1/2  h-full flex flex-col text-white mt-4">
@@ -117,7 +141,13 @@ const Features = () => {
               style={{ height: "100%" }}
               className="bg-black rounded-xl w-full overflow-hidden"
             >
-              <video src="/assets/screen.mp4" autoPlay muted loop style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <video
+                src="/assets/screen.mp4"
+                autoPlay
+                muted
+                loop
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </div>
           </div>
         </div>
