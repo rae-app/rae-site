@@ -131,7 +131,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased`}
+        className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased flex flex-col items-center justify-center`}
       >
         <Loader />
         <Navbar />

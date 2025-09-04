@@ -90,7 +90,7 @@ function Navbar() {
     <motion.nav
       animate={{ y: 0 }} // hide/show effect
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`fixed top-0 left-0 w-full z-[1000] h-[90px] px-0 py-0 bg-transparent transition-colors`}
+      className={`sticky top-0 left-0 w-full z-[1000] h-[90px] px-0 py-0 bg-transparent transition-colors`}
     >
       {/* Full-width background */}
       <AnimatePresence>

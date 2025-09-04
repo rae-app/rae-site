@@ -21,7 +21,7 @@ const Loader = () => {
       initial={{ y: "0%" }}
       animate={{ y: textDone ? "-100%" : "0%" }}
       transition={{ duration: 1, ease: "circInOut" }}
-      className="fixed z-[10000] bg-zinc-950 size-full flex items-center justify-center"
+      className="fixed top-0 left-0 z-[10000] bg-zinc-950 size-full flex items-center justify-center"
     >
       <div className="flex items-center">
         {/* Circle */}
