@@ -61,11 +61,14 @@ const Features_new = () => {
       
       <motion.div style={{ height: pageHeight }} className=" w-full flex items-center justify-center sticky top-[400px]">
         <motion.div
-          animate={{
+        initial={{height: "0px", width: "0px", backgroundColor: "#111111"}}
+        
+          whileInView={{
             height: APP_CONSTANTS[state].height,
             width: APP_CONSTANTS[state].width,
             backgroundColor: state === "features" ? "#111111FF" : "#111111",
           }}
+          viewport={{ once: true }}
           transition={{ type: "tween", duration: 0.2, ease: "easeInOut" }}
           className="max-w-[1340px] backdrop-blur-2xl absolute overflow-hidden top-0 flex rounded-xl"
         >
