@@ -1,7 +1,13 @@
+"use client"
 import React from "react";
 import HeroButton from "../ui/button/HeroButton";
+import { useLenis } from "lenis/react";
+import { useRouter } from "next/navigation";
 
 const Hero: React.FC = () => {
+  const lenis = useLenis();
+  const router = useRouter()
+
   return (
     <section className="relative mb-12 w-full min-h-[calc(80dvh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 ">
       <div className="text-center font-bold md:text-left ">
@@ -21,8 +27,8 @@ const Hero: React.FC = () => {
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start ">
-          <HeroButton className="text-base py-4 px-6">KNOW MORE</HeroButton>
-          <HeroButton colors={{
+          <HeroButton onClick={() => lenis?.scrollTo(1200)} className="text-base py-4 px-6">KNOW MORE</HeroButton>
+          <HeroButton onClick={() => router.push("/info/waitlist")} colors={{
             border: "#6C1011",
             hoverBackground: "#921012FF",
             innerStart: "#FF3B3EFF",
