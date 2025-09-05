@@ -1,5 +1,6 @@
 import Features from "@/components/sections/Features";
 import Hero from "@/components/sections/Hero";
+import Questions from "@/components/sections/Questions";
 import Waitlist from "@/components/sections/Waitlist";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Waitlist />
+      <Questions />
       {/* <Footer /> */}
     </div>
   );

@@ -23,8 +23,8 @@ interface HeroButtonProps {
 const HeroButton = ({
   children,
   depth = "10px",
-  height = "auto",
-  width = "auto",
+  height = "",
+  width = "",
   className = "",
   onClick,
   colors = {
@@ -45,7 +45,7 @@ const HeroButton = ({
         backgroundColor: colors.hoverBackground,
       }}
       className={twMerge(
-        "flex rounded-xl border-2 group items-center justify-center"
+        "flex rounded-xl border-2 w-fit group items-center justify-center !p-0", className
       )}
     >
       <motion.div
