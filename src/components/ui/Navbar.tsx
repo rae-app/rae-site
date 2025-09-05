@@ -90,25 +90,34 @@ function Navbar() {
     <motion.nav
       animate={{ y: 0 }} // hide/show effect
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`sticky top-0 left-0 w-full z-[1000] h-[90px] px-0 py-0 bg-transparent transition-colors`}
+      className={`sticky top-0 left-0 w-full z-[1000] h-[120px] px-0 py-0 bg-transparent transition-colors`}
     >
       {/* Full-width background */}
       <AnimatePresence>
-        {scrolled && (
+        {(scrolled || isOpen) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 w-full h-full bg-gradient-to-b from-yellow-50 to-transparent via-yellow-50 pointer-events-none -z-10"
+            className={`absolute inset-0 w-full ${
+              isOpen ? "h-auto min-h-full" : "h-full"
+            } bg-gradient-to-b from-yellow-50 to-transparent via-yellow-50 pointer-events-none -z-10`}
+            style={{
+              height: isOpen ? "auto" : "100%",
+              minHeight: isOpen ? "65vh" : "auto",
+            }}
           />
         )}
       </AnimatePresence>
-      <div className="flex max-w-[1400px]  bg-transparent w-full items-center px-8 py-6 h-[90px] mx-auto">
+      <div className="flex max-w-[1400px] bg-transparent w-full items-center px-8 py-6 h-[90px] mx-auto">
         {/* Logo */}
         <div className="flex items-center z-20">
           <Link href="/">
             <div className="flex items-center space-x-1">
-              <div className="size-5 border-4 rounded-full" style={{ borderColor: '#e53437' }}></div>
+              <div
+                className="size-5 border-4 rounded-full"
+                style={{ borderColor: "#e53437" }}
+              ></div>
               <span className="text-2xl font-bold text-black">Rae</span>
             </div>
           </Link>
@@ -128,7 +137,6 @@ function Navbar() {
               width={18}
               height={18}
               viewBox="0 0 20 20"
-              
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -150,28 +158,35 @@ function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center py-4 space-y-4 md:hidden z-50">
+        <div
+          className="absolute top-full left-0 w-full bg-transparent flex flex-col items-center space-y-4 md:hidden pointer-events-auto"
+          style={{ pointerEvents: "auto" }}
+        >
           <Link
             href="/info/about"
             className="text-gray-600 hover:text-gray-900 font-medium"
+            onClick={() => setIsOpen(false)}
           >
             ABOUT
           </Link>
           <Link
             href="/info/waitlist"
             className="text-gray-600 hover:text-gray-900 font-medium"
+            onClick={() => setIsOpen(false)}
           >
             WAITLIST
           </Link>
-          <a
-            href="/info/pricing"
+          <Link
+            href="/info/price"
             className="text-gray-600 hover:text-gray-900 font-medium"
+            onClick={() => setIsOpen(false)}
           >
             PRICING
-          </a>
+          </Link>
           <Link
             href="/get-started"
             className="flex items-center gap-2 px-5 py-2 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition"
+            onClick={() => setIsOpen(false)}
           >
             <LucideAppWindow size={18} />
             Get Started
