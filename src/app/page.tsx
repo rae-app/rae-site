@@ -1,4 +1,4 @@
-import Features from "@/components/sections/Features_new";
+import Features from "@/components/sections/Features";
 import Hero from "@/components/sections/Hero";
 import Waitlist from "@/components/sections/Waitlist";
 

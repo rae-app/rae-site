@@ -3,7 +3,7 @@ import HeroButton from "../ui/button/HeroButton";
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative mb-12 w-full h-[calc(100dvh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 ">
+    <section className="relative mb-12 w-full min-h-[calc(80dvh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 ">
       <div className="text-center font-bold md:text-left ">
         {/* Heading */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] text-black lg:leading-[5vw]  ">
