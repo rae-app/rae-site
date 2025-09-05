@@ -26,7 +26,7 @@ function page() {
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative  outline-black outline-4">
           <img
-            src="/assets/images/build.jpg"
+            src="/assets/images/wolf.jpeg"
             className="absolute size-full object-cover "
             alt=""
           />
