@@ -7,7 +7,7 @@ function page() {
         <div className=" w-full text-center   h-fit z-40 ">
           {`"I would rather be dead, than build something Mid"`.toUpperCase()}
         </div>
-        <div className="z-40 text-right mt-4"> - Team, RAE</div>
+        <div className="z-40 text-right mt-4"> - TEAM, RAE</div>
       </div>
       <div className="text-black z-40 grid grid-cols-2 grid-rows-2 gap-8">
         <div className="bg-black rounded-xl text-white p-8 text-3xl font-medium">

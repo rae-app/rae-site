@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     "macOS app"
   ],
   authors: [{ name: "Rae Team" }],
-  creator: "Rae",
-  publisher: "Rae",
+  creator: "Sophistic",
+  publisher: "Sophistic",
   robots: {
     index: true,
     follow: true,
