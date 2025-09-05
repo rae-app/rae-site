@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CaretDownIcon } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "motion/react";
-import { match } from "assert";
+
 
 export type AccordionItem = {
   question: string;
