@@ -19,7 +19,7 @@ function page() {
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative  outline-black outline-4">
           <img
-            src="/assets/images/human.jpg"
+            src="/assets/images/human.gif"
             className="absolute size-full object-cover "
             alt=""
           />
