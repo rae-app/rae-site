@@ -36,7 +36,7 @@ function page() {
           <div className="z-40">
             The goal of Rae. is to not just awe you but also your friends.
             Fueled by a community, whose goal is to leave a mark on mankind.
-            Join us as its only you that can truly help Rae rise. Be a part of
+            Join us as its only you that can truly help Rae rise. Be a part of
             something you would tell your grandchildren about.
           </div>
         </div>
