@@ -55,7 +55,7 @@ const Features_new = () => {
   return (
     <motion.div
       ref={pageRef}
-      className="min-h-[170vh] relative z-40 flex flex-col justify-start w-full"
+      className="min-h-[1300px] relative z-40 flex flex-col justify-start w-full"
     >
       <div className="absolute w-full h-full">
         <motion.div

@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start ">
-          <HeroButton onClick={() => lenis?.scrollTo(1200)} className="text-base py-4 px-6">KNOW MORE</HeroButton>
+          <HeroButton onClick={() => lenis?.scrollTo(950)} className="text-base py-4 px-6">KNOW MORE</HeroButton>
           <HeroButton onClick={() => router.push("/info/waitlist")} colors={{
             border: "#6C1011",
             hoverBackground: "#921012FF",
