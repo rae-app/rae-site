@@ -19,14 +19,14 @@ function page() {
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative  outline-black outline-4">
           <img
-            src="/assets/images/image1.jpeg"
+            src="/assets/images/human.jpg"
             className="absolute size-full object-cover "
             alt=""
           />
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative  outline-black outline-4">
           <img
-            src="/assets/images/wolf.jpeg"
+            src="/assets/images/wolf.gif"
             className="absolute size-full object-cover "
             alt=""
           />
