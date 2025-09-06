@@ -118,7 +118,9 @@ function Navbar() {
                 className="size-4 sm:size-5 border-3 sm:border-4 rounded-full"
                 style={{ borderColor: "#e53437" }}
               ></div>
-              <span className="text-xl sm:text-2xl font-bold text-black">Rae</span>
+              <span className="text-xl sm:text-2xl font-bold text-black">
+                Rae
+              </span>
             </div>
           </Link>
         </div>
@@ -144,13 +146,13 @@ function Navbar() {
                 fill="white"
               />
             </svg>
-            GET STARTED
+            Coming Soon
           </Button>
         </div>
 
         {/* Mobile Hamburger */}
         <div className="md:hidden ml-auto text-black">
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-md hover:bg-black/5 transition-colors"
             aria-label="Toggle menu"
@@ -221,7 +223,7 @@ function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 <LucideAppWindow size={18} />
-                GET STARTED
+                Coming Soon
               </Link>
             </motion.div>
           </motion.div>
