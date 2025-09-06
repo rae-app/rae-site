@@ -1,6 +1,7 @@
 "use client";
 import { useScroll, useSpring, motion, useTransform, MotionValue } from "motion/react";
 import React, { useRef } from "react";
+import Card from "./Card";
 
 function AnimatedLetter({
   letter,
@@ -57,6 +58,19 @@ function Footer() {
             </div>
           </div>
           <div className="flex flex-col w-full h-full gap-4">{/* contact */}</div>
+        </div>
+        <div
+          className="hidden sm:flex w-[60%] items-center justify-start pl-3"
+          suppressHydrationWarning
+        >
+          <div className="w-full max-w-lg aspect-[3/2]">
+            <Card variant="image" className="w-full h-full">
+              <img
+                src="/assets/images/cloud.gif"
+                alt="Cloud animation"
+              />
+            </Card>
+          </div>
         </div>
       </div>
       <div className="h-[50px] sm:h-[60px] lg:h-[80px] justify-center border-t border-zinc-800 w-full items-center flex">

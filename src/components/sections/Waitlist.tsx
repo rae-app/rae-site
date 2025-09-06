@@ -3,6 +3,7 @@
 import React, { useState, FormEvent } from 'react';
 import { addToWaitlist } from '@/app/actions/waitlist';
 import Button from '../ui/button/Button';
+import Card from '../ui/Card';
 
 interface WaitlistFormData {
   email: string;
@@ -43,9 +44,20 @@ const Waitlist: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left order-1 lg:order-1">
-            <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl text-black leading-tight mb-2">
-              Interested?
-            </h1>
+            {/* Interested? and Surf GIF side by side */}
+            <div className="flex items-center justify-center lg:justify-start gap-4 lg:gap-6 mb-6">
+              <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl text-black leading-tight">
+                Interested?
+              </h1>
+
+              {/* Surf GIF */}
+              <img
+                src="/assets/images/surf.gif"
+                alt="Surf animation"
+                className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-contain flex-shrink-0"
+              />
+            </div>
+
             <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-black leading-tight mb-6">
               JOIN THE WAITLIST
             </h2>
