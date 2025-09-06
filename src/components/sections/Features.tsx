@@ -14,25 +14,47 @@ const APP_CONSTANTS = {
     height: "40px",
   },
   overlay: {
-  
     width: "600px",
     height: "60px",
   },
   features: {
-    
     width: "1400px",
     height: "1200px", // fixed height for consistency
+  },
+};
+
+// Responsive constants for smaller screens
+const RESPONSIVE_CONSTANTS = {
+  mobile: {
+    notch: { width: "200px", height: "35px" },
+    overlay: { width: "350px", height: "50px" },
+    features: { width: "350px", height: "900px" },
+  },
+  tablet: {
+    notch: { width: "220px", height: "37px" },
+    overlay: { width: "500px", height: "55px" },
+    features: { width: "700px", height: "1000px" },
   },
 };
 
 const Features_new = () => {
   const [scroll, setScroll] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
   const [state, setState] = useState<"notch" | "overlay" | "features">("notch");
+  
+  // Get responsive constants based on screen size
+  const getConstants = () => {
+    if (windowWidth < 640) return RESPONSIVE_CONSTANTS.mobile;
+    if (windowWidth < 1024) return RESPONSIVE_CONSTANTS.tablet;
+    return APP_CONSTANTS;
+  };
+  
   useEffect(() => {
     const onScroll = () => {
       setScroll(window.scrollY);
       setWindowHeight(window.innerHeight);
+      setWindowWidth(window.innerWidth);
       // Use fixed pixel values for triggers
       if (window.scrollY > 300 && window.scrollY <= 800) {
         setState("overlay");
@@ -43,8 +65,16 @@ const Features_new = () => {
       }
     };
 
+    // Set initial window dimensions
+    setWindowWidth(window.innerWidth);
+    setWindowHeight(window.innerHeight);
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
   const pageRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -52,17 +82,19 @@ const Features_new = () => {
     offset: ["0 0", "1 1"],
   });
   const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 1200]);
+  const constants = getConstants();
+  
   return (
     <motion.div
       ref={pageRef}
-      className="min-h-[1300px] relative z-40 flex flex-col justify-start w-full"
+      className="min-h-[1200px] sm:min-h-[1300px] relative z-40 flex flex-col justify-start w-full px-4 sm:px-6 lg:px-0"
     >
       <div className="absolute w-full h-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "circInOut" }}
-          className="mt-[200px] text-3xl font-medium tracking-tight w-full flex items-center justify-center"
+          className="mt-[100px] sm:mt-[150px] lg:mt-[200px] text-lg sm:text-xl lg:text-3xl font-medium tracking-tight w-full flex items-center justify-center text-center px-4"
         >
           Always at your service <br />
           Rae is built to be your AI companion, ready to assist you anytime,
@@ -72,7 +104,7 @@ const Features_new = () => {
 
       <motion.div
         style={{ height: pageHeight }}
-        className=" w-full flex items-center justify-center sticky top-[400px]"
+        className="w-full flex items-center justify-center sticky top-[200px] sm:top-[250px] lg:top-[400px]"
       >
         <motion.div
           initial={{
@@ -81,13 +113,13 @@ const Features_new = () => {
             backgroundColor: "#111111",
           }}
           whileInView={{
-            height: APP_CONSTANTS[state].height,
-            width: APP_CONSTANTS[state].width,
+            height: constants[state].height,
+            width: constants[state].width,
             backgroundColor: state === "features" ? "#111111FF" : "#111111",
           }}
           viewport={{ once: true }}
           transition={{ type: "tween", duration: 0.2, ease: "easeInOut" }}
-          className="max-w-[1340px] backdrop-blur-2xl absolute overflow-hidden top-0 flex rounded-xl"
+          className="max-w-[1340px] backdrop-blur-2xl absolute overflow-hidden top-0 flex rounded-xl mx-4 sm:mx-6 lg:mx-0"
         >
           <AnimatePresence>
             {state === "notch" && <Notch />}
@@ -131,10 +163,10 @@ const Features = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="h-full w-full p-4 absolute items-center flex flex-col gap-4 bg-transparent "
+      className="h-full w-full p-2 sm:p-4 absolute items-center flex flex-col gap-2 sm:gap-4 bg-transparent"
     >
-      <div className="flex  w-full flex-col p-4 rounded-2xl bg-black size-full">
-        <div className="w-full h-2/3 overflow-hidden rounded-xl">
+      <div className="flex w-full flex-col p-2 sm:p-4 rounded-2xl bg-black size-full">
+        <div className="w-full h-2/5 sm:h-2/3 overflow-hidden rounded-xl mb-2 sm:mb-0">
           {showFirstVideo ? (
             <motion.video
               initial={{ opacity: 0 }}
@@ -152,14 +184,13 @@ const Features = () => {
             </div>
           )}
         </div>
-        <div className="flex pb-4 justify-between gap-4 h-1/2">
-          <div className="w-1/2 h-full flex flex-col text-white mt-4">
-            <div className="text-3xl font-medium">Interact with other apps</div>
-            <div className="text-xl font-medium text-zinc-400 mb-4">
-              Rae allows you to generate content for other apps running on your
-              system
+        <div className="flex flex-col sm:flex-row pb-2 sm:pb-4 justify-between gap-2 sm:gap-4 h-3/5 sm:h-1/2">
+          <div className="w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col text-white mt-2 sm:mt-4">
+            <div className="text-lg sm:text-2xl lg:text-3xl font-medium mb-1 sm:mb-0">Interact with other apps</div>
+            <div className="text-sm sm:text-lg lg:text-xl font-medium text-zinc-400 mb-2 sm:mb-4 flex-shrink-0">
+              Rae allows you to generate content for other apps running on your system
             </div>
-            <div className="bg-black rounded-xl h-full relative w-full overflow-hidden">
+            <div className="bg-black rounded-xl flex-1 relative w-full overflow-hidden min-h-0">
               {showMiddleVideo ? (
                 <motion.video
                   initial={{ opacity: 0 }}
@@ -178,16 +209,12 @@ const Features = () => {
               )}
             </div>
           </div>
-          <div className="w-1/2  h-full flex flex-col text-white mt-4">
-            <div className="text-3xl font-medium">Screen reading</div>
-            <div className="text-xl font-medium text-zinc-400 mb-4">
-              Rae can read your screen and provide context-aware assistance to
-              help you with your tasks.
+          <div className="w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col text-white mt-2 sm:mt-4">
+            <div className="text-lg sm:text-2xl lg:text-3xl font-medium mb-1 sm:mb-0">Screen reading</div>
+            <div className="text-sm sm:text-lg lg:text-xl font-medium text-zinc-400 mb-2 sm:mb-4 flex-shrink-0">
+              Rae can read your screen and provide context-aware assistance to help you with your tasks.
             </div>
-            <div
-              style={{ height: "100%" }}
-              className="bg-black rounded-xl w-full overflow-hidden"
-            >
+            <div className="bg-black rounded-xl flex-1 w-full overflow-hidden min-h-0">
               {showLastVideo ? (
                 <motion.video
                   initial={{ opacity: 0 }}
@@ -276,23 +303,23 @@ const Overlay = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="text-sm w-full h-full flex items-center px-4 text-zinc-200 font-semibold whitespace-nowrap"
+          className="text-xs sm:text-sm w-full h-full flex items-center px-2 sm:px-4 text-zinc-200 font-semibold whitespace-nowrap overflow-hidden"
         >
-          {prompts[index]}
+          <span className="truncate">{prompts[index]}</span>
         </motion.div>
       </AnimatePresence>
 
       {/* 🔹 Buttons */}
-      <div className={buttonBase}>
+      <div className={`${buttonBase} text-base sm:text-xl`}>
         <ArrowElbowDownLeftIcon />
       </div>
-      <div className={buttonBase}>
+      <div className={`${buttonBase} text-base sm:text-xl`}>
         <MicrophoneIcon />
       </div>
-      <div className={buttonBase}>
+      <div className={`${buttonBase} text-base sm:text-xl`}>
         <PushPinIcon />
       </div>
-      <div className={`${buttonBase} border-r-0`}>
+      <div className={`${buttonBase} border-r-0 text-base sm:text-xl`}>
         <CornersOutIcon />
       </div>
     </motion.div>
@@ -317,9 +344,9 @@ const Notch = () => {
         <div className="bg-accent/30 size-[15px] left-1/2  -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full animate-ping absolute "></div>
         <div className="bg-accent/40 size-[10px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full animate-ping absolute "></div>
       </div>
-      <div className="text-zinc-300 text-sm whitespace-nowrap font-semibold overflow-hidden w-full">
+      <div className="text-zinc-300 text-xs sm:text-sm whitespace-nowrap font-semibold overflow-hidden w-full">
         <motion.div
-          className="whitespace-nowrap w-fit font-semibold text-zinc-300 text-sm"
+          className="whitespace-nowrap w-fit font-semibold text-zinc-300 text-xs sm:text-sm"
           animate={{ x: ["0%", "-50%", "0%"] }} // scroll left, then back
           transition={{
             duration: 8, // total duration
