@@ -369,7 +369,7 @@ const Notch = () => {
         ease: "circInOut",
         duration: 0.1,
       }}
-      className="size-full flex items-center absolute  overflow-hidden"
+      className="size-full flex items-center absolute  overflow-hidden" // notch
     >
       <div className="relative mx-4">
         <motion.div
