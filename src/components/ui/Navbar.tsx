@@ -125,6 +125,7 @@ function Navbar() {
 
         {/* Center Links */}
         <div className="hidden h-full z-20 items-center md:flex flex-1 font-bold justify-center">
+          <NavbarButton to="/">HOME</NavbarButton>
           <NavbarButton to="/info/about">ABOUT</NavbarButton>
           <NavbarButton to="/info/waitlist">WAITLIST</NavbarButton>
         </div>
@@ -170,6 +171,19 @@ function Navbar() {
             className="absolute top-full left-0 w-full bg-transparent flex flex-col items-center space-y-6 md:hidden pointer-events-auto py-8"
             style={{ pointerEvents: "auto" }}
           >
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 }}
+            >
+              <Link
+                href="/"
+                className="text-gray-700 hover:text-gray-900 font-bold text-lg transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                HOME
+              </Link>
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
