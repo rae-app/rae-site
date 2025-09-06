@@ -277,20 +277,52 @@ const Overlay = () => {
       >
         <AnimatePresence>
           {active ? (
-            <motion.div
-              initial={{ scale: 0.7, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="size-[10px] shrink-0 bg-accent rounded-full relative mx-4"
-            >
-              <div className="bg-accent/20 size-[20px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full animate-ping absolute"></div>
-              <div className="bg-accent/30 size-[15px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full animate-ping absolute"></div>
-              <div className="bg-accent/40 size-[10px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full animate-ping absolute"></div>
+            <motion.div className="relative mx-4">
+              <motion.div
+                animate={{
+                  scale: [1, 1.25, 1],
+                  opacity: [0.9, 1, 0.9],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="size-2 rounded-full bg-gradient-to-br from-red-400 to-red-500 shadow-xl shadow-red-400/70 ring-2 ring-red-300/40"
+              />
+
+              <motion.div
+                animate={{
+                  scale: [1, 1.8, 1],
+                  opacity: [0, 0.5, 0],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeOut",
+                }}
+                className="absolute w-6 h-6 bg-red-400/25 rounded-full -ml-2 blur-sm"
+              />
+
+              <motion.div
+                animate={{
+                  scale: [1, 2.2, 1],
+                  opacity: [0, 0.3, 0],
+                }}
+                transition={{
+                  duration: 3.2,
+                  repeat: Infinity,
+                  ease: "easeOut",
+                  delay: 0.5,
+                }}
+                className="absolute w-8 h-8 bg-red-400/15 rounded-full -ml-3 blur-lg"
+              />
             </motion.div>
           ) : (
             <motion.div
               initial={{ scale: 0.7 }}
               animate={{ scale: 1 }}
-              className="size-[10px] shrink-0 bg-zinc-500 rounded-full mx-4"
+              className="size-2 shrink-0 bg-gray-400 shadow-gray-400/30 rounded-full mx-4"
             ></motion.div>
           )}
         </AnimatePresence>
@@ -339,10 +371,46 @@ const Notch = () => {
       }}
       className="size-full flex items-center absolute  overflow-hidden"
     >
-      <div className="size-[10px] shrink-0 bg-accent rounded-full relative mx-4">
-        <div className="bg-accent/20 size-[20px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full animate-ping absolute "></div>
-        <div className="bg-accent/30 size-[15px] left-1/2  -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full animate-ping absolute "></div>
-        <div className="bg-accent/40 size-[10px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-full animate-ping absolute "></div>
+      <div className="relative mx-4">
+        <motion.div
+          animate={{
+            scale: [1, 1.25, 1],
+            opacity: [0.9, 1, 0.9],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="size-2 rounded-full bg-gradient-to-br from-red-400 to-red-500 shadow-xl shadow-red-400/70 ring-2 ring-red-300/40"
+        />
+
+        <motion.div
+          animate={{
+            scale: [1, 1.8, 1],
+            opacity: [0, 0.5, 0],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: "easeOut",
+          }}
+          className="absolute w-6 h-6 bg-red-400/25 rounded-full -ml-2 blur-sm"
+        />
+
+        <motion.div
+          animate={{
+            scale: [1, 2.2, 1],
+            opacity: [0, 0.3, 0],
+          }}
+          transition={{
+            duration: 3.2,
+            repeat: Infinity,
+            ease: "easeOut",
+            delay: 0.5,
+          }}
+          className="absolute w-8 h-8 bg-red-400/15 rounded-full -ml-3 blur-lg"
+        />
       </div>
       <div className="text-zinc-300 text-xs sm:text-sm whitespace-nowrap font-semibold overflow-hidden w-full">
         <motion.div
