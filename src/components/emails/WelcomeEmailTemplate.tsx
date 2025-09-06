@@ -116,12 +116,12 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
               </div>
             </div>
           </div>
-          
+
           <div class="content">
             <div class="greeting">
-              ${name ? `Hi ${name}!` : 'Hello there!'}
+              ${name ? `Hi ${name}!` : "Hello there!"}
             </div>
-            
+
             <div class="message">
               🎉 <strong>Thankyou for joining our waitlist!</strong>
               <br><br>
@@ -134,31 +134,31 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
                 <li>Special early-bird pricing and features</li>
                 <li>Direct line to our development team for feedback</li>
               </ul>
-              
+
               We're working hard to bring you something amazing. Rae will revolutionize how you interact with your desktop, making complex tasks simple and intuitive.
               <br><br>
               Stay tuned for exciting updates!
             </div>
-            
+
             <div style="text-align: center; margin: 20px 0;">
               <div style="background: #333; color: white; padding: 15px 30px; border-radius: 10px; display: inline-block;">
-                <strong>🔥 You're in the queue for our early access!</strong>
+                <strong> You're in the queue for our early access!</strong>
               </div>
             </div>
           </div>
-          
+
           <div class="footer">
             <p>Thank you for believing in our vision!</p>
             <p><strong>Team Rae</strong></p>
-            
+
             <div class="social-links">
-              <a href="#">Follow us</a> • 
-              <a href="#">Updates</a> • 
+              <a href="#">Follow us</a> •
+              <a href="#">Updates</a> •
               <a href="#">Support</a>
             </div>
-            
+
             <p style="font-size: 0.8em; color: #999; margin-top: 20px;">
-              You're receiving this email because you joined our waitlist. 
+              You're receiving this email because you joined our waitlist.
               This is a one-time welcome message.
             </p>
           </div>
