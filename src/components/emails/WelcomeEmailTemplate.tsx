@@ -37,32 +37,35 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
             margin-bottom: 10px;
           }
           .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              gap: 6px;
           }
           .logo-circle {
-            width: 20px;
-            height: 20px;
-            border: 4px solid #e53437;
-            border-radius: 50%;
-            margin-right: 8px;
-            flex-shrink: 0;
+              width: 20px;
+              height: 20px;
+              border: 4px solid #e53437;
+              border-radius: 50%;
+              margin-right: 8px;
+              flex-shrink: 0;
           }
           .logo-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
+              font-size: 24px;
+              font-weight: bold;
+              color: #333;
           }
           .logo-separator {
-            font-size: 20px;
-            color: #666;
-            margin: 0 4px;
+              font-size: 20px;
+              color: #666;
+              margin: 0 4px;
           }
           .logo-subtitle {
-            font-size: 16px;
-            color: #666;
-            font-weight: normal;
+              font-size: 20px;
+              color: #666;
+              margin-top: 2px;
+              font-weight: normal;
           }
           .content {
             background: rgba(255, 255, 255, 0.9);
