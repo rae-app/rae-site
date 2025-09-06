@@ -50,7 +50,7 @@ const Waitlist: React.FC = () => {
               JOIN THE WAITLIST
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl font-semibold text-black leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Be among the first to experience Rae - your invisible desktop assistant. 
+              Be among the first to experience Rae - your desktop assistant. 
               Get early access and exclusive updates.
             </p>
           </div>

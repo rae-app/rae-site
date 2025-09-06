@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
 
         {/* Sub-Heading */}
         <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-black mb-6 sm:mb-8 leading-normal max-w-md sm:max-w-xl md:max-w-none mx-auto md:mx-0">
-          Rae is an invisible desktop assistant that takes care of tasks for you, right on your screen.
+          Rae is a desktop assistant that takes care of tasks for you, right on your screen.
         </p>
 
         {/* CTA */}
