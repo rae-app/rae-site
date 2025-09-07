@@ -50,10 +50,10 @@ const Waitlist: React.FC = () => {
                 Interested?
               </h1>
 
-              {/* Surf GIF */}
+              {/* Surfer GIF */}
               <img
-                src="/assets/images/surf.gif"
-                alt="Surf animation"
+                src="/assets/images/surfer.gif"
+                alt="Surfer animation"
                 className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-contain flex-shrink-0"
               />
             </div>

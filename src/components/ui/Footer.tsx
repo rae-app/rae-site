@@ -41,35 +41,40 @@ function Footer() {
     >
       <div className="max-w-[1400px] w-full flex px-4 sm:px-6 lg:px-16 min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
         <div className="w-full sm:w-[40%] flex gap-2 pr-0 sm:pr-8 pb-4 sm:pb-6 lg:pb-8 flex-col border-r-0 sm:border-r shrink-0 border-zinc-800">
-          <div className="text-white shrink-0 mt-4 sm:mt-8 lg:mt-12 h-[50px] sm:h-[60px] lg:h-[80px] text-[50px] sm:text-[60px] lg:text-[82px] font-bold gap-2 sm:gap-3 lg:gap-4 flex items-center justify-center sm:justify-start overflow-hidden">
-            <motion.div
-              style={{ scale: circleScale }}
-              className="border-[6px] sm:border-[8px] lg:border-[12px] border-accent aspect-square rounded-full shrink-0 size-[40px] sm:size-[48px] lg:size-[64px]"
-            />
-            <div className="flex">
-              {letters.map((letter, index) => (
-                <AnimatedLetter
-                  key={index + "rae-letter"}
-                  letter={letter}
-                  index={index}
-                  scrollYProgress={scrollYProgress}
-                />
-              ))}
-            </div>
-          </div>
           <div className="flex flex-col w-full h-full gap-4">{/* contact */}</div>
         </div>
         <div
-          className="hidden sm:flex w-[60%] items-center justify-start pl-3"
+          className="hidden sm:flex w-[80%] items-center justify-start pl-3 pr-3 gap-8"
           suppressHydrationWarning
         >
-          <div className="w-full max-w-lg aspect-[3/2]">
+          <div className="w-[500px] aspect-[3/2] flex-shrink-0">
             <Card variant="image" className="w-full h-full">
               <img
                 src="/assets/images/cloud.gif"
                 alt="Cloud animation"
               />
             </Card>
+          </div>
+          <div className="flex flex-col items-start justify-start -mt-50 ml-8">
+            <div className="text-white shrink-0 h-[50px] sm:h-[60px] lg:h-[80px] text-[50px] sm:text-[60px] lg:text-[82px] font-bold gap-2 sm:gap-3 lg:gap-4 flex items-center overflow-hidden">
+              <motion.div
+                style={{ scale: circleScale }}
+                className="border-[6px] sm:border-[8px] lg:border-[12px] border-accent aspect-square rounded-full shrink-0 size-[40px] sm:size-[48px] lg:size-[64px]"
+              />
+              <div className="flex">
+                {letters.map((letter, index) => (
+                  <AnimatedLetter
+                    key={index + "rae-letter"}
+                    letter={letter}
+                    index={index}
+                    scrollYProgress={scrollYProgress}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="font-bold text-zinc-500 text-lg lg:text-lg text-center mt-8 ml-8">
+              Redefining AI Assistant
+            </div>
           </div>
         </div>
       </div>
