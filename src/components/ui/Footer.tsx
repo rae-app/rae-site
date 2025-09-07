@@ -14,13 +14,16 @@ function AnimatedLetter({
   letter,
   index,
   scrollYProgress,
+  totalLetters = 10,
 }: {
   letter: string;
   index: number;
   scrollYProgress: MotionValue<number>;
+  totalLetters?: number;
 }) {
+  const animationDelay = index / totalLetters;
   const y = useSpring(
-    useTransform(scrollYProgress, [index * 0.1, 1], ["-100%", "0%"]),
+    useTransform(scrollYProgress, [animationDelay, 1], ["-100%", "0%"]),
     { stiffness: 100, damping: 20 },
   );
 
@@ -40,6 +43,8 @@ function Footer() {
   });
 
   const letters = "Rae".split("");
+  const taglineText = "The First True AI Assistant";
+  const taglineLetters = taglineText.split("");
 
   return (
     <footer
@@ -66,6 +71,7 @@ function Footer() {
                     letter={letter}
                     index={index}
                     scrollYProgress={scrollYProgress}
+                    totalLetters={letters.length}
                   />
                 ))}
               </div>
@@ -129,11 +135,19 @@ function Footer() {
             />
           </div>
 
-          {/* Centered text */}
-          <div className="relative z-10 flex items-center justify-center w-full h-full">
-            <h2 className="text-white font-bold text-center text-[28px] sm:text-[36px] lg:text-[52px]">
-              The First True AI Assistant
-            </h2>
+          {/* Centered text with animation */}
+          <div className="relative z-10 flex items-center justify-center w-full h-full overflow-hidden">
+            <div className="text-white font-bold text-center text-[28px] sm:text-[36px] lg:text-[52px] flex flex-wrap justify-center gap-x-1 gap-y-2">
+              {taglineLetters.map((letter, index) => (
+                <AnimatedLetter
+                  key={index + "tagline-letter"}
+                  letter={letter === " " ? "\u00A0" : letter}
+                  index={index}
+                  scrollYProgress={scrollYProgress}
+                  totalLetters={taglineLetters.length}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
