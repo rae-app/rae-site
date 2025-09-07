@@ -10,6 +10,9 @@ import React, { useRef } from "react";
 import { DiscordLogoIcon, XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import Card from "./Card";
 
+// Import Bad Script font
+import './courgette-font.css';
+
 function AnimatedLetter({
   letter,
   index,
@@ -137,7 +140,7 @@ function Footer() {
 
           {/* Centered text with animation */}
           <div className="relative z-10 flex items-center justify-center w-full h-full overflow-hidden">
-            <div className="text-white font-bold text-center text-[28px] sm:text-[36px] lg:text-[52px] flex flex-wrap justify-center gap-x-1 gap-y-2">
+            <div className="text-white text-center text-[28px] sm:text-[36px] lg:text-[52px] flex flex-wrap justify-center gap-x-1 gap-y-2" style={{ fontFamily: 'Bad Script, cursive', fontWeight: '600' }}>
               {taglineLetters.map((letter, index) => (
                 <AnimatedLetter
                   key={index + "tagline-letter"}
