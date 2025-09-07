@@ -32,7 +32,7 @@ function Footer() {
     damping: 20,
   });
 
-  const letters = "Rae".split("");
+  const letters = "Rae".split(""); //removed . from the end
 
   return (
     <footer
