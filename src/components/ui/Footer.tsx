@@ -1,6 +1,13 @@
 "use client";
-import { useScroll, useSpring, motion, useTransform, MotionValue } from "motion/react";
+import {
+  useScroll,
+  useSpring,
+  motion,
+  useTransform,
+  MotionValue,
+} from "motion/react";
 import React, { useRef } from "react";
+import { DiscordLogoIcon, XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import Card from "./Card";
 
 function AnimatedLetter({
@@ -14,7 +21,7 @@ function AnimatedLetter({
 }) {
   const y = useSpring(
     useTransform(scrollYProgress, [index * 0.1, 1], ["-100%", "0%"]),
-    { stiffness: 100, damping: 20 }
+    { stiffness: 100, damping: 20 },
   );
 
   return <motion.div style={{ y }}>{letter}</motion.div>;
@@ -32,24 +39,88 @@ function Footer() {
     damping: 20,
   });
 
-  const letters = "Rae".split(""); //removed . from the end
+  const letters = "Rae".split("");
 
   return (
     <footer
       ref={footerRef}
       className="bg-zinc-950 flex-col relative flex items-center justify-center w-full h-fit mt-8 sm:mt-12 lg:mt-16"
     >
-      <div className="max-w-[1400px] w-full flex px-4 sm:px-6 lg:px-16 min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
+      <div className="w-full flex min-h-[250px] sm:min-h-[300px] lg:min-h-[400px]">
+        {/* LEFT SECTION (RAE + logo + contacts) */}
         <div
-          className="w-full sm:w-[40%] flex gap-2 pr-0 sm:pr-8 pb-4 sm:pb-6 lg:pb-8 flex-col border-r-0 sm:border-r shrink-0 border-zinc-800"
+          className="w-full sm:w-[40%] flex gap-2 pr-0 sm:pr-8 pb-4 sm:pb-6 lg:pb-8 flex-col border-r border-zinc-800"
           suppressHydrationWarning
         >
-          <div className="flex flex-col w-full h-full gap-4">
-            {/* Left section content can be added here if needed */}
+          <div className="flex  flex-col min-w-full h-full gap-6">
+            {/* RAE + logo */}
+            <div className="flex px-10 py-4 items-center gap-2 overflow-hidden">
+              <motion.div
+                style={{ scale: circleScale }}
+                className="border-[6px] sm:border-[8px] lg:border-[12px] border-accent aspect-square rounded-full shrink-0 size-[40px] sm:size-[48px] lg:size-[64px]"
+              />
+              <div className="flex text-white text-[50px] sm:text-[60px] lg:text-[82px] font-bold">
+                {letters.map((letter, index) => (
+                  <AnimatedLetter
+                    key={index + "rae-letter"}
+                    letter={letter}
+                    index={index}
+                    scrollYProgress={scrollYProgress}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Dummy contacts */}
+            {/* Contacts */}
+            <div className="flex px-10 py-10 flex-col gap-4 text-zinc-400 text-sm sm:text-base">
+              {/* Email */}
+              <a
+                href="mailto:team@raeai.app"
+                className="hover:text-white transition-colors"
+              >
+                Email: team@raeai.app
+              </a>
+
+              {/* Phone */}
+              <span>Phone: +91 75508 83806</span>
+
+              {/* Address */}
+              <span>Address: Brookefield, Bangalore</span>
+
+              {/* Socials */}
+              <div className="flex gap-4 mt-2">
+                <a
+                  href="https://discord.gg/yUkfyXGH"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 127.14 96.36"
+                    className="w-6 h-6 fill-zinc-400 hover:fill-white"
+                  >
+                    <path d="M107.7,8.07A105.15,105.15,0,0,0,81.5,0a72.06,72.06,0,0,0-3.36,6.9A97.68,97.68,0,0,0,49,6.9,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6,1.06,80.21a105.73,105.73,0,0,0,31.9,16.15,77.7,77.7,0,0,0,6.84-11.14,68.42,68.42,0,0,1-10.82-5.17c.91-.66,1.8-1.35,2.66-2.05a70.57,70.57,0,0,0,61.32,0c.87.71,1.76,1.39,2.66,2.05a68.68,68.68,0,0,1-10.84,5.18,77.52,77.52,0,0,0,6.84,11.13,105.25,105.25,0,0,0,31.92-16.13c2.62-21.53-4.47-45.39-20.18-72.16ZM42.45,65.69c-6.07,0-11-5.59-11-12.48s4.91-12.48,11-12.48,11,5.59,11,12.48S48.52,65.69,42.45,65.69Zm42.24,0c-6.07,0-11-5.59-11-12.48s4.91-12.48,11-12.48,11,5.59,11,12.48S90.76,65.69,84.69,65.69Z" />
+                  </svg>
+                </a>
+
+                <a
+                  href="https://twitter.com/nihaliscoding"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  <XLogoIcon className="fill" size={24} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="hidden sm:flex flex-1 relative items-center justify-center pl-[740px] -mr-64">
-          {/* Cloud background overlay */}
+
+        {/* RIGHT SECTION (Cloud + text overlay) */}
+        <div className="hidden sm:flex flex-1 relative items-center justify-center">
+          {/* Cloud background */}
           <div className="absolute inset-0 w-full h-full">
             <img
               src="/assets/images/cloud.gif"
@@ -58,30 +129,16 @@ function Footer() {
             />
           </div>
 
-          {/* RAE logo overlay */}
-          <div className="relative z-10 flex flex-col items-end justify-end gap-4 mr-16 mb-72">
-            <div className="flex flex-col items-end justify-end">
-              <div className="text-white shrink-0 h-[50px] sm:h-[60px] lg:h-[80px] text-[50px] sm:text-[60px] lg:text-[82px] font-bold gap-2 sm:gap-3 lg:gap-4 flex items-center overflow-hidden">
-                <motion.div
-                  style={{ scale: circleScale }}
-                  className="border-[6px] sm:border-[8px] lg:border-[12px] border-accent aspect-square rounded-full shrink-0 size-[40px] sm:size-[48px] lg:size-[64px]"
-                />
-                <div className="flex">
-                  {letters.map((letter, index) => (
-                    <AnimatedLetter
-                      key={index + "rae-letter"}
-                      letter={letter}
-                      index={index}
-                      scrollYProgress={scrollYProgress}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-            {/* contact content can be added here */}
+          {/* Centered text */}
+          <div className="relative z-10 flex items-center justify-center w-full h-full">
+            <h2 className="text-white font-bold text-center text-[28px] sm:text-[36px] lg:text-[52px]">
+              The First True AI Assistant
+            </h2>
           </div>
         </div>
       </div>
+
+      {/* COPYRIGHT */}
       <div className="h-[50px] sm:h-[60px] lg:h-[80px] justify-center border-t border-zinc-800 w-full items-center flex">
         <div className="max-w-[1400px] w-full px-4 sm:px-6 lg:px-8 font-bold text-zinc-500 text-xs sm:text-sm text-center sm:text-left">
           COPYRIGHT @ 2025 RAE. ALL RIGHTS RESERVED.
