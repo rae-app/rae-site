@@ -146,7 +146,7 @@ function Navbar() {
                 fill="white"
               />
             </svg>
-            Coming Soon
+            COMING SOON
           </Button>
         </div>
 
