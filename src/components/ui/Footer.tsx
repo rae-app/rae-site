@@ -112,7 +112,7 @@ function Footer() {
                 </a>
 
                 <a
-                  href="https://twitter.com/nihaliscoding"
+                  href="https://x.com/thisisraeai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
