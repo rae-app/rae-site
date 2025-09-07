@@ -44,18 +44,11 @@ const Waitlist: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left order-1 lg:order-1">
-            {/* Interested? and Surf GIF side by side */}
-            <div className="flex items-center justify-center lg:justify-start gap-4 lg:gap-6 mb-6">
+            {/* Interested? only */}
+            <div className="flex items-center justify-center lg:justify-start mb-6">
               <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-3xl text-black leading-tight">
                 Interested?
               </h1>
-
-              {/* Surfer GIF */}
-              <img
-                src="/assets/images/surfer.gif"
-                alt="Surfer animation"
-                className="w-24 h-24 sm:w-32 sm:h-32 lg:w-36 lg:h-36 object-contain flex-shrink-0"
-              />
             </div>
 
             <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-black leading-tight mb-6">
@@ -117,6 +110,15 @@ const Waitlist: React.FC = () => {
                       </p>
                     </div>
                   )}
+
+                  {/* Surfer GIF before button */}
+                  <div className="flex justify-center items-center gap-4 pl-40 -mb-14">
+                    <img
+                      src="/assets/images/surfer.gif"
+                      alt="Surfer animation"
+                      className="w-20 h-20 sm:w-24 sm:h-24 object-contain flex-shrink-0"
+                    />
+                  </div>
 
                   <div className="flex justify-center">
                     <Button
