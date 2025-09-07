@@ -97,7 +97,7 @@ function Footer() {
               {/* Socials */}
               <div className="flex gap-4 mt-2">
                 <a
-                  href="https://discord.gg/yUkfyXGH"
+                  href="https://discord.gg/jbCj6vXq"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
