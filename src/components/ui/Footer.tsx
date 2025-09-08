@@ -82,7 +82,7 @@ function Footer() {
 
             {/* Dummy contacts */}
             {/* Contacts */}
-            <div className="flex px-10 py-10 flex-col gap-4 text-zinc-400 text-sm sm:text-base">
+            <div className="flex px-10 py-6 flex-col gap-4 text-zinc-400 text-base sm:text-lg"> 
               {/* Email */}
               <a
                 href="mailto:team@raeai.app"
@@ -98,7 +98,7 @@ function Footer() {
               <span>Address: Brookefield, Bangalore</span>
 
               {/* Socials */}
-              <div className="flex gap-4 mt-2">
+              <div className="flex gap-4 mt-6">
                 <a
                   href="https://discord.gg/jbCj6vXq"
                   target="_blank"
