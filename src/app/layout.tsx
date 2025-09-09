@@ -134,6 +134,9 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Preload critical images */}
+        <link rel="preload" href="/assets/images/dragon.gif" as="image" type="image/gif" />
+        <meta name="format-detection" content="telephone=no" />
       </head>
       <body
         className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased flex flex-col items-center justify-center`}

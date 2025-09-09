@@ -52,3 +52,25 @@ body {
   background: black;
   color: white;
 }
+
+/* Ensure GIF animations continue playing */
+img[src*=".gif"] {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Force hardware acceleration for smoother animations */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Prevent browser from pausing GIF animations */
+img[src*=".gif"]:hover {
+  /* This can help restart animations on interaction */
+  animation: gif-restart 0.1s;
+}
+
+@keyframes gif-restart {
+  0% { opacity: 1; }
+  50% { opacity: 0.99; }
+  100% { opacity: 1; }
+}
