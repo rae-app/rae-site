@@ -55,6 +55,7 @@ const NavbarButton = ({
 };
 
 function Navbar() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -134,7 +135,7 @@ function Navbar() {
 
         {/* CTA (hidden on mobile) */}
         <div className="hidden md:flex h-full items-center justify-end">
-          <Button>
+          <Button onClick={() => router.push('/coming-soon')}>
             <svg
               width={18}
               height={18}
@@ -218,7 +219,7 @@ function Navbar() {
               transition={{ delay: 0.2 }}
             >
               <Link
-                href="/get-started"
+                href="/coming-soon"
                 className="flex items-center gap-2 px-6 py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
