@@ -19,11 +19,10 @@ const APP_CONSTANTS = {
   },
   features: {
     width: "1400px",
-    height: "1200px", // fixed height for consistency
+    height: "1700px", // fixed height for consistency
   },
 };
 
-// Responsive constants for smaller screens
 const RESPONSIVE_CONSTANTS = {
   mobile: {
     notch: { width: "200px", height: "35px" },
@@ -81,13 +80,13 @@ const Features_new = () => {
     target: pageRef,
     offset: ["0 0", "1 1"],
   });
-  const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 1200]);
+
   const constants = getConstants();
-  
+  const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 1700]);
   return (
     <motion.div
       ref={pageRef}
-      className="min-h-[1200px] sm:min-h-[1300px] relative z-40 flex flex-col justify-start w-full px-4 sm:px-6 lg:px-0"
+      className="min-h-[1700px] relative z-40 flex flex-col justify-start w-full"
     >
       <div className="absolute w-full h-full">
         <motion.div
@@ -172,7 +171,7 @@ const Features = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              src="/assets/notch.mp4"
+              src="/videos/notch.mp4"
               autoPlay
               muted
               loop
@@ -196,7 +195,7 @@ const Features = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  src="/assets/type.mp4"
+                  src="/videos/at-rae.mp4"
                   autoPlay
                   muted
                   loop
@@ -209,10 +208,64 @@ const Features = () => {
               )}
             </div>
           </div>
-          <div className="w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col text-white mt-2 sm:mt-4">
-            <div className="text-lg sm:text-2xl lg:text-3xl font-medium mb-1 sm:mb-0">Screen reading</div>
-            <div className="text-sm sm:text-lg lg:text-xl font-medium text-zinc-400 mb-2 sm:mb-4 flex-shrink-0">
-              Rae can read your screen and provide context-aware assistance to help you with your tasks.
+          <div className="w-1/2  h-full flex flex-col text-white mt-4">
+            <div className="text-3xl font-medium">Screen reading</div>
+            <div className="text-xl font-medium text-zinc-400 mb-4">
+              Rae can read your screen and provide context-aware assistance to
+              help you with your tasks
+            </div>
+            <div
+              style={{ height: "100%" }}
+              className="bg-black rounded-xl w-full overflow-hidden"
+            >
+              {showLastVideo ? (
+                <motion.video
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  src="/videos/insert.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              ) : (
+                <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
+                  <div className="text-zinc-400 size-full text-sm animate-pulse"></div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="flex pb-4 justify-between gap-4 h-1/2">
+          <div className="w-1/2 h-full flex flex-col text-white mt-4">
+            <div className="text-3xl font-medium">Active listening</div>
+            <div className="text-xl font-medium text-zinc-400 mb-4">
+              Rae reads your screen and provides context-aware assistance to help
+            </div>
+            <div className="bg-black rounded-xl h-full relative w-full overflow-hidden">
+              {showMiddleVideo ? (
+                <motion.video
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  src="/videos/listening.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              ) : (
+                <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
+                  <div className="text-zinc-400 text-sm animate-pulse"></div>
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="w-1/2  h-full flex flex-col text-white mt-4">
+            <div className="text-3xl font-medium">Tool support</div>
+            <div className="text-xl font-medium text-zinc-400 mb-4">
+              Rae supports a wide range of tools and applications to help you get things done
             </div>
             <div className="bg-black rounded-xl flex-1 w-full overflow-hidden min-h-0">
               {showLastVideo ? (
@@ -220,7 +273,7 @@ const Features = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  src="/assets/screen.mp4"
+                  src="/videos/tools.mp4"
                   autoPlay
                   muted
                   loop
