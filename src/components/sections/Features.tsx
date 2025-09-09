@@ -185,9 +185,9 @@ const Features = () => {
         </div>
         <div className="flex flex-col sm:flex-row pb-2 sm:pb-4 justify-between gap-2 sm:gap-4 h-3/5 sm:h-1/2">
           <div className="w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col text-white mt-2 sm:mt-4">
-            <div className="text-lg sm:text-2xl lg:text-3xl font-medium mb-1 sm:mb-0">Interact with other apps</div>
+            <div className="text-lg sm:text-2xl lg:text-3xl font-medium mb-1 sm:mb-0">Anytime</div>
             <div className="text-sm sm:text-lg lg:text-xl font-medium text-zinc-400 mb-2 sm:mb-4 flex-shrink-0">
-              Rae allows you to generate content for other apps running on your system
+              Call Rae anywhere, just by typing @rae
             </div>
             <div className="bg-black rounded-xl flex-1 relative w-full overflow-hidden min-h-0">
               {showMiddleVideo ? (
@@ -209,10 +209,9 @@ const Features = () => {
             </div>
           </div>
           <div className="w-1/2  h-full flex flex-col text-white mt-4">
-            <div className="text-3xl font-medium">Screen reading</div>
+            <div className="text-3xl font-medium">Anywhere</div>
             <div className="text-xl font-medium text-zinc-400 mb-4">
-              Rae can read your screen and provide context-aware assistance to
-              help you with your tasks
+              Rae pops up to help when you copy or highlight text
             </div>
             <div
               style={{ height: "100%" }}
