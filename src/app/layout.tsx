@@ -89,12 +89,14 @@ export const metadata: Metadata = {
   classification: "AI Assistant Software",
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/assets/favicon/rae.png", sizes: "16x16", type: "image/png" },
       { url: "/assets/favicon/rae.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [
       { url: "/assets/favicon/rae.png", sizes: "180x180", type: "image/png" },
     ],
+    shortcut: [{ url: "/favicon.ico" }],
     other: [
       {
         rel: "mask-icon",
@@ -120,6 +122,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="canonical" href="https://raeai.app" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/assets/favicon/rae.png" sizes="32x32" type="image/png" />
+        <link rel="apple-touch-icon" href="/assets/favicon/rae.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="format-detection" content="telephone=no" />

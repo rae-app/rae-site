@@ -1,0 +1,31 @@
+{
+  "name": "Rae - The First True AI Assistant",
+  "short_name": "Rae",
+  "description": "Rae is the first True AI Assistant that understands context, learns from interactions, and provides personalized assistance across all your digital tasks.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["productivity", "utilities", "business"],
+  "icons": [
+    {
+      "src": "/assets/favicon/rae.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon/rae.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon/rae.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple-touch-icon"
+    }
+  ]
+}
