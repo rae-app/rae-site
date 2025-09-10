@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       "Rae is the first True AI Assistant that understands context, learns from interactions, and provides personalized assistance across all your digital tasks.",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/assets/images/og.png",
         width: 1200,
         height: 630,
         alt: "Rae - The First True AI Assistant",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     title: "Rae - The First True AI Assistant",
     description:
       "Rae is the first True AI Assistant that understands context, learns from interactions, and provides personalized assistance across all your digital tasks.",
-    images: ["/images/twitter-image.jpg"],
+    images: ["/assets/favicon/rae.png"],
     creator: "@raeai",
     site: "@raeai",
   },
