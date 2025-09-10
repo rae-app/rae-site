@@ -51,6 +51,14 @@ const Hero: React.FC = () => {
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center md:justify-start">
           <HeroButton
             onClick={() => lenis?.scrollTo(950)}
+            colors={{
+              border: "#e5e7eb",
+              backgroundStart: "#f3f4f6",
+              backgroundEnd: "#e5e7eb",
+              hoverBackground: "#d1d5db",
+              innerStart: "#1f2937",
+              innerEnd: "#111827",
+            }}
             className="w-full sm:w-auto text-base py-4 px-6"
           >
             KNOW MORE
@@ -58,12 +66,12 @@ const Hero: React.FC = () => {
           <HeroButton
             onClick={() => router.push("/info/waitlist")}
             colors={{
-              border: "#6C1011",
-              hoverBackground: "#921012FF",
-              innerStart: "#FF3B3EFF",
-              innerEnd: "#FC1D21FF",
-              backgroundStart: "#FC1D21FF",
-              backgroundEnd: "#FF3B3EFF",
+              border: "#e5e7eb",
+              backgroundStart: "#f3f4f6",
+              backgroundEnd: "#e5e7eb",
+              hoverBackground: "#d1d5db",
+              innerStart: "#dc2626",
+              innerEnd: "#b91c1c",
             }}
             className="w-full sm:w-auto text-base py-4 px-6"
           >

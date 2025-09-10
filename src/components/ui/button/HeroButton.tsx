@@ -28,12 +28,12 @@ const HeroButton = ({
   className = "",
   onClick,
   colors = {
-    border: "#000000",
-    backgroundStart: "#18181b",
-    backgroundEnd: "#27272a",
-    hoverBackground: "#0a0a0a",
-    innerStart: "#27272a",
-    innerEnd: "#18181b",
+    border: "#d1d5db",
+    backgroundStart: "#f9fafb",
+    backgroundEnd: "#f3f4f6",
+    hoverBackground: "#e5e7eb",
+    innerStart: "#e5e7eb",
+    innerEnd: "#d1d5db",
   },
 }: HeroButtonProps) => {
   return (
@@ -45,21 +45,24 @@ const HeroButton = ({
         backgroundColor: colors.hoverBackground,
       }}
       className={twMerge(
-        "flex rounded-xl border-2 w-fit group items-center justify-center !p-0", className
+        "flex rounded-md border-2 w-fit group items-center justify-center !p-0 shadow-[0_1px_3px_rgba(0,0,0,0.2)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-all duration-150", className
       )}
     >
       <motion.div
         initial={{
           y: "-8px",
           background: `linear-gradient(to right, ${colors.backgroundStart}, ${colors.backgroundEnd})`,
+          boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
         }}
         variants={{
           hover: {
-            y: "-2px",
-            // background: `linear-gradient(to right, ${colors.hoverBackground}, ${colors.hoverBackground})`,
+            y: "-4px",
+            background: `linear-gradient(to right, ${colors.hoverBackground}, ${colors.hoverBackground})`,
+            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
           },
           tap: {
-            y: "0px"
+            y: "-1px",
+            boxShadow: "0 1px 2px rgba(0,0,0,0.2)",
           }
         }}
         onClick={onClick}
@@ -68,7 +71,7 @@ const HeroButton = ({
           width,
         }}
         className={twMerge(
-          "flex items-center px-5 py-2 cursor-pointer duration-200 transition-colors group-hover:brightness-90 text-white font-semibold rounded-xl relative",
+          "flex items-center px-5 py-2 cursor-pointer duration-200 transition-colors group-hover:brightness-95 text-white font-semibold rounded-md relative",
           className
         )}
       >
@@ -87,7 +90,7 @@ const HeroButton = ({
         //       background: `linear-gradient(to right, ${colors.innerEnd}, ${colors.innerEnd})`,
         //     },
         //   }}
-          className="absolute  pointer-events-none left-1/2 -translate-x-1/2 rounded-lg top-1/2 -translate-y-1/2 transition-colors blur-[1px]"
+          className="absolute pointer-events-none left-1/2 -translate-x-1/2 rounded-md top-1/2 -translate-y-1/2 transition-all duration-150 blur-[0.5px]"
         />
       </motion.div>
     </motion.button>
