@@ -155,9 +155,9 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
             <p><strong>Team Rae</strong></p>
 
             <div class="social-links">
-              <a href="#">Follow us</a> •
-              <a href="#">Updates</a> •
-              <a href="#">Support</a>
+              <a href="https://x.com/thisisraeai" target="_blank" rel="noopener noreferrer">Follow us</a> •
+              <a href="https://discord.gg/jbCj6vXq" target="_blank" rel="noopener noreferrer">Updates</a> •
+              <a href="https://discord.gg/jbCj6vXq" target="_blank" rel="noopener noreferrer">Support</a>
             </div>
 
             <p style="font-size: 0.8em; color: #999; margin-top: 20px;">
