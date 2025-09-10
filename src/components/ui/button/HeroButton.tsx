@@ -69,6 +69,7 @@ const HeroButton = ({
         style={{
           height,
           width,
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
         }}
         className={twMerge(
           "flex items-center px-5 py-2 cursor-pointer duration-200 transition-colors group-hover:brightness-95 text-white font-semibold rounded-md relative",

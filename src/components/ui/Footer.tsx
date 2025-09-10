@@ -140,7 +140,7 @@ function Footer() {
 
           {/* Centered text with animation */}
           <div className="relative z-10 flex items-center justify-center w-full h-full overflow-hidden">
-            <div className="text-white text-center text-[28px] sm:text-[36px] lg:text-[52px] flex flex-wrap justify-center gap-x-1 gap-y-2" style={{ fontFamily: 'Bad Script, cursive', fontWeight: '600' }}>
+            <div className="text-white text-center text-[28px] sm:text-[36px] lg:text-[52px] flex flex-wrap justify-center gap-x-1 gap-y-2" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '600' }}>
               {taglineLetters.map((letter, index) => (
                 <AnimatedLetter
                   key={index + "tagline-letter"}

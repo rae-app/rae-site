@@ -13,8 +13,8 @@ function page() {
           }}
           loading="eager"
         />
-        <div className="text-center h-fit z-40 text-base sm:text-lg lg:text-[2vw] leading-tight sm:leading-relaxed">
-        Hold tight—we’re cooking the unexpected 
+        <div className="text-center h-fit z-40 text-base sm:text-lg lg:text-[2vw] leading-tight sm:leading-relaxed" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
+        Hold tight—we’re cooking the unexpected
         </div>
       </div>
     </div>

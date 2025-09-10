@@ -100,6 +100,7 @@ const Features_new = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "circInOut" }}
           className="mt-[100px] sm:mt-[150px] lg:mt-[200px] text-lg sm:text-xl lg:text-3xl font-medium tracking-tight w-full flex items-center justify-center text-center px-4"
+          style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}
         >
           Always at your service <br />
           Rae is built to be your AI companion, ready to assist you anytime,
