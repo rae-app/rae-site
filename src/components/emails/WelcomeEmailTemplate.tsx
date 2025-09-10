@@ -130,7 +130,7 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
               <br><br>
               <strong>What's next?</strong>
               <ul style="margin: 15px 0; padding-left: 20px;">
-                <li> You'll be among the first to know when Rae is ready</li>
+                <li>You'll be among the first to know when Rae is ready</li>
                 <li>Exclusive updates and behind-the-scenes content</li>
                 <li>Special early-bird pricing and features</li>
                 <li>Direct line to our development team for feedback</li>

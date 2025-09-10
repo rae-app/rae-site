@@ -19,7 +19,7 @@ const APP_CONSTANTS = {
   },
   features: {
     width: "1400px",
-    height: "1700px", // fixed height for consistency
+    height: "2200px", // increased height to show all videos fully
   },
 };
 
@@ -32,7 +32,7 @@ const RESPONSIVE_CONSTANTS = {
   tablet: {
     notch: { width: "220px", height: "37px" },
     overlay: { width: "500px", height: "55px" },
-    features: { width: "700px", height: "1000px" },
+    features: { width: "700px", height: "1300px" },
   },
 };
 
@@ -87,12 +87,12 @@ const Features_new = () => {
   });
 
   const constants = getConstants();
-  const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 1700]);
+  const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 2200]);
   const pageHeightMobile = useTransform(scrollYProgress, [0, 1], [800, 800]);
   return (
     <motion.div
       ref={pageRef}
-      className="min-h-[1700px] relative z-40 flex flex-col justify-start w-full"
+      className="min-h-[2200px] relative z-40 flex flex-col justify-start w-full"
     >
       <div className="absolute w-full h-full">
         <motion.div
@@ -249,7 +249,7 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
             <div className="text-xl font-medium text-zinc-400 mb-4">
               Rae reads your screen and provides context-aware assistance to help
             </div>
-            <div className="bg-black rounded-xl h-full relative w-full overflow-hidden">
+            <div className="bg-black rounded-xl h-full relative w-full overflow-hidden min-h-[300px]">
               {showMiddleVideo ? (
                 <motion.video
                   initial={{ opacity: 0 }}
@@ -273,7 +273,7 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
             <div className="text-xl font-medium text-zinc-400 mb-4">
               Rae supports a wide range of tools and applications to help you get things done
             </div>
-            <div className="bg-black rounded-xl flex-1 w-full overflow-hidden min-h-0">
+            <div className="bg-black rounded-xl flex-1 w-full overflow-hidden min-h-[300px]">
               {showLastVideo ? (
                 <motion.video
                   initial={{ opacity: 0 }}
