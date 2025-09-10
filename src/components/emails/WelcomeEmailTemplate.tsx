@@ -114,8 +114,6 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
               <div class="logo-container">
                 <div class="logo-circle"></div>
                 <span class="logo-text">Rae</span>
-                <span class="logo-separator"> - </span>
-                <span class="logo-subtitle">The First True AI Assistant</span>
               </div>
             </div>
           </div>
@@ -126,7 +124,7 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
             </div>
 
             <div class="message">
-              🎉 <strong>Thankyou for joining our waitlist!</strong>
+              <strong>Thankyou for joining our waitlist!</strong>
               <br><br>
               We're thrilled to have you join our community of early adopters. You're now part of an exclusive group that will get <span class="highlight">first access</span> to Rae when we launch.
               <br><br>
@@ -145,7 +143,7 @@ export function WelcomeEmailTemplate({ name }: WelcomeEmailProps) {
 
             <div style="text-align: center; margin: 20px 0;">
               <div style="background: #333; color: white; padding: 15px 30px; border-radius: 10px; display: inline-block;">
-                <strong> You're in the queue for our early access!</strong>
+                <strong>🔥 You're in the queue for our early access!</strong>
               </div>
             </div>
           </div>
