@@ -57,29 +57,14 @@ const Hero: React.FC = () => {
           </HeroButton>
           <HeroButton
             onClick={() => router.push("/info/waitlist")}
-            colors={{
-              border: "#6C1011",
-              hoverBackground: "#921012FF",
-              innerStart: "#FF3B3EFF",
-              innerEnd: "#FC1D21FF",
-              backgroundStart: "#FC1D21FF",
-              backgroundEnd: "#FF3B3EFF",
-            }}
+            
             className="w-full sm:w-auto text-base py-4 px-6"
           >
             JOIN WAITLIST
           </HeroButton>
           <div className=" px-12 py-2 gap-2 rounded-lg ml-auto  flex items-end justify-center text-3xl">
             <div
-              style={{
-                backgroundColor: "#B6A5A5FF",
-
-                color: "transparent",
-                textShadow: "0px 2px 3px #E72E31FF",
-                WebkitBackgroundClip: "text",
-                MozBackgroundClip: "text",
-                backgroundClip: "text",
-              }}
+              
               className=" "
             >
               {users}
