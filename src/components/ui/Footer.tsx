@@ -88,7 +88,7 @@ function Footer() {
                 href="mailto:team@raeai.app"
                 className="hover:text-white transition-colors"
               >
-                Email: team@raeai.app
+                Email: radhikayash2@gmail.com
               </a>
 
               {/* Phone */}
