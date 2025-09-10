@@ -95,7 +95,7 @@ function Footer() {
               <span>Phone: +91 75508 83806</span>
 
               {/* Address */}
-              <span>Address: Brookefield, Bangalore</span>
+              <span>Address: Brookefield, Bengaluru</span>
 
               {/* Socials */}
               <div className="flex gap-4 mt-6">
