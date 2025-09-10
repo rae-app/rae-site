@@ -27,7 +27,7 @@ const RESPONSIVE_CONSTANTS = {
   mobile: {
     notch: { width: "200px", height: "35px" },
     overlay: { width: "350px", height: "50px" },
-    features: { width: "350px", height: "900px" },
+    features: { width: "350px", height: "800px" },
   },
   tablet: {
     notch: { width: "220px", height: "37px" },
@@ -41,10 +41,13 @@ const Features_new = () => {
   const [windowHeight, setWindowHeight] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
   const [state, setState] = useState<"notch" | "overlay" | "features">("notch");
-  
+  const [mobile, setMobile] = useState(false)
   // Get responsive constants based on screen size
   const getConstants = () => {
-    if (windowWidth < 640) return RESPONSIVE_CONSTANTS.mobile;
+    if (windowWidth < 640) {
+      
+      return RESPONSIVE_CONSTANTS.mobile;
+    };
     if (windowWidth < 1024) return RESPONSIVE_CONSTANTS.tablet;
     return APP_CONSTANTS;
   };
@@ -52,6 +55,7 @@ const Features_new = () => {
   useEffect(() => {
     const onScroll = () => {
       setScroll(window.scrollY);
+      
       setWindowHeight(window.innerHeight);
       setWindowWidth(window.innerWidth);
       // Use fixed pixel values for triggers
@@ -67,6 +71,7 @@ const Features_new = () => {
     // Set initial window dimensions
     setWindowWidth(window.innerWidth);
     setWindowHeight(window.innerHeight);
+    if(window.innerWidth < 640) setMobile(true)
 
     window.addEventListener("scroll", onScroll);
     window.addEventListener("resize", onScroll);
@@ -83,6 +88,7 @@ const Features_new = () => {
 
   const constants = getConstants();
   const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 1700]);
+  const pageHeightMobile = useTransform(scrollYProgress, [0, 1], [800, 800]);
   return (
     <motion.div
       ref={pageRef}
@@ -102,7 +108,7 @@ const Features_new = () => {
       </div>
 
       <motion.div
-        style={{ height: pageHeight }}
+        style={{ height: mobile ? pageHeightMobile : pageHeight }}
         className="w-full flex items-center justify-center sticky top-[200px] sm:top-[250px] lg:top-[400px]"
       >
         <motion.div
@@ -123,7 +129,7 @@ const Features_new = () => {
           <AnimatePresence>
             {state === "notch" && <Notch />}
             {state === "overlay" && <Overlay />}
-            {state === "features" && <Features />}
+            {state === "features" && <Features isMobile={mobile} />}
           </AnimatePresence>
         </motion.div>
       </motion.div>
@@ -131,7 +137,7 @@ const Features_new = () => {
   );
 };
 
-const Features = () => {
+const Features = ({isMobile = false} : {isMobile?: boolean}) => {
   const [showFirstVideo, setShowFirstVideo] = useState(false);
   const [showMiddleVideo, setShowMiddleVideo] = useState(false);
   const [showLastVideo, setShowLastVideo] = useState(false);
@@ -165,7 +171,7 @@ const Features = () => {
       className="h-full w-full p-2 sm:p-4 absolute items-center flex flex-col gap-2 sm:gap-4 bg-transparent"
     >
       <div className="flex w-full flex-col p-2 sm:p-4 rounded-2xl bg-black size-full">
-        <div className="w-full h-2/5 sm:h-2/3 overflow-hidden rounded-xl mb-2 sm:mb-0">
+        <div className="w-full h-[200px] sm:h-2/3 overflow-hidden rounded-xl mb-2 sm:mb-0">
           {showFirstVideo ? (
             <motion.video
               initial={{ opacity: 0 }}
@@ -208,7 +214,7 @@ const Features = () => {
               )}
             </div>
           </div>
-          <div className="w-1/2  h-full flex flex-col text-white mt-4">
+          <div className="w-full  h-full flex flex-col text-white mt-4">
             <div className="text-3xl font-medium">Anywhere</div>
             <div className="text-xl font-medium text-zinc-400 mb-4">
               Rae pops up to help when you copy or highlight text
@@ -236,6 +242,7 @@ const Features = () => {
             </div>
           </div>
         </div>
+        {!isMobile && <>
         <div className="flex pb-4 justify-between gap-4 h-1/2">
           <div className="w-1/2 h-full flex flex-col text-white mt-4">
             <div className="text-3xl font-medium">Active listening</div>
@@ -285,7 +292,7 @@ const Features = () => {
               )}
             </div>
           </div>
-        </div>
+        </div></>}
       </div>
     </motion.div>
   );
