@@ -171,7 +171,7 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
       className="h-full w-full p-2 sm:p-4 absolute items-center flex flex-col gap-2 sm:gap-4 bg-transparent"
     >
       <div className="flex w-full flex-col p-2 sm:p-4 rounded-2xl bg-black size-full">
-        <div className="w-full h-[200px] sm:h-2/3 overflow-hidden rounded-xl mb-2 sm:mb-0">
+        <div className="w-full h-[200px] shrink-0 sm:h-[40vw] overflow-hidden rounded-xl mb-2 sm:mb-0">
           {showFirstVideo ? (
             <motion.video
               initial={{ opacity: 0 }}
@@ -190,9 +190,9 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
           )}
         </div>
         <div className="flex flex-col sm:flex-row pb-2 sm:pb-4 justify-between gap-2 sm:gap-4 h-3/5 sm:h-1/2">
-          <div className="w-full sm:w-1/2 h-1/2 sm:h-full flex flex-col text-white mt-2 sm:mt-4">
-            <div className="text-lg sm:text-2xl lg:text-3xl font-medium mb-1 sm:mb-0">Anytime</div>
-            <div className="text-sm sm:text-lg lg:text-xl font-medium text-zinc-400 mb-2 sm:mb-4 flex-shrink-0">
+          <div className="w-full sm:w-full h-1/2 sm:h-full flex flex-col text-white mt-2 sm:mt-4">
+            <div className="text-3xl font-medium">Anytime</div>
+            <div className="text-xl font-medium text-zinc-400 mb-4">
               Call Rae anywhere, just by typing @rae
             </div>
             <div className="bg-black rounded-xl flex-1 relative w-full overflow-hidden min-h-0">
@@ -244,7 +244,7 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
         </div>
         {!isMobile && <>
         <div className="flex pb-4 justify-between gap-4 h-1/2">
-          <div className="w-1/2 h-full flex flex-col text-white mt-4">
+          <div className="w-full h-full flex flex-col text-white mt-4">
             <div className="text-3xl font-medium">Active listening</div>
             <div className="text-xl font-medium text-zinc-400 mb-4">
               Rae reads your screen and provides context-aware assistance to help
@@ -268,7 +268,7 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
               )}
             </div>
           </div>
-          <div className="w-1/2  h-full flex flex-col text-white mt-4">
+          <div className="w-full  h-full flex flex-col text-white mt-4">
             <div className="text-3xl font-medium">Tool support</div>
             <div className="text-xl font-medium text-zinc-400 mb-4">
               Rae supports a wide range of tools and applications to help you get things done
