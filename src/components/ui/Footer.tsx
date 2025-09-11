@@ -6,7 +6,7 @@ import {
   useTransform,
   MotionValue,
 } from "motion/react";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { DiscordLogoIcon, XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 import Card from "./Card";
 
@@ -18,11 +18,13 @@ function AnimatedLetter({
   index,
   scrollYProgress,
   totalLetters = 10,
+  isHovered = false,
 }: {
   letter: string;
   index: number;
   scrollYProgress: MotionValue<number>;
   totalLetters?: number;
+  isHovered?: boolean;
 }) {
   const animationDelay = index / totalLetters;
   const y = useSpring(
@@ -30,11 +32,29 @@ function AnimatedLetter({
     { stiffness: 100, damping: 20 },
   );
 
-  return <motion.div style={{ y }}>{letter}</motion.div>;
+  // Light red-200 to red-300 for hover effect
+  const themeColors = ["#ffffff", "#fecaca", "#fca5a5"];
+
+  return (
+    <motion.div
+      style={{ y }}
+      animate={{
+        color: isHovered ? themeColors[index % themeColors.length] : "#ffffff",
+        textShadow: isHovered ? "0 0 8px rgba(255, 255, 255, 0.3)" : "none",
+      }}
+      transition={{
+        duration: 0.3,
+        delay: index * 0.05, // Stagger the color change
+      }}
+    >
+      {letter}
+    </motion.div>
+  );
 }
 
 function Footer() {
   const footerRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
   const { scrollYProgress } = useScroll({
     target: footerRef,
     offset: ["0 1", "0.5 1"],
@@ -140,7 +160,14 @@ function Footer() {
 
           {/* Centered text with animation */}
           <div className="relative z-10 flex items-center justify-center w-full h-full overflow-hidden">
-            <div className="text-white text-center text-[28px] sm:text-[36px] lg:text-[52px] flex flex-wrap justify-center gap-x-1 gap-y-2" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '600' }}>
+            <motion.div
+              className="text-center text-[28px] sm:text-[36px] lg:text-[52px] flex flex-wrap justify-center gap-x-1 gap-y-2 cursor-pointer"
+              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '600' }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
               {taglineLetters.map((letter, index) => (
                 <AnimatedLetter
                   key={index + "tagline-letter"}
@@ -148,9 +175,10 @@ function Footer() {
                   index={index}
                   scrollYProgress={scrollYProgress}
                   totalLetters={taglineLetters.length}
+                  isHovered={isHovered}
                 />
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
