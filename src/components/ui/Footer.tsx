@@ -85,10 +85,10 @@ function Footer() {
             <div className="flex px-10 py-6 flex-col gap-4 text-zinc-400 text-base sm:text-lg"> 
               {/* Email */}
               <a
-                href="mailto:team@raeai.app"
+                href="mailto:teamraeai@gmail.com"
                 className="hover:text-white transition-colors"
               >
-                Email: radhikayash2@gmail.com
+                Email: teamraeai@gmail.com
               </a>
 
               {/* Phone */}
