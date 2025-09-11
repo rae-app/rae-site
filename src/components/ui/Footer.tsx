@@ -80,7 +80,7 @@ function Footer() {
               </div>
             </div>
 
-            {/* Dummy contacts */}
+            
             {/* Contacts */}
             <div className="flex px-10 py-6 flex-col gap-4 text-zinc-400 text-base sm:text-lg"> 
               {/* Email */}
