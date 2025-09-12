@@ -14,11 +14,10 @@ const RANGE_VW = 30; // -15..15
 
 const Blobs = () => {
   // Interactive Layer (mouse-driven)
-  const tx = useMotionValue(0);
-  const ty = useMotionValue(0);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
-  const x = useSpring(tx, SPRING);
-  const y = useSpring(ty, SPRING);
+ 
 
   const xNeg = useTransform(x, (v) => -v);
   const yNeg = useTransform(y, (v) => -v);
@@ -36,12 +35,12 @@ const Blobs = () => {
     const onMove = (e: PointerEvent) => {
       const nx = (e.clientX / window.innerWidth - 0.5) * RANGE_VW;
       const ny = (e.clientY / window.innerHeight - 0.5) * RANGE_VW;
-      tx.set(nx);
-      ty.set(ny);
+      x.set(nx);
+      y.set(ny);
     };
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
-  }, [tx, ty]);
+  }, [x, y]);
 
   // --- Idle Layer (self-animating) ---
   const ix = useMotionValue(0);
@@ -53,21 +52,21 @@ const Blobs = () => {
   const idle1 = useMotionTemplate`translate(${isx}vw, ${isy}vw)`;
   const idle2 = useMotionTemplate`translate(${-isx}vw, ${-isy}vw)`;
 
-  useEffect(() => {
-    // loop idle animation between random points
-    const loop = () => {
-      animate(ix, (Math.random() - 0.5) * RANGE_VW, {
-        duration: 8,
-        ease: "easeInOut",
-        onComplete: loop,
-      });
-      animate(iy, (Math.random() - 0.5) * RANGE_VW, {
-        duration: 10,
-        ease: "easeInOut",
-      });
-    };
-    loop();
-  }, [ix, iy]);
+  // useEffect(() => {
+  //   // loop idle animation between random points
+  //   const loop = () => {
+  //     animate(ix, (Math.random() - 0.5) * RANGE_VW, {
+  //       duration: 8,
+  //       ease: "easeInOut",
+  //       onComplete: loop,
+  //     });
+  //     animate(iy, (Math.random() - 0.5) * RANGE_VW, {
+  //       duration: 10,
+  //       ease: "easeInOut",
+  //     });
+  //   };
+  //   loop();
+  // }, [ix, iy]);
 
   return (
     <div className="fixed inset-0 bg-yellow-50 flex items-center justify-center overflow-hidden">
@@ -87,7 +86,7 @@ const Blobs = () => {
       {/* White Blob 1 (above accent) */}
       <motion.div
         style={{ transform: tWhite1 }}
-        className="bg-white size-[40vw] absolute rounded-full z-[1] left-[20vw] bottom-[-20vw] will-change-transform transform-gpu"
+        className="bg-yellow-50 size-[40vw] absolute rounded-full z-[1] left-[20vw] bottom-[-20vw] will-change-transform transform-gpu"
         aria-hidden
       />
 
@@ -101,7 +100,7 @@ const Blobs = () => {
       {/* White Blob 2 (above accent) */}
       <motion.div
         style={{ transform: tWhite2 }}
-        className="bg-white size-[30vw] absolute rounded-full z-[1] right-[30vw] top-[0vw] will-change-transform transform-gpu"
+        className="bg-yellow-50 size-[30vw] absolute rounded-full z-[1] right-[30vw] top-[0vw] will-change-transform transform-gpu"
         aria-hidden
       />
 

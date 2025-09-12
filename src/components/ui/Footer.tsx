@@ -162,7 +162,7 @@ function Footer() {
           <div className="relative z-10 flex items-center justify-center w-full h-full overflow-hidden">
             <motion.div
               className="text-center text-[28px] sm:text-[36px] lg:text-[52px] flex flex-wrap justify-center gap-x-1 gap-y-2 cursor-pointer"
-              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '600' }}
+              
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               whileHover={{ scale: 1.02 }}

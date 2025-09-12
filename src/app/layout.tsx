@@ -3,16 +3,18 @@ import Loader from "@/components/ui/Loader";
 import Navbar from "@/components/ui/Navbar";
 import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { DM_Sans, Geist, IBM_Plex_Sans, Instrument_Sans, Instrument_Serif, Manrope, Playfair_Display, Space_Grotesk } from "next/font/google";
 
 import Footer from "@/components/ui/Footer";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
+const font = Instrument_Sans({
   subsets: ["latin"],
-  variable: "--font-instrument-sans",
+  // variable: "--font-instrument-sans",
+  // weight: ["400"]
   weight: ["400", "500", "600", "700"],
 });
+
 
 
 export const metadata: Metadata = {
@@ -139,7 +141,7 @@ export default function RootLayout({
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body
-        className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased flex flex-col items-center justify-center`}
+        className={` ${font.className} bg-white overflow-x-hidden text-black antialiased flex flex-col items-center justify-center`}
       >
         <Loader />
         <Navbar />
