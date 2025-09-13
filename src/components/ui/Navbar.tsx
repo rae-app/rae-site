@@ -135,20 +135,26 @@ function Navbar() {
 
         {/* CTA (hidden on mobile) */}
         <div className="hidden md:flex h-full items-center justify-end">
-          <Button onClick={() => router.push('/coming-soon')}>
-            <svg
-              width={18}
-              height={18}
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11 9.5H19.75V0.75H11V9.5ZM0.5 20H9.25V11.25H0.5V20ZM0.5 9.5H9.25V0.75H0.5V9.5ZM11 20H19.75V11.25H11V20Z"
-                fill="white"
-              />
-            </svg>
-            COMING SOON
-          </Button>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Button onClick={() => router.push('/coming-soon')}>
+              <svg
+                width={18}
+                height={18}
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="1" y="1" width="10" height="10" fill="#F25022" />
+                <rect x="13" y="1" width="10" height="10" fill="#00A4EF" />
+                <rect x="1" y="13" width="10" height="10" fill="#7FBA00" />
+                <rect x="13" y="13" width="10" height="10" fill="#FFB900" />
+              </svg>
+              COMING SOON
+            </Button>
+          </motion.div>
         </div>
 
         {/* Mobile Hamburger */}
@@ -218,14 +224,30 @@ function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Link
-                href="/coming-soon"
-                className="flex items-center gap-2 px-6 py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition-colors"
-                onClick={() => setIsOpen(false)}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                <LucideAppWindow size={18} />
-                Coming Soon
-              </Link>
+                <Link
+                  href="/coming-soon"
+                  className="flex items-center gap-2 px-6 py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <svg
+                    width={18}
+                    height={18}
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect x="1" y="1" width="10" height="10" fill="#F25022" />
+                    <rect x="13" y="1" width="10" height="10" fill="#00A4EF" />
+                    <rect x="1" y="13" width="10" height="10" fill="#7FBA00" />
+                    <rect x="13" y="13" width="10" height="10" fill="#FFB900" />
+                  </svg>
+                  Coming Soon
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
