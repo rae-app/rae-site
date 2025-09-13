@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
             >
               {users}
             </div>
-            <span className="text-lg" style={{ color: '#353839' }}>ONBOARDED</span>
+            <span className="text-lg" style={{ color: '#353839', transform: 'translateY(-5px)' }}>ONBOARDED</span>
           </div>
         </div>
       </div>
