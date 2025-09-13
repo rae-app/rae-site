@@ -20,7 +20,7 @@ const NavbarButton = ({
       <motion.div
         onClick={() => router.push(to)}
         whileHover="hover"
-        className="h-[20px] px-4 sm:px-6 lg:px-8 overflow-hidden text-black relative cursor-pointer"
+        className="h-[20px] px-4 sm:px-6 lg:px-8 overflow-hidden relative cursor-pointer"
       >
         <motion.div
           // style={{ transformOrigin: "bottom left" }}
@@ -33,6 +33,7 @@ const NavbarButton = ({
             },
           }}
           className="absolute"
+          style={{ color: '#353839' }}
         >
           {children}
         </motion.div>
@@ -46,6 +47,7 @@ const NavbarButton = ({
             },
           }}
           transition={{ type: "tween", ease: "circInOut" }}
+          style={{ color: '#353839' }}
         >
           {children}
         </motion.div>

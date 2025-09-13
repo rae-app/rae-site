@@ -34,7 +34,7 @@ const questions: AccordionItem[] = [
 const Questions = () => {
   return (
     <div className="min-h-[80vh] w-full flex justify-center">
-      <div className="max-w-[1400px] h-fit px-8 w-full flex flex-col rounded-xl mb-12">
+      <div className="max-w-[1400px] h-fit px-8 w-full flex flex-col rounded-xl mb-12" style={{ fontFamily: '"SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', color: '#353839' }}>
         <Accordion items={questions} fontSize="text-3xl" />
       </div>
     </div>

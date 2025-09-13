@@ -34,15 +34,15 @@ const Hero: React.FC = () => {
     <section className="relative mb-8 sm:mb-12 w-full min-h-[calc(75vh)] sm:min-h-[calc(80vh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20">
       <div className="text-center font-bold md:text-left">
         {/* Heading */}
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] text-black leading-tight lg:leading-[5vw]" style={{ fontFamily: 'var(--font-instrument-sans)', fontWeight: '600' }}>
-          MAKE YOUR DESKTOP
+        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[5vw] text-black leading-tight lg:leading-[5vw]" style={{ fontFamily: 'Varela Round' }}>
+          make your desktop
         </h1>
-        <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[6vw] mb-4 sm:mb-6 leading-tight" style={{ fontFamily: 'var(--font-instrument-sans)', color: '#1a1a1a' }}>
-          SMARTER
+        <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[6vw] mb-4 sm:mb-6 leading-tight text-red-500" style={{ fontFamily: 'Story Script' }}>
+          smarter
         </h2>
 
         {/* Sub-Heading */}
-        <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-black mb-6 sm:mb-8 leading-normal max-w-md sm:max-w-xl md:max-w-none mx-auto md:mx-0" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
+        <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-8 sm:mb-12 leading-normal max-w-md sm:max-w-xl md:max-w-none mx-auto md:mx-0" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', color: '#353839' }}>
           Rae is a desktop assistant that takes care of tasks for you, right on
           your screen.
         </p>
@@ -84,7 +84,7 @@ const Hero: React.FC = () => {
             >
               {users}
             </div>
-            <span className="text-lg">ONBOARDED</span>
+            <span className="text-lg" style={{ color: '#353839' }}>ONBOARDED</span>
           </div>
         </div>
       </div>
