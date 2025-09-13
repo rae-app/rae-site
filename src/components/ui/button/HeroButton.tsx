@@ -45,24 +45,21 @@ const HeroButton = ({
         backgroundColor: colors.hoverBackground,
       }}
       className={twMerge(
-        "flex rounded-md border-2 w-fit group items-center justify-center !p-0 shadow-[0_1px_3px_rgba(0,0,0,0.2)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-all duration-150", className
+        "flex rounded-md border-2 w-fit group items-center justify-center !p-0 transition-all duration-150", className
       )}
     >
       <motion.div
         initial={{
           y: "-8px",
           background: `linear-gradient(to right, ${colors.backgroundStart}, ${colors.backgroundEnd})`,
-          boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
         }}
         variants={{
           hover: {
             y: "-4px",
             background: `linear-gradient(to right, ${colors.hoverBackground}, ${colors.hoverBackground})`,
-            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
           },
           tap: {
             y: "-1px",
-            boxShadow: "0 1px 2px rgba(0,0,0,0.2)",
           }
         }}
         onClick={onClick}
