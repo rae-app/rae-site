@@ -19,7 +19,7 @@ function page() {
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative outline-black outline-2 sm:outline-4 min-h-[200px] sm:min-h-[250px] transform hover:scale-[1.02] transition-all duration-300 shadow-2xl hover:shadow-3xl" style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
           <img
-            src="/assets/images/human.gif"
+            src="/assets/images/human2.gif"
             className="absolute size-full object-cover"
             alt="Human interaction with technology"
           />
