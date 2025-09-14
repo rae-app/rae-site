@@ -28,12 +28,12 @@ const HeroButton = ({
   className = "",
   onClick,
   colors = {
-    border: "#d1d5db",
-    backgroundStart: "#f9fafb",
-    backgroundEnd: "#f3f4f6",
-    hoverBackground: "#e5e7eb",
-    innerStart: "#e5e7eb",
-    innerEnd: "#d1d5db",
+    border: "#000000",
+    backgroundStart: "#18181b",
+    backgroundEnd: "#27272a",
+    hoverBackground: "#0a0a0a",
+    innerStart: "#27272a",
+    innerEnd: "#18181b",
   },
 }: HeroButtonProps) => {
   return (
@@ -45,7 +45,7 @@ const HeroButton = ({
         backgroundColor: colors.hoverBackground,
       }}
       className={twMerge(
-        "flex rounded-md border-2 w-fit group items-center justify-center !p-0 transition-all duration-150", className
+        "flex rounded-xl border-2 w-fit group items-center justify-center !p-0", className
       )}
     >
       <motion.div
@@ -55,11 +55,11 @@ const HeroButton = ({
         }}
         variants={{
           hover: {
-            y: "-4px",
-            background: `linear-gradient(to right, ${colors.hoverBackground}, ${colors.hoverBackground})`,
+            y: "-2px",
+            //background: `linear-gradient(to right, ${colors.hoverBackground}, ${colors.hoverBackground})`,
           },
           tap: {
-            y: "-1px",
+            y: "0px",
           }
         }}
         onClick={onClick}
@@ -69,7 +69,7 @@ const HeroButton = ({
           fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
         }}
         className={twMerge(
-          "flex items-center px-5 py-2 cursor-pointer duration-200 transition-colors group-hover:brightness-95 text-white font-semibold rounded-md relative",
+          "flex items-center px-5 py-2 cursor-pointer duration-200 transition-colors group-hover:brightness-90 text-white font-semibold rounded-xl relative",
           className
         )}
       >
@@ -88,7 +88,7 @@ const HeroButton = ({
         //       background: `linear-gradient(to right, ${colors.innerEnd}, ${colors.innerEnd})`,
         //     },
         //   }}
-          className="absolute pointer-events-none left-1/2 -translate-x-1/2 rounded-md top-1/2 -translate-y-1/2 transition-all duration-150 blur-[0.5px]"
+          className="absolute pointer-events-none left-1/2 -translate-x-1/2 rounded-lg top-1/2 -translate-y-1/2 transition-colors blur-[1px]"
         />
       </motion.div>
     </motion.button>

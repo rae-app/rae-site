@@ -52,12 +52,12 @@ const Hero: React.FC = () => {
           <HeroButton
             onClick={() => lenis?.scrollTo(950)}
             colors={{
-              border: "#e5e7eb",
-              backgroundStart: "#f3f4f6",
-              backgroundEnd: "#e5e7eb",
-              hoverBackground: "#d1d5db",
-              innerStart: "#1f2937",
-              innerEnd: "#111827",
+              border: "#2d2d2d",
+              backgroundStart: "#545454",
+              backgroundEnd: "#8f8f8f",
+              hoverBackground: "#424242",
+              innerStart: "#6e6e6e",
+              innerEnd: "#aaaaaa",
             }}
             className="w-full sm:w-auto text-base py-4 px-6"
           >
@@ -66,14 +66,14 @@ const Hero: React.FC = () => {
           <HeroButton
             onClick={() => router.push("/info/waitlist")}
             colors={{
-              border: "#e5e7eb",
-              backgroundStart: "#f3f4f6",
-              backgroundEnd: "#e5e7eb",
-              hoverBackground: "#d1d5db",
-              innerStart: "#dc2626",
-              innerEnd: "#b91c1c",
+              border: "#7e0f07", //sabse neeche wala line
+              backgroundStart: "#9e1309", //border ka left part
+              backgroundEnd: "#e21b0c", //border ka right part
+              hoverBackground: "#9f2e16",// beech ka width
+              innerStart: "#bb160a",
+              innerEnd: "#F44336",
             }}
-            className="w-full sm:w-auto text-base py-4 px-6"
+            className="w-full sm:w-auto text-base py-4 px-6 pt-4"
           >
             JOIN WAITLIST
           </HeroButton>
