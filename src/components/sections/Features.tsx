@@ -41,21 +41,20 @@ const Features_new = () => {
   const [windowHeight, setWindowHeight] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
   const [state, setState] = useState<"notch" | "overlay" | "features">("notch");
-  const [mobile, setMobile] = useState(false)
+  const [mobile, setMobile] = useState(false);
   // Get responsive constants based on screen size
   const getConstants = () => {
     if (windowWidth < 640) {
-      
       return RESPONSIVE_CONSTANTS.mobile;
-    };
+    }
     if (windowWidth < 1024) return RESPONSIVE_CONSTANTS.tablet;
     return APP_CONSTANTS;
   };
-  
+
   useEffect(() => {
     const onScroll = () => {
       setScroll(window.scrollY);
-      
+
       setWindowHeight(window.innerHeight);
       setWindowWidth(window.innerWidth);
       // Use fixed pixel values for triggers
@@ -71,7 +70,7 @@ const Features_new = () => {
     // Set initial window dimensions
     setWindowWidth(window.innerWidth);
     setWindowHeight(window.innerHeight);
-    if(window.innerWidth < 640) setMobile(true)
+    if (window.innerWidth < 640) setMobile(true);
 
     window.addEventListener("scroll", onScroll);
     window.addEventListener("resize", onScroll);
@@ -92,7 +91,7 @@ const Features_new = () => {
   return (
     <motion.div
       ref={pageRef}
-      className="min-h-[2200px] relative z-40 flex flex-col justify-start w-full"
+      className="h-[2200px] relative z-40 flex flex-col justify-start w-full"
     >
       <div className="absolute w-full h-full">
         <motion.div
@@ -100,7 +99,11 @@ const Features_new = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, ease: "circInOut" }}
           className="mt-[100px] sm:mt-[150px] lg:mt-[200px] text-xl sm:text-2xl lg:text-4xl font-medium tracking-tight w-full flex items-center justify-center text-center px-4"
-          style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', color: '#353839' }}
+          style={{
+            fontFamily:
+              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            color: "#353839",
+          }}
         >
           Always at your service <br />
           Rae is built to be your AI companion, ready to assist you anytime,
@@ -138,7 +141,7 @@ const Features_new = () => {
   );
 };
 
-const Features = ({isMobile = false} : {isMobile?: boolean}) => {
+const Features = ({ isMobile = false }: { isMobile?: boolean }) => {
   const [showFirstVideo, setShowFirstVideo] = useState(false);
   const [showMiddleVideo, setShowMiddleVideo] = useState(false);
   const [showLastVideo, setShowLastVideo] = useState(false);
@@ -172,6 +175,7 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
       className="h-full w-full p-2 sm:p-4 absolute items-center flex flex-col gap-2 sm:gap-4 bg-transparent"
     >
       <div className="flex w-full flex-col p-2 sm:p-4 rounded-2xl bg-black size-full">
+        {!isMobile && <>
         <div className="w-full h-[200px] shrink-0 sm:h-[40vw] overflow-hidden rounded-xl mb-2 sm:mb-0">
           {showFirstVideo ? (
             <motion.video
@@ -189,11 +193,52 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
               <div className="text-zinc-400 text-sm animate-pulse"></div>
             </div>
           )}
-        </div>
+        </div></>}
+        {true && <>
+        <div className="w-full h-[300px] shrink-0 sm:h-[40vw] overflow-hidden rounded-xl mb-2 sm:mb-0">
+          <div className="text-xl sm:text-3xl font-medium text-zinc-200 mt-4 ">
+            Agentic Workflows
+          </div>
+          <div className="text-xl font-medium text-zinc-400 mb-4">
+            Rae can use other apps and tools to help you get things done
+          </div>
+          <div className="flex-col  w-full gap-4 h-full">
+            <motion.video
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-xl"
+              src="/videos/agentic.mp4"
+              autoPlay
+              muted
+              loop
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            <div className="flex flex-col w-full text-zinc-300 text-2xl gap-6">
+              <div className="inline-flex gap-4">
+                <span className="w-4 shrink-0 h-1 translate-y-[14px] inline bg-accent rounded-full"></span>Learns from your
+                interactions and performs tasks accordingly, just like a real
+                assistant.
+              </div>
+              <div className="inline-flex gap-4">
+                <span className="w-4 shrink-0 h-1 translate-y-[14px] inline bg-accent rounded-full"></span>
+                Enables seamless task automation using natural language.
+              </div>
+              <div className="inline-flex gap-4">
+                <span className="w-4 shrink-0 h-1 translate-y-[14px] inline bg-accent rounded-full"></span>
+                Integrates with the tools you use daily.
+              </div>
+              <div className="inline-flex gap-4">
+                <span className="w-4 shrink-0 h-1 translate-y-[14px] inline bg-accent rounded-full"></span>
+                Reschedule your daily annoying tasks by just prompting it.
+              </div>
+            </div>
+          </div>
+        </div></>}
         <div className="flex flex-col sm:flex-row pb-2 sm:pb-4 justify-between gap-2 sm:gap-4 h-3/5 sm:h-1/2">
           <div className="w-full sm:w-full h-1/2 sm:h-full flex flex-col text-white mt-2 sm:mt-4">
-            <div className="text-3xl font-medium">Anytime</div>
-            <div className="text-xl font-medium text-zinc-400 mb-4">
+            <div className=" font-medium text-lg sm:text-3xl">Anytime</div>
+            <div className="text-xl font-medium text-zinc-400 mb-4 hidden sm:block">
               Call Rae anywhere, just by typing @rae
             </div>
             <div className="bg-black rounded-xl flex-1 relative w-full overflow-hidden min-h-0">
@@ -216,8 +261,8 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
             </div>
           </div>
           <div className="w-full  h-full flex flex-col text-white mt-4">
-            <div className="text-3xl font-medium">Anywhere</div>
-            <div className="text-xl font-medium text-zinc-400 mb-4">
+            <div className="text-lg font-medium sm:text-3xl">Anywhere</div>
+            <div className="text-xl font-medium text-zinc-400 mb-4 hidden sm:block">
               Rae pops up to help when you copy or highlight text
             </div>
             <div
@@ -243,57 +288,71 @@ const Features = ({isMobile = false} : {isMobile?: boolean}) => {
             </div>
           </div>
         </div>
-        {!isMobile && <>
-        <div className="flex pb-4 justify-between gap-4 h-1/2">
-          <div className="w-full h-full flex flex-col text-white mt-4">
-            <div className="text-3xl font-medium">Active listening</div>
-            <div className="text-xl font-medium text-zinc-400 mb-4">
-              Rae reads your screen and provides context-aware assistance to help
-            </div>
-            <div className="bg-black rounded-xl h-full relative w-full overflow-hidden min-h-[300px]">
-              {showMiddleVideo ? (
-                <motion.video
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  src="/videos/listening.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              ) : (
-                <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
-                  <div className="text-zinc-400 text-sm animate-pulse"></div>
+        {!isMobile && (
+          <>
+            <div className="flex pb-4 justify-between gap-4 h-1/2">
+              <div className="w-full h-full flex flex-col text-white mt-4">
+                <div className="text-3xl font-medium">Active listening</div>
+                <div className="text-xl font-medium text-zinc-400 mb-4">
+                  Rae reads your screen and provides context-aware assistance to
+                  help
                 </div>
-              )}
-            </div>
-          </div>
-          <div className="w-full  h-full flex flex-col text-white mt-4">
-            <div className="text-3xl font-medium">Tool support</div>
-            <div className="text-xl font-medium text-zinc-400 mb-4">
-              Rae supports a wide range of tools and applications to help you get things done
-            </div>
-            <div className="bg-black rounded-xl flex-1 w-full overflow-hidden min-h-[300px]">
-              {showLastVideo ? (
-                <motion.video
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  src="/videos/tools.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-              ) : (
-                <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
-                  <div className="text-zinc-400 size-full text-sm animate-pulse"></div>
+                <div className="bg-black rounded-xl h-full relative w-full overflow-hidden min-h-[300px]">
+                  {showMiddleVideo ? (
+                    <motion.video
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      src="/videos/listening.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
+                      <div className="text-zinc-400 text-sm animate-pulse"></div>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
+              <div className="w-full  h-full flex flex-col text-white mt-4">
+                <div className="text-3xl font-medium">Tool support</div>
+                <div className="text-xl font-medium text-zinc-400 mb-4">
+                  Rae supports a wide range of tools and applications to help
+                  you get things done
+                </div>
+                <div className="bg-black rounded-xl flex-1 w-full overflow-hidden min-h-[300px]">
+                  {showLastVideo ? (
+                    <motion.video
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      src="/videos/tools.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-zinc-800 animate-pulse flex items-center justify-center">
+                      <div className="text-zinc-400 size-full text-sm animate-pulse"></div>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </div></>}
+          </>
+        )}
+        
       </div>
     </motion.div>
   );
@@ -481,7 +540,7 @@ const Notch = () => {
           className="whitespace-nowrap w-fit font-semibold text-zinc-300 text-xs sm:text-sm flex items-center gap-3"
           animate={{
             x: ["0%", "-60%", "0%"],
-            opacity: [1, 1, 0.8, 1]
+            opacity: [1, 1, 0.8, 1],
           }}
           transition={{
             duration: 12,
@@ -499,26 +558,26 @@ const Notch = () => {
             className="text-green-400 flex-shrink-0"
             animate={{
               scale: [1, 1.1, 1],
-              rotate: [0, 5, -5, 0]
+              rotate: [0, 5, -5, 0],
             }}
             transition={{
               duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
-            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66.03 12.03 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.6-.12-.421.18-.78.6-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.241 1.081zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.42-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.441.539.3.719 1.02.419 1.56z"/>
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66.03 12.03 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.6-.12-.421.18-.78.6-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.241 1.081zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.42-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.441.539.3.719 1.02.419 1.56z" />
           </motion.svg>
 
           {/* Animated Text */}
           <motion.span
             animate={{
-              color: ["#d4d4d8", "#a1a1aa", "#d4d4d8"]
+              color: ["#d4d4d8", "#a1a1aa", "#d4d4d8"],
             }}
             transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
             Now Playing
@@ -528,12 +587,12 @@ const Notch = () => {
             className="text-green-400"
             animate={{
               opacity: [1, 0.5, 1],
-              scale: [1, 1.05, 1]
+              scale: [1, 1.05, 1],
             }}
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
             •
@@ -541,12 +600,12 @@ const Notch = () => {
 
           <motion.span
             animate={{
-              color: ["#d4d4d8", "#22c55e", "#d4d4d8"]
+              color: ["#d4d4d8", "#22c55e", "#d4d4d8"],
             }}
             transition={{
               duration: 6,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           >
             After Hours
@@ -558,12 +617,12 @@ const Notch = () => {
           className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-green-500/5 rounded-lg"
           animate={{
             opacity: [0.3, 0.6, 0.3],
-            scale: [0.95, 1.05, 0.95]
+            scale: [0.95, 1.05, 0.95],
           }}
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
       </motion.div>
