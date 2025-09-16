@@ -202,7 +202,7 @@ const Features = ({ isMobile = false }: { isMobile?: boolean }) => {
           <div className="text-xl font-medium text-zinc-400 mb-4">
             Rae can use other apps and tools to help you get things done
           </div>
-          <div className="flex-col  w-full gap-4 h-full">
+          <div className="flex-col sm:flex-row flex w-full gap-4 h-full">
             <motion.video
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -214,7 +214,7 @@ const Features = ({ isMobile = false }: { isMobile?: boolean }) => {
               loop
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
-            <div className="flex flex-col w-full text-zinc-300 text-2xl gap-6">
+            <div className="flex flex-col w-full text-zinc-300 text-xl gap-6">
               <div className="inline-flex gap-4">
                 <span className="w-4 shrink-0 h-1 translate-y-[14px] inline bg-accent rounded-full"></span>Learns from your
                 interactions and performs tasks accordingly, just like a real
