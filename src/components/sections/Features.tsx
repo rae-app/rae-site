@@ -86,12 +86,12 @@ const Features_new = () => {
   });
 
   const constants = getConstants();
-  const pageHeight = useTransform(scrollYProgress, [0, 1], [800, 2200]);
+  const pageHeight = useTransform(scrollYProgress, [0, 1], ["40vh", "300vh"]);
   const pageHeightMobile = useTransform(scrollYProgress, [0, 1], [800, 800]);
   return (
     <motion.div
       ref={pageRef}
-      className="h-[2200px] relative z-40 flex flex-col justify-start w-full"
+      className="h-[250vh] relative z-40 flex flex-col justify-start w-full"
     >
       <div className="absolute w-full h-full">
         <motion.div
@@ -176,7 +176,7 @@ const Features = ({ isMobile = false }: { isMobile?: boolean }) => {
     >
       <div className="flex w-full flex-col p-2 sm:p-4 rounded-2xl bg-black size-full">
         {!isMobile && <>
-        <div className="w-full h-[200px] shrink-0 sm:h-[40vw] overflow-hidden rounded-xl mb-2 sm:mb-0">
+        <div className="w-full h-[200px] shrink-0 sm:h-[50vh] overflow-hidden rounded-xl mb-2 sm:mb-0">
           {showFirstVideo ? (
             <motion.video
               initial={{ opacity: 0 }}
@@ -195,7 +195,7 @@ const Features = ({ isMobile = false }: { isMobile?: boolean }) => {
           )}
         </div></>}
         {true && <>
-        <div className="w-full h-[300px] shrink-0 sm:h-[40vw] overflow-hidden rounded-xl mb-2 sm:mb-0">
+        <div className="w-full h-[300px] shrink-0 sm:h-[50vh] overflow-hidden rounded-xl mb-2 sm:mb-0">
           <div className="text-xl sm:text-3xl font-medium text-zinc-200 mt-4 ">
             Agentic Workflows
           </div>
