@@ -104,7 +104,7 @@ function Navbar() {
             exit={{ opacity: 0 }}
             className={`absolute inset-0 w-full ${
               isOpen ? "h-auto min-h-full" : "h-full"
-            } bg-gradient-to-b from-yellow-50 to-transparent via-yellow-50 pointer-events-none -z-10`}
+            } bg-gradient-to-b from-[#fffbeb] to-transparent via-[#fffbeb] pointer-events-none -z-10`}
             style={{
               height: isOpen ? "auto" : "100%",
               minHeight: isOpen ? "65vh" : "auto",

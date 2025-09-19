@@ -77,14 +77,21 @@ const Hero: React.FC = () => {
           >
             JOIN WAITLIST
           </HeroButton>
-          <div className=" px-12 py-2 gap-2 rounded-lg ml-auto  flex items-end justify-center text-3xl">
-            <div
-              
-              className=" "
-            >
+          <div className="relative px-16 py-2 gap-2 rounded-lg ml-auto flex items-end justify-center text-3xl overflow-hidden">
+            {/* Plane GIF overlay background */}
+            <div 
+              className="absolute top-[-10px] bottom-[-10px] left-5 right-[-10px] opacity-80 mix-blend-multiply pointer-events-none z-0"
+              style={{
+                backgroundImage: 'url(/assets/images/plane2.gif)',
+                backgroundSize: '90% 90%',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+            />
+            <div className="relative z-10">
               {users}
             </div>
-            <span className="text-lg" style={{ color: '#353839', transform: 'translateY(-5px)' }}>ONBOARDED</span>
+            <span className="text-lg relative z-10" style={{ color: '#353839', transform: 'translateY(-5px)' }}>ONBOARDED</span>
           </div>
         </div>
       </div>
