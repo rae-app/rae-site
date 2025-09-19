@@ -80,9 +80,9 @@ const Hero: React.FC = () => {
           <div className="relative px-16 py-2 gap-2 rounded-lg ml-auto flex items-end justify-center text-3xl overflow-hidden">
             {/* Plane GIF overlay background */}
             <div 
-              className="absolute top-[-10px] bottom-[-10px] left-5 right-[-10px] opacity-80 mix-blend-multiply pointer-events-none z-0"
+              className="absolute top-[-10px] bottom-[-10px] left-5 right-[-40px] opacity-80 mix-blend-multiply pointer-events-none z-0"
               style={{
-                backgroundImage: 'url(/assets/images/plane2.gif)',
+                backgroundImage: 'url(/assets/images/airplane.gif)',
                 backgroundSize: '90% 90%',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
