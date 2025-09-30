@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function page() {
   return (
     <div className="min-h-dvh w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 max-w-[1400px] mx-auto text-black leading-relaxed sm:leading-[2vw] font-bold text-lg sm:text-xl lg:text-[2vw] flex flex-col z-40">
@@ -18,17 +20,21 @@ function page() {
           </div>
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative outline-black outline-2 sm:outline-4 min-h-[200px] sm:min-h-[250px] transform hover:scale-[1.02] transition-all duration-300 shadow-2xl hover:shadow-3xl" style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
-          <img
+          <Image
             src="/assets/images/human2.gif"
             className="absolute size-full object-cover"
             alt="Human interaction with technology"
+            fill
+            unoptimized
           />
         </div>
         <div className="size-full bg-black rounded-xl overflow-hidden relative outline-black outline-2 sm:outline-4 min-h-[200px] sm:min-h-[250px] order-4 sm:order-3 transform hover:scale-[1.02] transition-all duration-300 shadow-2xl hover:shadow-3xl" style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
-          <img
+          <Image
             src="/assets/images/wolf.gif"
             className="absolute size-full object-cover"
             alt="Wolf representing strength and community"
+            fill
+            unoptimized
           />
         </div>
         <div className="bg-zinc-950 rounded-xl relative text-white p-4 sm:p-6 lg:p-8 text-base sm:text-lg lg:text-2xl xl:text-3xl font-medium flex min-h-[200px] sm:min-h-[250px] order-3 sm:order-4 transform hover:scale-[1.02] transition-all duration-300 shadow-2xl hover:shadow-3xl" style={{ boxShadow: '0 20px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)' }}>
