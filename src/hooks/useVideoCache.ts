@@ -29,8 +29,7 @@ export const useVideoCache = (
     autoPreload = false,
     priority = 0,
     onLoad,
-    onError,
-    onProgress
+    onError
   } = options;
 
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
@@ -42,6 +41,34 @@ export const useVideoCache = (
   const cache = useRef(VideoCache.getInstance());
   const isMountedRef = useRef(true);
   const retryCountRef = useRef(0);
+
+  const preloadVideo = useCallback(async () => {
+    if (!src || isLoading) return;
+
+    try {
+      setIsLoading(true);
+      setError(null);
+      setProgress(0);
+      retryCountRef.current = 0;
+
+      const blobUrl = await cache.current.preload(src, priority);
+      
+      if (isMountedRef.current) {
+        setVideoUrl(blobUrl);
+        setIsFromCache(true);
+        setIsLoading(false);
+        setProgress(100);
+        onLoad?.(blobUrl);
+      }
+    } catch (err) {
+      if (isMountedRef.current) {
+        const error = err as Error;
+        setError(error);
+        setIsLoading(false);
+        onError?.(error);
+      }
+    }
+  }, [src, priority, isLoading, onLoad, onError]);
 
   // Check if already cached
   useEffect(() => {
@@ -59,7 +86,7 @@ export const useVideoCache = (
     return () => {
       isMountedRef.current = false;
     };
-  }, [src, autoPreload]);
+  }, [src, autoPreload, onLoad, preloadVideo]);
 
   // Set cache event listeners
   useEffect(() => {
@@ -116,34 +143,6 @@ export const useVideoCache = (
     };
   }, [src, onLoad, onError]);
 
-  const preloadVideo = useCallback(async () => {
-    if (!src || isLoading) return;
-
-    try {
-      setIsLoading(true);
-      setError(null);
-      setProgress(0);
-      retryCountRef.current = 0;
-
-      const blobUrl = await cache.current.preload(src, priority);
-      
-      if (isMountedRef.current) {
-        setVideoUrl(blobUrl);
-        setIsFromCache(true);
-        setIsLoading(false);
-        setProgress(100);
-        onLoad?.(blobUrl);
-      }
-    } catch (err) {
-      if (isMountedRef.current) {
-        const error = err as Error;
-        setError(error);
-        setIsLoading(false);
-        onError?.(error);
-      }
-    }
-  }, [src, priority, isLoading, onLoad, onError]);
-
   const retry = useCallback(async () => {
     retryCountRef.current++;
     await preloadVideo();
@@ -192,7 +191,7 @@ export const useMultiVideoCache = (
   const cache = useRef(VideoCache.getInstance());
   
   // Stabilize the URLs array to prevent infinite re-renders
-  const stableUrls = useMemo(() => urls, [JSON.stringify(urls)]);
+  const stableUrls = useMemo(() => urls, [urls]);
   const stableOptions = useMemo(() => ({ maxConcurrent, priority }), [maxConcurrent, priority]);
 
   const preloadAll = useCallback(async () => {

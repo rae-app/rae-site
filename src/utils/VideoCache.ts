@@ -7,6 +7,13 @@ export interface CacheEntry {
   lastAccessed: number;
 }
 
+interface NavigatorWithConnection extends Navigator {
+  connection?: {
+    effectiveType?: string;
+    downlink?: number;
+  };
+}
+
 export interface CacheStats {
   totalSize: number;
   entryCount: number;
@@ -74,7 +81,7 @@ class VideoCache {
     this.listeners.get(event)?.forEach(callback => callback(data));
   }
 
-  async preload(url: string, priority = 0): Promise<string> {
+  async preload(url: string, _priority = 0): Promise<string> {
     // Check if already cached
     const cached = this.cache.get(url);
     if (cached) {
@@ -173,7 +180,7 @@ class VideoCache {
 
   private getConnectionInfo() {
     if (typeof navigator !== 'undefined' && 'connection' in navigator) {
-      const connection = (navigator as any).connection;
+      const connection = (navigator as NavigatorWithConnection).connection;
       return {
         effectiveType: connection?.effectiveType || '4g',
         downlink: connection?.downlink || 10,

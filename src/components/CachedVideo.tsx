@@ -97,8 +97,7 @@ const CachedVideo = forwardRef<HTMLVideoElement, CachedVideoProps>(({
     error,
     progress,
     preload,
-    retry,
-    isFromCache
+    retry
   } = useVideoCache(src, {
     autoPreload: isInView && !hasAttemptedLoad,
     priority: preloadPriority,

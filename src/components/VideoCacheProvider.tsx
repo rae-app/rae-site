@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
+import React, { createContext, useContext, useEffect, useState, useMemo, useCallback } from 'react';
 import VideoCache, { CacheStats } from '../utils/VideoCache';
 
 interface VideoCacheContextType {
@@ -25,7 +25,7 @@ export const VideoCacheProvider: React.FC<VideoCacheProviderProps> = ({
   children,
   maxCacheSize = 50,
   warmupUrls = [],
-  enableDebugLogs = false,
+  enableDebugLogs: _enableDebugLogs = false,
   maxConcurrentLoads = 3
 }) => {
   const [cache] = useState(() => VideoCache.getInstance(maxCacheSize));
@@ -33,7 +33,16 @@ export const VideoCacheProvider: React.FC<VideoCacheProviderProps> = ({
   const [isWarmedUp, setIsWarmedUp] = useState(false);
 
   // Stabilize warmupUrls to prevent infinite re-renders
-  const stableWarmupUrls = useMemo(() => warmupUrls, [JSON.stringify(warmupUrls)]);
+  const stableWarmupUrls = useMemo(() => warmupUrls, [warmupUrls]);
+
+  const warmupVideos = useCallback(async (urls: string[]) => {
+    try {
+      await cache.warmup(urls, maxConcurrentLoads);
+      setIsWarmedUp(true);
+    } catch {
+      // Mere code mei error nhi aata 🤓, that said error handling add krdena koi 😭
+    }
+  }, [cache, maxConcurrentLoads]);
 
   // Update stats periodically
   useEffect(() => {
@@ -49,16 +58,7 @@ export const VideoCacheProvider: React.FC<VideoCacheProviderProps> = ({
     if (stableWarmupUrls.length > 0) {
       warmupVideos(stableWarmupUrls);
     }
-  }, [stableWarmupUrls]);
-
-  const warmupVideos = async (urls: string[]) => {
-    try {
-      await cache.warmup(urls, maxConcurrentLoads);
-      setIsWarmedUp(true);
-    } catch (error) {
-      // Mere code mei error nhi aata 🤓, that said error handling add krdena koi 😭
-    }
-  };
+  }, [stableWarmupUrls, warmupVideos]);
 
   const clearCache = () => {
     cache.clear();
