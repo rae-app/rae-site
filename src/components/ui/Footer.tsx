@@ -7,11 +7,11 @@ import {
   MotionValue,
 } from "motion/react";
 import React, { useRef, useState } from "react";
-import { DiscordLogoIcon, XLogoIcon } from "@phosphor-icons/react/dist/ssr";
-import Card from "./Card";
+import { XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 
 // Import Bad Script font
 import './courgette-font.css';
+import Image from "next/image";
 
 function AnimatedLetter({
   letter,
@@ -151,9 +151,11 @@ function Footer() {
         <div className="hidden sm:flex flex-1 relative items-center justify-center">
           {/* Cloud background */}
           <div className="absolute inset-0 w-full h-full">
-            <img
+            <Image
               src="/assets/images/cloud.gif"
               alt="Cloud animation"
+              width={96}
+              height={96}
               className="w-full h-full object-cover opacity-60"
             />
           </div>
