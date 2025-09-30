@@ -136,6 +136,11 @@ export default function RootLayout({
         />
         {/* Preload critical images */}
         <link rel="preload" href="/assets/images/dragon.gif" as="image" type="image/gif" />
+        
+        {/* Preload notch and agentic videos */}
+        <link rel="preload" href="/videos/notch.mp4" as="video" type="video/mp4" />
+        <link rel="preload" href="/videos/agentic.mp4" as="video" type="video/mp4" />
+        
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body
@@ -145,7 +150,7 @@ export default function RootLayout({
         <Navbar />
         <Blobs />
         <ReactLenis root>{children}</ReactLenis>
-        <Footer />  
+        <Footer />
       </body>
     </html>
   );
