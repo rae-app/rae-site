@@ -1,10 +1,33 @@
+"use client";
 import { DiscordLogoIcon, EnvelopeIcon } from "@phosphor-icons/react/dist/ssr";
-import React from "react";
+import { useScroll, motion, useTransform, useSpring } from "motion/react";
+import React, { useRef } from "react";
 
 export default function Landing() {
+  const pageRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: pageRef,
+    offset: ["1 1", "1 0"],
+  });
+  const tX = useSpring(
+    useTransform(scrollYProgress, [0, 1], ["-10%", "-100%"]),
+    { stiffness: 100, damping: 20 },
+  );
+  const tX2 = useSpring(
+    useTransform(scrollYProgress, [0, 1], ["0%", "-120%"]),
+    { stiffness: 100, damping: 20 },
+  );
   return (
-    <div className="h-[calc(100vh-58px)] shrink-0 border-b border-border flex overflow-hidden relative items-center justify-center py-12">
-      <div className="absolute left-[-10%] opacity-80">
+    <div
+      ref={pageRef}
+      className="h-[calc(100vh-58px)] shrink-0 border-b border-border flex overflow-hidden relative items-center justify-center py-12"
+    >
+      <motion.div
+        style={{ left: tX }}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        className="absolute  "
+      >
         <div className="size-[30vw] absolute border bottom-0 translate-y-1/2 border-border  rounded-full " />
         <div className="size-[20vw] absolute border bottom-0 translate-y-1/2 border-border/90 rounded-full " />
         <div className="size-[40vw] absolute border bottom-0 translate-y-1/2 border-border/80 rounded-full " />
@@ -12,8 +35,13 @@ export default function Landing() {
         <div className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full " />
         <div className="size-[50vw] absolute border bottom-0 translate-y-1/2 border-border/60 rounded-full " />
         <div className="size-[60vw] absolute border bottom-0 translate-y-1/2 border-border/40 rounded-full " />
-      </div>
-      <div className="absolute right-[-30%] bottom-0 opacity-80 rotate-180">
+      </motion.div>
+      <motion.div
+        animate={{ opacity: 0.8 }}
+        initial={{ opacity: 0 }}
+        style={{ right: tX2 }}
+        className="absolute right-[-30%] bottom-0  rotate-180"
+      >
         <div className="size-[30vw] absolute border bottom-0 translate-y-1/2 border-border  rounded-full " />
         <div className="size-[20vw] absolute border bottom-0 translate-y-1/2 border-border/90 rounded-full " />
         <div className="size-[40vw] absolute border bottom-0 translate-y-1/2 border-border/80 rounded-full " />
@@ -21,7 +49,7 @@ export default function Landing() {
         <div className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full " />
         <div className="size-[50vw] absolute border bottom-0 translate-y-1/2 border-border/60 rounded-full " />
         <div className="size-[60vw] absolute border bottom-0 translate-y-1/2 border-border/40 rounded-full " />
-      </div>
+      </motion.div>
       <div className=" flex flex-col z-20 items-center justify-center">
         <div className="text-5xl  font-roboto-serif text-accent tracking-tighter">
           Make your desktop smarter
