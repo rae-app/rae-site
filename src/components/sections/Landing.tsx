@@ -66,7 +66,7 @@ export default function Landing() {
         <div className="size-[50vw] absolute border bottom-0 translate-y-1/2 border-border/60 rounded-full " />
         <div className="size-[60vw] absolute border bottom-0 translate-y-1/2 border-border/40 rounded-full " />
       </motion.div>
-      <div className=" flex flex-col z-20 p-4 sm:p-8 items-center sm:justify-center justify-start">
+      <div className=" flex flex-col z-20 p-8 sm:p-8 items-center sm:justify-center justify-start">
         <div className="text-5xl  font-roboto-serif text-accent tracking-tighter">
           Make your desktop smarter
         </div>
