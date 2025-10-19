@@ -1,19 +1,27 @@
-import Blobs from "@/components/ui/Blobs";
-import Loader from "@/components/ui/Loader";
-import Navbar from "@/components/ui/Navbar";
 import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import {
+  Geist_Mono,
+  IBM_Plex_Mono,
+  Instrument_Sans,
+  Playfair_Display,
+  Roboto_Serif,
+} from "next/font/google";
 
-import Footer from "@/components/ui/Footer";
 import "./globals.css";
+import Navbar from "@/components/root/Navbar";
 
-const instrumentSans = Instrument_Sans({
+const instrumentSans = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-instrument-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
+const robotoSerif = Roboto_Serif({
+  subsets: ["latin"],
+  variable: "--font-roboto-serif",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -35,7 +43,7 @@ export const metadata: Metadata = {
     "productivity tools",
     "desktop app",
     "windows app",
-    "macOS app"
+    "macOS app",
   ],
   authors: [{ name: "Rae Team" }],
   creator: "Sophistic",
@@ -112,7 +120,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -123,7 +130,12 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href="https://raeai.app" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/assets/favicon/rae.png" sizes="32x32" type="image/png" />
+        <link
+          rel="icon"
+          href="/assets/favicon/rae.png"
+          sizes="32x32"
+          type="image/png"
+        />
         <link rel="apple-touch-icon" href="/assets/favicon/rae.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -135,22 +147,36 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         {/* Preload critical images */}
-        <link rel="preload" href="/assets/images/dragon.gif" as="image" type="image/gif" />
-        
+        <link
+          rel="preload"
+          href="/assets/images/dragon.gif"
+          as="image"
+          type="image/gif"
+        />
+
         {/* Preload notch and agentic videos */}
-        <link rel="preload" href="/videos/notch.mp4" as="video" type="video/mp4" />
-        <link rel="preload" href="/videos/agentic.mp4" as="video" type="video/mp4" />
-        
+        <link
+          rel="preload"
+          href="/videos/notch.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link
+          rel="preload"
+          href="/videos/agentic.mp4"
+          as="video"
+          type="video/mp4"
+        />
+
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body
-        className={` ${instrumentSans.className} bg-white overflow-x-hidden text-black antialiased flex flex-col items-center justify-center`}
+        className={` ${instrumentSans.className} ${robotoSerif.variable} bg-background overflow-x-hidden text-foreground antialiased flex flex-col items-start justify-start`}
       >
-        <Loader />
-        <Navbar />
-        <Blobs />
-        <ReactLenis root>{children}</ReactLenis>
-        <Footer />
+        <ReactLenis root>
+          <Navbar />
+          <div className="mx-auto max-w-[1200px] w-full h-fit">{children}</div>
+        </ReactLenis>
       </body>
     </html>
   );

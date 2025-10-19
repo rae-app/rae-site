@@ -1,77 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Libertinus+Serif:wght@400;600&family=Story+Script&family=Varela+Round&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Libertinus+Serif:wght@400;600&family=Story+Script&family=Varela+Round&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
+    --border: #eeeeee;
+    --accent: #e53437;
+    --text-muted: #888888;
+}
+
+.dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --border: #262626;
+    --accent: #e53437;
+    --text-muted: #888888;
+}
+
+body,
+#root,
+html {
+    height: 100%;
 }
 
 @theme inline {
-  --font-instrument-sans: var(--instrument-sans);
-  
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: #e53437;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --font-instrument-sans: var(--instrument-sans);
+    --font-roboto-serif: var(--font-roboto-serif);
+    --color-border: var(--border);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-accent: var(--accent);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --color-text-muted: var(--text-muted);
+    /* Add Tailwind colors that map to our CSS variables */
+    --color-background-rgb: 255 255 255;
+    --color-foreground-rgb: 23 23 23;
+    --color-border-rgb: 238 238 238;
+    --color-accent-rgb: 229 52 55;
+
+    /* Custom box-shadow utilities */
+    --shadow-button:
+        0px 0px 0.3px 1px rgba(0, 0, 0, 0.58), 0px 1px 3.5px #000000,
+        inset 0px 1px 0.8px rgba(255, 255, 255, 0.42);
+}
+
+@theme dark {
+    --color-background-rgb: 10 10 10;
+    --color-foreground-rgb: 237 237 237;
+    --color-border-rgb: 38 38 38;
+    --color-accent-rgb: 255 91 94;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.bg-hero-radial {
-  background: radial-gradient(
-      circle 758px at 1152px 401px,
-      #ffffffc4 0%,
-      transparent 70%
-    ),
-    radial-gradient(
-      circle 758px at 1377px 464px, 
-      #ff928c 40%, 
-      transparent 70%
-    ),
-    radial-gradient(
-      circle 758px at 144px 555px,
-      #ffffffc4 0%,
-      transparent 70%
-    ),
-    radial-gradient(
-      circle 758px at 200px 600px,
-      #ff928c 40%,
-      transparent 70%
-    ),
-    #ffffff;
-    
-  background-repeat: no-repeat;
-  background-size: cover;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 ::selection {
-  background: black;
-  color: white;
+    background: var(--foreground);
+    color: var(--background);
 }
 
 /* Ensure GIF animations continue playing */
 img[src*=".gif"] {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  /* Force hardware acceleration for smoother animations */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Force hardware acceleration for smoother animations */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 /* Prevent browser from pausing GIF animations */
 img[src*=".gif"]:hover {
-  /* This can help restart animations on interaction */
-  animation: gif-restart 0.1s;
+    /* This can help restart animations on interaction */
+    animation: gif-restart 0.1s;
 }
 
 @keyframes gif-restart {
-  0% { opacity: 1; }
-  50% { opacity: 0.99; }
-  100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.99;
+    }
+    100% {
+        opacity: 1;
+    }
 }
+/* Frame 2 */
