@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Landing() {
   return (
-    <div className="h-[calc(100vh-90px)] border-b border-border flex overflow-hidden relative items-center justify-center py-12">
+    <div className="h-[calc(100vh-58px)] shrink-0 border-b border-border flex overflow-hidden relative items-center justify-center py-12">
       <div className="absolute left-[-10%] opacity-80">
         <div className="size-[30vw] absolute border bottom-0 translate-y-1/2 border-border  rounded-full " />
         <div className="size-[20vw] absolute border bottom-0 translate-y-1/2 border-border/90 rounded-full " />

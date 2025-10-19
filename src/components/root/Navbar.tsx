@@ -6,8 +6,8 @@ const Navbar = ({}) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="h-[58px] shrink-0 flex w-full border-b border-border sticky top-0 bg-background/80 backdrop-blur-sm">
-      <div className="mx-auto border-x border-border px-4 w-[1200px] h-full flex items-center ">
+    <div className="h-[58px] z-50 shrink-0 flex w-full border-b border-border fixed top-0 bg-gradient-to-b  from-background toto-background/60 backdrop-blur-xs ">
+      <div className="mx-auto border-x border-border px-8 w-[1200px] h-full flex items-center ">
         <h1 className="text-xl  font-medium !m-0 flex gap-2 items-center ">
           <div className="size-4 rounded-full border-3 border-accent"></div> Rae
         </h1>
