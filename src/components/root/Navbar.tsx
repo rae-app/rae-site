@@ -2,6 +2,7 @@
 
 import { useSmoothScroll } from "@/hooks/useScroll";
 import PrimaryButton from "@/components/ui/PrimaryButton";
+import { EnvelopeIcon } from "@phosphor-icons/react/dist/ssr";
 
 const Navbar = ({}) => {
   const { scrollToSection } = useSmoothScroll();
@@ -20,19 +21,19 @@ const Navbar = ({}) => {
         <div className=" h-full ml-auto text-sm flex gap-2 items-center">
           <div
             onClick={() => scrollToSection("about")}
-            className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+            className="cursor-pointer h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
           >
             About
           </div>
           <div
             onClick={() => scrollToSection("features")}
-            className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+            className="cursor-pointer h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
           >
             Features
           </div>
           <div
             onClick={() => scrollToSection("contact")}
-            className="cursor-pointer h-[28px] mr-4 px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+            className="cursor-pointer h-[32px] mr-4 px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
           >
             Contact
           </div>
@@ -42,7 +43,7 @@ const Navbar = ({}) => {
           >
             Theme
           </div>*/}
-          <PrimaryButton className="h-[28px]">
+          {/*<PrimaryButton className="h-[28px]">
             <div className="h-[12px] aspect-square grid grid-cols-2 grid-rows-2 gap-[2px]">
               <div className="bg-white"></div>
               <div className="bg-white"></div>
@@ -50,6 +51,13 @@ const Navbar = ({}) => {
               <div className="bg-white"></div>
             </div>{" "}
             Download
+          </PrimaryButton>*/}
+          <PrimaryButton
+            onClick={() => scrollToSection("waitlist")}
+            className="h-[32px]"
+          >
+            <EnvelopeIcon weight="fill" size={20} />
+            Join waitlist
           </PrimaryButton>
         </div>
       </div>

@@ -19,7 +19,8 @@ export default function Waitlist() {
   return (
     <div
       ref={pageRef}
-      className="border-b border-border h-[calc(100vh-58px)] flex flex-col p-8 relative items-center justify-center overflow-hidden"
+      id="waitlist"
+      className="border-b border-border h-[calc(100vh-300px)] flex flex-col p-8 relative items-center justify-center overflow-hidden"
     >
       <motion.div
         style={{ scale: scaleT }}
@@ -48,7 +49,7 @@ export default function Waitlist() {
           />
           <PrimaryButton className="h-[36px]">
             <HandHeartIcon weight="fill" size={20} />
-            Join waitlist
+            Lets go
           </PrimaryButton>
         </motion.div>
       </div>
