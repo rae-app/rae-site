@@ -2,6 +2,7 @@
 import { DiscordLogoIcon, EnvelopeIcon } from "@phosphor-icons/react/dist/ssr";
 import { useScroll, motion, useTransform, useSpring } from "motion/react";
 import React, { useRef } from "react";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 export default function Landing() {
   const pageRef = useRef(null);
@@ -60,10 +61,10 @@ export default function Landing() {
           Made by developers, for developers.
         </div>
         <div className="flex gap-2 mt-8">
-          <button className="button rounded-sm font-medium flex gap-2 items-center text-sm text-background dark:text-white px-3 h-[36px]   shadow-button bg-gradient-to-t from-black to-zinc-800 dark:from-accent/80 dark:to-accent">
+          <PrimaryButton className="h-[36px]">
             <EnvelopeIcon weight="fill" size={20} />
             Join the waitlist
-          </button>
+          </PrimaryButton>
           <button className="h-[36px] text-sm font-medium flex gap-2 items-center bg-border-button/20 hover:bg-border-button/40 px-3 border border-border-button rounded-sm ">
             <DiscordLogoIcon weight="fill" size={20} />
             Join our community

@@ -2,6 +2,7 @@
 import { HandHeartIcon } from "@phosphor-icons/react/dist/ssr";
 import React, { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 export default function Waitlist() {
   const pageRef = useRef(null);
@@ -45,10 +46,10 @@ export default function Waitlist() {
             placeholder="Your email here"
             className="h-[36px] focus:bg-white focus:border-accent outline-none border px-3 border-zinc-600 bg-white/90 rounded-sm w-[350px]"
           />
-          <button className="button rounded-sm flex gap-2 items-center text-sm text-background dark:text-white px-3 h-[36px]   shadow-button bg-gradient-to-t from-black to-zinc-800 dark:from-accent/80 dark:to-accent">
+          <PrimaryButton className="h-[36px]">
             <HandHeartIcon weight="fill" size={20} />
             Join waitlist
-          </button>
+          </PrimaryButton>
         </motion.div>
       </div>
     </div>

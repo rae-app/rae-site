@@ -1,6 +1,7 @@
 "use client";
 
 import { useSmoothScroll } from "@/hooks/useScroll";
+import PrimaryButton from "@/components/ui/PrimaryButton";
 
 const Navbar = ({}) => {
   const { scrollToSection } = useSmoothScroll();
@@ -41,7 +42,7 @@ const Navbar = ({}) => {
           >
             Theme
           </div>*/}
-          <button className="button rounded-sm flex gap-2 items-center text-sm text-background dark:text-white px-3 h-[28px]   shadow-button bg-gradient-to-t from-black to-zinc-800 dark:from-accent/80 dark:to-accent">
+          <PrimaryButton className="h-[28px]">
             <div className="h-[12px] aspect-square grid grid-cols-2 grid-rows-2 gap-[2px]">
               <div className="bg-white"></div>
               <div className="bg-white"></div>
@@ -49,7 +50,7 @@ const Navbar = ({}) => {
               <div className="bg-white"></div>
             </div>{" "}
             Download
-          </button>
+          </PrimaryButton>
         </div>
       </div>
     </div>
