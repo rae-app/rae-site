@@ -7,15 +7,15 @@ export default function Landing() {
   const pageRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: pageRef,
-    offset: ["1 1", "1 0"],
+    offset: ["1 1", "2 0"],
   });
   const tX = useSpring(
     useTransform(scrollYProgress, [0, 1], ["-10%", "-100%"]),
-    { stiffness: 100, damping: 20 },
+    { stiffness: 100, damping: 30 },
   );
   const tX2 = useSpring(
     useTransform(scrollYProgress, [0, 1], ["0%", "-120%"]),
-    { stiffness: 100, damping: 20 },
+    { stiffness: 100, damping: 30 },
   );
   return (
     <div
