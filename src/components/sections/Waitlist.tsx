@@ -42,10 +42,10 @@ export default function Waitlist() {
           Join the waitlist, <span className="text-accent">265</span> already
           have
         </div>
-        <motion.div className="flex gap-2 mt-4">
+        <motion.div className="flex sm:flex-row flex-col w-full sm:w-fit gap-2 mt-4">
           <input
             placeholder="Your email here"
-            className="h-[36px] focus:bg-white focus:border-accent outline-none border px-3 border-zinc-600 bg-white/90 rounded-sm w-[350px]"
+            className="h-[36px] focus:bg-white focus:border-accent outline-none border px-3 border-zinc-600 bg-white/90 rounded-sm sm:w-[350px]"
           />
           <PrimaryButton className="h-[36px]">
             <HandHeartIcon weight="fill" size={20} />
