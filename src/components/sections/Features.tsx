@@ -57,7 +57,10 @@ export default function Features() {
   const [activeFeature, setActiveFeature] = useState(0);
 
   return (
-    <div className="border-b border-border h-[calc(100vh-58px)] divide-x divide-border flex">
+    <div
+      id="features"
+      className="border-b border-border h-[calc(100vh-58px)] divide-x divide-border flex"
+    >
       <div className="w-1/2 shrink-0 flex flex-col p-8">
         <div className="text-3xl tracking-tighter text-accent font-roboto-serif">
           Engineered to perfection

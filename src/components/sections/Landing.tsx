@@ -19,6 +19,7 @@ export default function Landing() {
   );
   return (
     <div
+      id="home"
       ref={pageRef}
       className="h-[calc(100vh-58px)] shrink-0 border-b border-border flex overflow-hidden relative items-center justify-center py-12"
     >

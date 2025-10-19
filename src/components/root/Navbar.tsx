@@ -1,26 +1,38 @@
 "use client";
 
-import { useTheme } from "@/hooks/useTheme";
+import { useSmoothScroll } from "@/hooks/useScroll";
 
 const Navbar = ({}) => {
-  const { theme, toggleTheme } = useTheme();
-
+  const { scrollToSection } = useSmoothScroll();
   return (
     <div className="h-[58px] z-50 shrink-0 flex w-full border-b border-border fixed top-0 bg-gradient-to-b  from-background to-background/20 backdrop-blur-xs ">
       <div className="mx-auto border-x border-border px-8 w-[1200px] h-full flex items-center ">
-        <h1 className="text-xl  font-medium !m-0 flex gap-2 items-center ">
-          <div className="size-4 rounded-full border-3 border-accent"></div> Rae
-        </h1>
+        <button
+          onClick={() => scrollToSection("home")}
+          className="text-xl cursor-pointer font-medium !m-0 flex gap-2 items-center "
+        >
+          <div className=" size-4 rounded-full border-3 border-accent "></div>{" "}
+          Rae
+        </button>
         {/*<div className="ml-auto gap-2 text-sm flex h-full items-center"></div>*/}
 
         <div className=" h-full ml-auto text-sm flex gap-2 items-center">
-          <div className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm">
+          <div
+            onClick={() => scrollToSection("about")}
+            className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+          >
             About
           </div>
-          <div className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm">
+          <div
+            onClick={() => scrollToSection("features")}
+            className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+          >
             Features
           </div>
-          <div className="cursor-pointer h-[28px] mr-4 px-2 hover:bg-border/40 flex items-center rounded-sm">
+          <div
+            onClick={() => scrollToSection("contact")}
+            className="cursor-pointer h-[28px] mr-4 px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+          >
             Contact
           </div>
           {/*<div

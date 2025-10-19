@@ -18,7 +18,7 @@ export default function Waitlist() {
   return (
     <div
       ref={pageRef}
-      className="h-[60vh] p-8 flex flex-col relative overflow-hidden"
+      className="border-b border-border h-[calc(100vh-58px)] flex flex-col p-8 relative items-center justify-center overflow-hidden"
     >
       <motion.div
         style={{ scale: scaleT }}

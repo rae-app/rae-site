@@ -2,7 +2,7 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className=" border-b border-border flex flex-col p-8">
+    <div id="about" className=" border-b border-border flex flex-col p-8">
       <div className="text-3xl font-roboto-serif tracking-tighter text-accent">
         About us
       </div>

@@ -20,9 +20,6 @@ export const useTheme = () => {
     setTheme(initialTheme);
 
     // Apply theme immediately
-    if (initialTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    }
   }, []);
 
   const toggleTheme = () => {

@@ -2,7 +2,10 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="bg-zinc-900 text-white w-full h-fit border-t border-border shrink-0 flex flex-col">
+    <div
+      id="contact"
+      className="bg-zinc-900 text-white w-full h-fit border-t border-border shrink-0 flex flex-col"
+    >
       <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-[1200px] h-full flex">
         <div className="h-full w-fit shrink-0 flex flex-col p-8">
           <div className="text-4xl flex gap-3 items-center">
