@@ -1,15 +1,10 @@
 import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
-import {
-  Geist_Mono,
-  IBM_Plex_Mono,
-  Instrument_Sans,
-  Playfair_Display,
-  Roboto_Serif,
-} from "next/font/google";
+import { IBM_Plex_Mono, Roboto_Serif } from "next/font/google";
 
-import "./globals.css";
 import Navbar from "@/components/root/Navbar";
+import "./globals.css";
+import Footer from "@/components/root/Footer";
 
 const instrumentSans = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -175,7 +170,10 @@ export default function RootLayout({
       >
         <ReactLenis root>
           <Navbar />
-          <div className="mx-auto max-w-[1200px] w-full h-fit">{children}</div>
+          <div className="mx-auto  border-x border-border max-w-[1200px] w-full h-fit">
+            {children}
+          </div>
+          <Footer />
         </ReactLenis>
       </body>
     </html>
