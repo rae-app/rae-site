@@ -23,13 +23,13 @@ export default function Footer() {
           <div className="text-lg">Follow for updates</div>
           <div className="flex flex-col mt-6">
             <div className="hover:underline text-zinc-300 cursor-pointer hover:text-white">
+              Join our discord server
+            </div>
+            <div className="hover:underline text-zinc-300 cursor-pointer hover:text-white">
               @nihaliscoding on X
             </div>
             <div className="hover:underline text-zinc-300 cursor-pointer hover:text-white">
               @nihal.iscooked on Instagram
-            </div>
-            <div className="hover:underline text-zinc-300 cursor-pointer hover:text-white">
-              or our discord server
             </div>
           </div>
         </div>
