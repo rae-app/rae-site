@@ -1,3 +1,4 @@
+import About from "@/components/sections/About";
 import Features from "@/components/sections/Features";
 import Landing from "@/components/sections/Landing";
 import Waitlist from "@/components/sections/Waitlist";
@@ -8,6 +9,7 @@ export default function Page() {
     <div>
       <Landing />
       <Features />
+      <About />
       <Waitlist />
     </div>
   );

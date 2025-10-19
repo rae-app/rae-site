@@ -20,15 +20,15 @@ const Navbar = ({}) => {
           <div className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm">
             Features
           </div>
-          <div className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm">
+          <div className="cursor-pointer h-[28px] mr-4 px-2 hover:bg-border/40 flex items-center rounded-sm">
             Contact
           </div>
-          <div
+          {/*<div
             onClick={toggleTheme}
             className="cursor-pointer h-[28px] px-2 hover:bg-border/40 flex items-center rounded-sm"
           >
             Theme
-          </div>
+          </div>*/}
           <button className="button rounded-sm flex gap-2 items-center text-sm text-background dark:text-white px-3 h-[28px]   shadow-button bg-gradient-to-t from-black to-zinc-800 dark:from-accent/80 dark:to-accent">
             <div className="h-[12px] aspect-square grid grid-cols-2 grid-rows-2 gap-[2px]">
               <div className="bg-white"></div>
