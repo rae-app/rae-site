@@ -1,6 +1,7 @@
 "use client"
 import React, { useRef } from "react";
 import {motion, useScroll, useSpring, useTransform} from "motion/react"
+import { DiscordLogoIcon, InstagramLogoIcon, XLogoIcon } from "@phosphor-icons/react/dist/ssr";
 
 export default function Footer() {
   const pageRef = useRef(null)
@@ -22,11 +23,11 @@ export default function Footer() {
       <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-full max-w-[1200px] h-full flex sm:flex-row flex-col">
         <div className="h-full w-full sm:w-fit shrink-0 flex flex-col p-8">
           <motion.div  className="text-4xl flex gap-3 items-center">
-            <motion.div style={{scale: scrollYProgress}} className="size-7 border-4 border-accent rounded-full"></motion.div>
+            <motion.div style={{scale: springY}} className="size-7 border-4 border-accent rounded-full"></motion.div>
             <motion.div className="flex">
-              <motion.div style={{y: tY}} > R</motion.div>
-              <motion.div style={{y: tY1}} > a</motion.div>
-              <motion.div style={{y: tY2}} > e</motion.div>
+              <motion.div style={{y: tY, scaleY: springY}} > R</motion.div>
+              <motion.div style={{y: tY1, scaleY: springY}} > a</motion.div>
+              <motion.div style={{y: tY2, scaleY: springY}} > e</motion.div>
             </motion.div>
           </motion.div>
           <div className="mt-4 text-zinc-300 hover:text-white hover:underline cursor-pointer">
@@ -40,14 +41,14 @@ export default function Footer() {
           </div>
           <div className="text-lg mt-4">Follow for updates</div>
           <div className="flex flex-col mt-2">
-            <div className="hover:underline text-zinc-300 cursor-pointer hover:text-white">
-              Join our discord server
+            <div className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2">
+              <DiscordLogoIcon  /> Join our discord server
             </div>
-            <div className="hover:underline text-zinc-300 cursor-pointer hover:text-white">
-              @nihaliscoding on X
+            <div className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2">
+              <XLogoIcon   /> @nihaliscoding on X
             </div>
-            <div className="hover:underline text-zinc-300 cursor-pointer hover:text-white">
-              @nihal.iscooked on Instagram
+            <div className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2">
+               <InstagramLogoIcon   /> @nihal.iscooked on Instagram
             </div>
           </div>
         </div>
