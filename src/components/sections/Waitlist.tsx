@@ -10,7 +10,7 @@ export default function Waitlist() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [waitlistCount, setWaitlistCount] = useState(265);
+  const [waitlistCount, setWaitlistCount] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: pageRef,

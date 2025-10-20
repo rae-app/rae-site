@@ -13,7 +13,10 @@ const Navbar = ({}) => {
           onClick={() => scrollToSection("home")}
           className="text-xl cursor-pointer font-medium sm:flex hidden !m-0 flex gap-2 items-center "
         >
-          <div className=" size-4 rounded-full border-3 border-accent "></div>{" "}
+          <div className="size-5 shrink-0 ">
+            <img src="/assets/favicon/rae.png" />
+          </div>
+          {/*<div className=" size-4 rounded-full border-3 border-accent "></div>{" "}*/}
           Rae
         </button>
         {/*<div className="ml-auto gap-2 text-sm flex h-full items-center"></div>*/}

@@ -30,10 +30,9 @@ export default function Footer() {
       <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-full max-w-[1600px] h-full flex sm:flex-row flex-col">
         <div className="h-full w-full sm:w-[40%] shrink-0 flex flex-col p-8">
           <motion.div className="text-4xl flex gap-3 items-center">
-            <motion.div
-              style={{ scale: springY }}
-              className="size-7 border-4 border-accent rounded-full"
-            ></motion.div>
+            <motion.div style={{ scale: springY }} className="size-8 ">
+              <img src="/assets/favicon/rae.png" />
+            </motion.div>
             <motion.div className="flex">
               <motion.div style={{ y: tY, scaleY: springY }}> R</motion.div>
               <motion.div style={{ y: tY1, scaleY: springY }}> a</motion.div>
