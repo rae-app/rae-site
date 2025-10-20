@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div
       id="contact"
-      className="bg-zinc-900 text-white w-full h-fit border-t border-border shrink-0 flex flex-col"
+      className="bg-zinc-900 text-white w-full h-[40vh] border-t border-border shrink-0 flex flex-col"
     >
       <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-[1200px] h-full flex">
         <div className="h-full w-fit shrink-0 flex flex-col p-8">
