@@ -67,7 +67,7 @@ export default function Waitlist() {
             <motion.div
               initial={{ scale: 0.1, rotate: -40, y: "40vh" }}
               animate={{ scale: 1, rotate: 0, y: "0vh" }}
-              transition={{ delay: 0, duration: 0.4, ease: "easeInOut" }}
+              transition={{ delay: 0, duration: 1, ease: "backOut" }}
               className="absolute right-0 flex items-center justify-center"
             >
               <HeartIcon weight="fill" size={1500} className="text-accent " />
@@ -75,7 +75,7 @@ export default function Waitlist() {
             <motion.div
               initial={{ scale: 0.05, rotate: 20, y: "40vh" }}
               animate={{ scale: 1, rotate: 0, y: "0vh" }}
-              transition={{ delay: 0.2, duration: 0.3, ease: "easeInOut" }}
+              transition={{ delay: 0.2, duration: 0.3, ease: "backOut" }}
               className="absolute left-[200px]  flex items-center justify-center"
             >
               <HeartIcon weight="fill" size={1500} className="text-accent " />
