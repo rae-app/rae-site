@@ -1,5 +1,5 @@
 "use client";
-import { HandHeartIcon, HeartIcon } from "@phosphor-icons/react/dist/ssr";
+import { HandHeartIcon, HeartIcon, User } from "@phosphor-icons/react/dist/ssr";
 import React, { useRef, useState, useEffect, FormEvent } from "react";
 import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import PrimaryButton from "@/components/ui/PrimaryButton";
@@ -126,7 +126,11 @@ export default function Waitlist() {
         </div>
         <div className="tracking-tighter text-text-muted">
           Join the waitlist,{" "}
-          <span className="text-accent">{waitlistCount}</span> already have
+          <span className="text-accent inline">
+            {waitlistCount}{" "}
+            <User weight="fill" className="inline -translate-y-[2px]" />{" "}
+          </span>{" "}
+          already have
         </div>
 
         {status === "error" && (
