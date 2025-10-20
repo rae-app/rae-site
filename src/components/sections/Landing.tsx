@@ -167,10 +167,15 @@ export default function Landing() {
             <EnvelopeIcon weight="fill" size={20} />
             Join the waitlist
           </PrimaryButton>
-          <button className="h-[36px] text-sm font-medium cursor-pointer flex gap-2 items-center bg-gradient-to-b from-border-button/5 hover:from-border-button/40 focus:from-border-button/40 to-border-button/80 px-3 border border-border-button rounded-sm ">
+          <a
+            href="https://discord.gg/F9y8AqY5xE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="h-[36px] text-sm font-medium cursor-pointer flex gap-2 items-center bg-gradient-to-b from-border-button/5 hover:from-border-button/40 focus:from-border-button/40 to-border-button/80 px-3 border border-border-button rounded-sm "
+          >
             <DiscordLogoIcon weight="fill" size={20} />
             Join our community
-          </button>
+          </a>
         </div>
         <div className="mt-4 sm:mt-2 text-text-muted text-sm">
           Coming soon for Windows and macOS

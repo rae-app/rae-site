@@ -179,14 +179,14 @@ export function EmailTemplate({ name }: EmailTemplate) {
                     >
                     •
                     <a
-                        href="https://discord.gg/jbCj6vXq"
+                        href="https://discord.gg/F9y8AqY5xE"
                         target="_blank"
                         rel="noopener noreferrer"
                         >Updates</a
                     >
                     •
                     <a
-                        href="https://discord.gg/jbCj6vXq"
+                        href="https://discord.gg/F9y8AqY5xE"
                         target="_blank"
                         rel="noopener noreferrer"
                         >Support</a

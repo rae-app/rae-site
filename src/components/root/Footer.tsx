@@ -25,7 +25,7 @@ export default function Footer() {
     <div
       ref={pageRef}
       id="contact"
-      className="bg-zinc-900 text-white w-full h-fit overflow-hidden  z-40 shrink-0 flex flex-col"
+      className="bg-zinc-900 text-white w-full h-fit overflow-hidden  z-[1000] shrink-0 flex flex-col"
     >
       <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-full max-w-[1600px] h-full flex sm:flex-row flex-col">
         <div className="h-full w-full sm:w-[40%] shrink-0 flex flex-col p-8">
@@ -39,26 +39,51 @@ export default function Footer() {
               <motion.div style={{ y: tY2, scaleY: springY }}> e</motion.div>
             </motion.div>
           </motion.div>
-          <div className="mt-4 text-zinc-300 hover:text-white hover:underline cursor-pointer">
+          <a
+            href="mailto:teamraeai@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 text-zinc-300 hover:text-white hover:underline cursor-pointer"
+          >
             teamraeai@gmail.com
-          </div>
-          <div className=" text-zinc-300 hover:text-white hover:underline cursor-pointer">
+          </a>
+          <a
+            href="tel:+917550883806"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" text-zinc-300 hover:text-white hover:underline cursor-pointer"
+          >
             +91 75508 83806
-          </div>
-          <div className=" text-zinc-300 hover:text-white hover:underline cursor-pointer">
+          </a>
+          <div className=" text-zinc-300">
             Brookefield, Bengaluru, Karnataka, IN
           </div>
           <div className="text-lg mt-4">Follow for updates</div>
           <div className="flex flex-col mt-2">
-            <div className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2">
+            <a
+              href="https://discord.gg/F9y8AqY5xE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2"
+            >
               <DiscordLogoIcon /> Join our discord server
-            </div>
-            <div className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2">
+            </a>
+            <a
+              href="https://x.com/nihaliscoding"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2"
+            >
               <XLogoIcon /> @nihaliscoding
-            </div>
-            <div className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2">
+            </a>
+            <a
+              href="https://instagram.com/nihal.iscooked"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2"
+            >
               <InstagramLogoIcon /> @nihal.iscooked
-            </div>
+            </a>
           </div>
         </div>
         <div className=" w-full  sm:flex hidden overflow-hidden relative flex flex-col p-8">

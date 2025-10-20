@@ -16,17 +16,32 @@ export default function About() {
         and easily. So, we decided to create our own.
         <br></br> <br></br>
         Brought to you by{" "}
-        <span className="underline hover:text-accent cursor-pointer">
+        <a
+          href="https://github.com/amoreX"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-accent cursor-pointer"
+        >
           Nihal
-        </span>
+        </a>
         ,{" "}
-        <span className="underline hover:text-accent cursor-pointer">
-          Kushgara
-        </span>{" "}
+        <a
+          href="https://github.com/kushagra2503"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-accent cursor-pointer"
+        >
+          Kushagra
+        </a>{" "}
         and{" "}
-        <span className="underline hover:text-accent cursor-pointer">
+        <a
+          href="https://github.com/ronishrohan"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-accent cursor-pointer"
+        >
           Ronish
-        </span>
+        </a>
       </div>
     </div>
   );
