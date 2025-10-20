@@ -19,22 +19,21 @@ const Navbar = ({}) => {
         {/*<div className="ml-auto gap-2 text-sm flex h-full items-center"></div>*/}
 
         <div className=" h-full sm:ml-auto w-full sm:w-fit text-sm flex gap-2 items-center">
-          
           <div
             onClick={() => scrollToSection("features")}
-            className="cursor-pointer h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+            className="cursor-pointer border border-transparent hover:border-border h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-75"
           >
             Features
           </div>
           <div
             onClick={() => scrollToSection("about")}
-            className="cursor-pointer h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+            className="cursor-pointer border border-transparent hover:border-border h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-75"
           >
             About
           </div>
           <div
             onClick={() => scrollToSection("contact")}
-            className="cursor-pointer h-[32px] mr-4 px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+            className="cursor-pointer border border-transparent hover:border-border h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors mr-4 duration-75"
           >
             Contact
           </div>
@@ -58,8 +57,8 @@ const Navbar = ({}) => {
             className="h-[32px] ml-auto sm:ml-0"
           >
             <EnvelopeIcon weight="fill" size={20} />
-            <span className="hidden sm:flex" >Join waitlist</span>
-            <span className="flex sm:hidden" >Waitlist</span>
+            <span className="hidden sm:flex">Join waitlist</span>
+            <span className="flex sm:hidden">Waitlist</span>
           </PrimaryButton>
         </div>
       </div>
