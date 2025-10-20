@@ -8,7 +8,7 @@ const Navbar = ({}) => {
   const { scrollToSection } = useSmoothScroll();
   return (
     <div className="h-[58px] z-50 shrink-0 flex w-full border-b border-border fixed top-0 bg-gradient-to-b  from-background to-background/20 backdrop-blur-xs ">
-      <div className="mx-auto border-x border-border px-8 w-full sm:max-w-[1400px] h-full flex items-center ">
+      <div className="mx-auto border-x border-border px-8 w-full sm:max-w-[1600px] h-full flex items-center ">
         <button
           onClick={() => scrollToSection("home")}
           className="text-xl cursor-pointer font-medium sm:flex hidden !m-0 flex gap-2 items-center "

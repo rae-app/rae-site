@@ -25,10 +25,10 @@ export default function Footer() {
     <div
       ref={pageRef}
       id="contact"
-      className="bg-zinc-900 text-white w-full h-fit   shrink-0 flex flex-col"
+      className="bg-zinc-900 text-white w-full h-fit overflow-hidden  z-40 shrink-0 flex flex-col"
     >
-      <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-full max-w-[1400px] h-full flex sm:flex-row flex-col">
-        <div className="h-full w-full sm:w-fit shrink-0 flex flex-col p-8">
+      <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-full max-w-[1600px] h-full flex sm:flex-row flex-col">
+        <div className="h-full w-full sm:w-[40%] shrink-0 flex flex-col p-8">
           <motion.div className="text-4xl flex gap-3 items-center">
             <motion.div
               style={{ scale: springY }}
@@ -67,7 +67,7 @@ export default function Footer() {
             style={{ opacity: scrollYProgress }}
             className="size-full overflow-hidden relative rounded-sm"
           >
-            <div className="absolute z-10 size-full flex items-start mix-blend-lighten text-transparent bg-clip-text bg-gradient-to-r from-background to-yellow-100 justify-start p-4 font-roboto-serif text-6xl tracking-tighter text-left">
+            <div className="absolute  z-10 size-full flex items-start mix-blend-lighten text-transparent bg-clip-text bg-gradient-to-r from-background to-yellow-100 justify-start p-4 font-roboto-serif text-6xl tracking-tighter text-left">
               The only assistant you&apos;ll ever need
             </div>
             <motion.div>
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-zinc-800">
-        <div className="mx-auto text-sm w-[1400px] border-x border-zinc-800 p-4 text-zinc-400">
+        <div className="mx-auto text-sm w-[1600px] border-x border-zinc-800 p-4 text-zinc-400">
           Copyright @2025 Rae. All rights reserved.
         </div>
       </div>

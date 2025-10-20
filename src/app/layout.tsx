@@ -5,6 +5,7 @@ import { IBM_Plex_Mono, Roboto_Serif } from "next/font/google";
 import Navbar from "@/components/root/Navbar";
 import "./globals.css";
 import Footer from "@/components/root/Footer";
+import Testers from "@/components/root/Testers";
 
 const instrumentSans = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -65,7 +66,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/assets/images/og.png",
-        width: 1400,
+        width: 1600,
         height: 630,
         alt: "Rae - The First True AI Assistant",
       },
@@ -169,8 +170,9 @@ export default function RootLayout({
         className={` ${instrumentSans.className} ${robotoSerif.variable} bg-background overflow-x-hidden text-foreground antialiased flex flex-col items-start justify-start`}
       >
         <ReactLenis root>
+          <Testers />
           <Navbar />
-          <div className="mx-auto  border-x border-border max-w-[1400px] w-full h-fit">
+          <div className="mx-auto  border-x border-border max-w-[1600px] w-full h-fit">
             {children}
           </div>
           <Footer />
