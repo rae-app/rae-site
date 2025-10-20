@@ -2,6 +2,7 @@
 import {
   EnvelopeOpenIcon,
   Flask,
+  Smiley,
   SmileySadIcon,
   XIcon,
   XLogoIcon,
@@ -12,12 +13,22 @@ import { AnimatePresence, motion } from "motion/react";
 export default function Testers() {
   const [open, setOpen] = useState(false);
   const [interested, setInterested] = useState(false);
+
   useEffect(() => {
+    // Check if user has already interacted with the testers popup
+    const showShowTesters = localStorage.getItem("showShowTesters");
+    if (showShowTesters === "true") {
+      return; // Don't show the popup if user already interacted
+    }
+
     const timeout = setTimeout(() => {
       setOpen(true);
     }, 1500);
     return () => clearTimeout(timeout);
   }, []);
+
+  const [clicked, setClicked] = useState(false);
+
   return (
     <AnimatePresence>
       {open && (
@@ -53,7 +64,9 @@ export default function Testers() {
                 if (!interested) {
                   setInterested(true);
                 } else {
+                  localStorage.setItem("showShowTesters", "true");
                   window.open("https://twitter.com/nihaliscoding", "_blank");
+                  setClicked(true);
                 }
               }}
               className="bg-gradient-to-t h-[40px] mt-auto w-full cursor-pointer hover:to-accent flex justify-between items-center from-accent to-accent/80 text-white  text-sm rounded-sm  px-3 py-2  shadow-[0px_0px_0.3px_1px_var(--color-accent),inset_0px_1px_0.8px_rgba(255,255,255,0.42)] mb-2"
@@ -76,7 +89,9 @@ export default function Testers() {
                     animate={{ height: "40px" }}
                     transition={{ ease: "circInOut", duration: 0.5 }}
                     onClick={() => {
+                      localStorage.setItem("showShowTesters", "true");
                       window.open("mailto:teamraeai@gmail.com", "_blank");
+                      setClicked(true);
                     }}
                     className="bg-gradient-to-t    w-full cursor-pointer hover:to-accent flex justify-between items-center from-accent to-accent/80 text-white  text-sm rounded-sm   shadow-[0px_0px_0.3px_1px_var(--color-accent),inset_0px_1px_0.8px_rgba(255,255,255,0.42)] overflow-hidden mb-2"
                   >
@@ -88,11 +103,24 @@ export default function Testers() {
               )}
             </AnimatePresence>
             <button
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                localStorage.setItem("showShowTesters", "true");
+                setOpen(false);
+              }}
               className="h-[40px] text-sm justify-between font-medium cursor-pointer flex gap-2 items-center bg-gradient-to-b from-border-button/5 hover:from-border-button/40 focus:from-border-button/40 to-border-button/80 px-3 border border-border-button rounded-sm mb-1"
             >
-              {interested ? "Sorry clicked the wrong button" : "Not interested"}
-              <SmileySadIcon />
+              {clicked ? (
+                <>
+                  Done <Smiley />
+                </>
+              ) : (
+                <>
+                  {interested
+                    ? "Sorry clicked the wrong button"
+                    : "Not interested"}
+                  <SmileySadIcon />
+                </>
+              )}
             </button>
           </div>
         </motion.div>
