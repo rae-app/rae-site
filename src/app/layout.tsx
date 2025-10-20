@@ -21,7 +21,7 @@ const robotoSerif = Roboto_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "Rae - The First True AI Assistant",
+    default: "Rae - AI Desktop Assistant",
     template: "%s | Rae",
   },
   description:
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://raeai.app",
     siteName: "Rae",
-    title: "Rae - The First True AI Assistant",
+    title: "Rae - AI Desktop Assistant",
     description:
       "Rae is the first True AI Assistant that understands context, learns from interactions, and provides personalized assistance across all your digital tasks.",
     images: [
@@ -68,13 +68,13 @@ export const metadata: Metadata = {
         url: "/assets/images/og.png",
         width: 1600,
         height: 630,
-        alt: "Rae - The First True AI Assistant",
+        alt: "Rae - AI Desktop Assistant",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rae - The First True AI Assistant",
+    title: "Rae - AI Desktop Assistant",
     description:
       "Rae is the first True AI Assistant that understands context, learns from interactions, and provides personalized assistance across all your digital tasks.",
     images: ["/assets/favicon/rae.png"],
