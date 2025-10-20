@@ -97,7 +97,7 @@ export default function Waitlist() {
               {/*<HeartIcon weight="fill" className="hidden sm:block" />*/}
             </div>
             <div className="text-3xl font-roboto-serif tracking-tighter">
-              We'll notify you soon
+              We&apos;ll notify you soon
             </div>
             <div className="tracking-tighter text-red-100">
               Keep a look out for an email from us
