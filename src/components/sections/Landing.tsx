@@ -3,6 +3,7 @@ import { DiscordLogoIcon, EnvelopeIcon } from "@phosphor-icons/react/dist/ssr";
 import { useScroll, motion, useTransform, useSpring } from "motion/react";
 import React, { useRef } from "react";
 import PrimaryButton from "@/components/ui/PrimaryButton";
+import { useSmoothScroll } from "@/hooks/useScroll";
 
 export default function Landing() {
   const pageRef = useRef(null);
@@ -18,6 +19,7 @@ export default function Landing() {
     useTransform(scrollYProgress, [0, 1], ["0%", "-120%"]),
     { stiffness: 100, damping: 30 },
   );
+  const scroll = useSmoothScroll()
   return (
     <div
       id="home"
@@ -75,11 +77,11 @@ export default function Landing() {
           Made by developers, for developers.
         </div>
         <div className="flex sm:flex-row flex-col w-full sm:w-fit gap-2 mt-8">
-          <PrimaryButton className="h-[36px]">
+          <PrimaryButton className="h-[36px]" onClick={() => scroll.scrollToSection("waitlist")}>
             <EnvelopeIcon weight="fill" size={20} />
             Join the waitlist
           </PrimaryButton>
-          <button className="h-[36px] text-sm font-medium flex gap-2 items-center bg-border-button/20 hover:bg-border-button/40 px-3 border border-border-button rounded-sm ">
+          <button className="h-[36px] text-sm font-medium cursor-pointer flex gap-2 items-center bg-gradient-to-b from-border-button/5 hover:from-border-button/40  to-border-button/80 px-3 border border-border-button rounded-sm ">
             <DiscordLogoIcon weight="fill" size={20} />
             Join our community
           </button>

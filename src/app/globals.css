@@ -21,6 +21,10 @@
     --text-muted: #888888;
 }
 
+button:focus-visible{
+    outline: 2px solid var(--color-accent);
+}
+
 body,
 #root,
 html {
