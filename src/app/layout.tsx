@@ -8,7 +8,7 @@ import Footer from "@/components/root/Footer";
 
 const instrumentSans = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-instrument-sans",
+  // variable: "--font-instrument-sans",
   weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
