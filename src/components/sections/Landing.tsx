@@ -87,33 +87,33 @@ export default function Landing() {
         style={{ left: tX }}
         animate={{ opacity: 1 }}
         initial={{ opacity: 0 }}
-        className="absolute  hidden sm:flex"
+        className="absolute z-[21]  hidden sm:flex"
       >
         <motion.div
           animate={{ x: pos[0] / 10, y: pos[1] / 10 }}
-          className="size-[20vw] absolute border bottom-0 translate-y-1/2 border-border/90 rounded-full "
+          className="size-[20vw] z-20 absolute border bottom-0 translate-y-1/2 border-border/90 rounded-full "
         />
         <motion.div
           animate={{ x: pos[0] / 20, y: pos[1] / 20 }}
-          className="size-[30vw] absolute border bottom-0 translate-y-1/2 border-border  rounded-full "
+          className="size-[30vw] z-20 absolute border bottom-0 translate-y-1/2 border-border  rounded-full "
         />
         <motion.div
           animate={{ x: pos[0] / 30, y: pos[1] / 30 }}
-          className="size-[40vw] absolute border bottom-0 translate-y-1/2 border-border/80 rounded-full "
+          className="size-[40vw] z-20 absolute border bottom-0 translate-y-1/2 border-border/80 rounded-full "
         />
 
         <motion.div
           animate={{ x: pos[0] / 45, y: pos[1] / 45 }}
-          className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full "
+          className="size-[45vw] z-20 absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full "
         />
         <motion.div
           animate={{ x: pos[0] / 50, y: pos[1] / 50 }}
-          className="size-[50vw] absolute border bottom-0 translate-y-1/2 border-border/60 rounded-full "
+          className="size-[50vw] backdrop-blur-[4px] z-[15] absolute border bottom-0 translate-y-1/2 border-border/60 rounded-full "
         />
         <motion.div
           transition={{ ease: "easeInOut", duration: 0.05 }}
           animate={{ x: pos[0] / 100, y: pos[1] / 100 }}
-          className="size-[60vw] absolute border bottom-0 translate-y-1/2 border-border rounded-full "
+          className="size-[60vw] backdrop-blur-[4px] absolute border bottom-0 translate-y-1/2 border-border rounded-full "
         />
       </motion.div>
       <motion.div
@@ -151,7 +151,7 @@ export default function Landing() {
           className="size-[60vw] absolute border bottom-0 translate-y-1/2 border-border/40 rounded-full "
         />
       </motion.div>
-      <div className=" flex flex-col z-20 p-8 sm:p-8 items-center sm:justify-center justify-start">
+      <div className=" flex flex-col z-30 p-8 sm:p-8 items-center sm:justify-center justify-start">
         <div className="text-5xl  font-roboto-serif text-accent tracking-tighter">
           Make your desktop smarter
         </div>
