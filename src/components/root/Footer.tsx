@@ -55,10 +55,10 @@ export default function Footer() {
               <DiscordLogoIcon /> Join our discord server
             </div>
             <div className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2">
-              <XLogoIcon /> @nihaliscoding on X
+              <XLogoIcon /> @nihaliscoding
             </div>
             <div className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2">
-              <InstagramLogoIcon /> @nihal.iscooked on Instagram
+              <InstagramLogoIcon /> @nihal.iscooked
             </div>
           </div>
         </div>
