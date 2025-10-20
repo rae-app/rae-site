@@ -69,12 +69,12 @@ export default function Footer() {
               <DiscordLogoIcon /> Join our discord server
             </a>
             <a
-              href="https://x.com/nihaliscoding"
+              href="https://x.com/thisisraeai"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2"
             >
-              <XLogoIcon /> @nihaliscoding
+              <XLogoIcon /> @thisisraeai
             </a>
             <a
               href="https://instagram.com/nihal.iscooked"
