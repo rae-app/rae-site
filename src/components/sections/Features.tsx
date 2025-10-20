@@ -114,7 +114,7 @@ export default function Features() {
       </div>
       <div className="w-1/2 p-8 sm:flex hidden">
         {/* Video display for selected feature */}
-        <div className="w-full h-1/2 rounded-sm  sticky top-[92px] overflow-hidden">
+        <div className="w-full h-fit rounded-sm  sticky top-[92px] overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               initial={{ opacity: 0 }}

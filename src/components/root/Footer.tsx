@@ -27,7 +27,7 @@ export default function Footer() {
       id="contact"
       className="bg-zinc-900 text-white w-full h-fit   shrink-0 flex flex-col"
     >
-      <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-full max-w-[1200px] h-full flex sm:flex-row flex-col">
+      <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-full max-w-[1400px] h-full flex sm:flex-row flex-col">
         <div className="h-full w-full sm:w-fit shrink-0 flex flex-col p-8">
           <motion.div className="text-4xl flex gap-3 items-center">
             <motion.div
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-zinc-800">
-        <div className="mx-auto text-sm w-[1200px] border-x border-zinc-800 p-4 text-zinc-400">
+        <div className="mx-auto text-sm w-[1400px] border-x border-zinc-800 p-4 text-zinc-400">
           Copyright @2025 Rae. All rights reserved.
         </div>
       </div>

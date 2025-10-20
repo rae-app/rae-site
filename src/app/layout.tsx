@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/assets/images/og.png",
-        width: 1200,
+        width: 1400,
         height: 630,
         alt: "Rae - The First True AI Assistant",
       },
@@ -170,7 +170,7 @@ export default function RootLayout({
       >
         <ReactLenis root>
           <Navbar />
-          <div className="mx-auto  border-x border-border max-w-[1200px] w-full h-fit">
+          <div className="mx-auto  border-x border-border max-w-[1400px] w-full h-fit">
             {children}
           </div>
           <Footer />
