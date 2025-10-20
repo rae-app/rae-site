@@ -36,23 +36,24 @@ export async function addToWaitlist(formData: WaitlistData) {
     };
 
     // Insert into default project
-    const { data, error } = await supabase
-      .from("waitlist")
-      .insert([waitlistEntry])
-      .select("id");
+    // const { data, error } = await supabase
+    //   .from("waitlist")
+    //   .insert([waitlistEntry])
+    //   .select("id");
 
     // Insert into main project (no select needed)
-    const { error: mainError } = await supabaseMain
+    const { error: mainError, data } = await supabaseMain
       .from("waitlist")
       .insert([waitlistEntry]);
 
-    if (error) {
-      // Handle duplicate email
-      if (error.code === "23505") {
-        throw new Error("This email is already registered");
-      }
-      throw new Error("Failed to join waitlist");
-    }
+    // if (error) {
+    //   // Handle duplicate email
+    //   if (error.code === "23505") {
+    //     throw new Error("This email is already registered");
+    //   }
+    //   console.log(error);
+    //   throw new Error("Failed to join waitlist");
+    // }
     if (mainError) {
       // Log but don't block user
       console.error("Failed to add to main waitlist:", mainError);

@@ -42,7 +42,7 @@ export default function Waitlist() {
     setStatus("idle");
 
     try {
-      // await addToWaitlist({ email });
+      await addToWaitlist({ email });
       setEmail("");
       setStatus("success");
       // Update count after successful submission
