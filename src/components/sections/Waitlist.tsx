@@ -59,7 +59,7 @@ export default function Waitlist() {
     <div
       ref={pageRef}
       id="waitlist"
-      className="border-b border-border relative h-[calc(100vh-300px)] flex flex-col p-8 relative items-center justify-center overflow-hidden"
+      className=" relative h-[calc(100vh-300px)] flex flex-col p-8  items-center justify-center overflow-hidden"
     >
       {status === "success" && (
         <>

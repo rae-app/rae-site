@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 interface FeatureProps {
   title: string;
@@ -36,21 +36,25 @@ const features = [
     title: "Context-Aware Intelligence",
     description:
       "Rae reads your screen and provides intelligent, context-aware assistance exactly when you need it",
+    video: "/videos/listening.mp4",
   },
   {
     title: "Universal Tool Integration",
     description:
       "Seamlessly works with your favorite applications and tools to streamline your workflow",
+    video: "/videos/agentic.mp4",
   },
   {
     title: "Instant Accessibility",
     description:
       "Appears instantly when you copy, highlight, or select text anywhere on your system",
+    video: "/videos/insert.mp4",
   },
   {
     title: "Always Available",
     description:
       "Summon Rae from anywhere with a simple @rae command - your AI assistant is always ready",
+    video: "/videos/at-rae.mp4",
   },
 ];
 
@@ -71,31 +75,30 @@ export default function Features() {
           streamline your digital experience.
         </div>
         <motion.div
-        viewport={{once: true}}
+          viewport={{ once: true }}
           whileInView={"visible"}
           initial={"rest"}
           className="flex flex-col gap-2 w-full mt-6"
         >
           {features.map((feature, index) => (
             <motion.div
-            key={"feature" + index}
+              key={"feature" + index}
               variants={{
                 visible: {
                   opacity: 1,
                   scale: 1,
-                  x:0
+                  x: 0,
                 },
                 rest: {
                   opacity: 0,
                   scale: 1,
-                  x: -10
-                }
+                  x: -10,
+                },
               }}
-
               transition={{
                 duration: 0.5,
                 ease: "easeInOut",
-                delay: index * 0.05
+                delay: index * 0.05,
               }}
             >
               <Feature
@@ -110,8 +113,30 @@ export default function Features() {
         </motion.div>
       </div>
       <div className="w-1/2 p-8 sm:flex hidden">
-        {/* Placeholder for feature visualization */}
-        <div className="w-full h-1/2 rounded-sm bg-black sticky top-[92px]"></div>
+        {/* Video display for selected feature */}
+        <div className="w-full h-1/2 rounded-sm  sticky top-[92px] overflow-hidden">
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.1 }}
+              key={activeFeature}
+            >
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ aspectRatio: "16/9" }}
+              >
+                <source src={features[activeFeature].video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
