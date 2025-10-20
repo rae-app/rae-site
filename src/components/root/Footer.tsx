@@ -11,7 +11,7 @@ export default function Footer() {
   const pageRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: pageRef,
-    offset: ["0 1", "1 1"],
+    offset: ["0 1", "0.5 1"],
   });
   const springY = useSpring(scrollYProgress, {
     stiffness: 200,
@@ -63,15 +63,20 @@ export default function Footer() {
           </div>
         </div>
         <div className=" w-full  sm:flex hidden overflow-hidden relative flex flex-col p-8">
-          <div className="size-full overflow-hidden relative rounded-sm">
+          <motion.div
+            style={{ opacity: scrollYProgress }}
+            className="size-full overflow-hidden relative rounded-sm"
+          >
             <div className="absolute z-10 size-full flex items-start mix-blend-lighten text-transparent bg-clip-text bg-gradient-to-r from-background to-yellow-100 justify-start p-4 font-roboto-serif text-6xl tracking-tighter text-left">
               The only assistant you&apos;ll ever need
             </div>
-            <img
-              src="/assets/images/cloud.gif"
-              className="absolute object-cover translate-y-[-120px]"
-            />
-          </div>
+            <motion.div>
+              <img
+                src="/assets/images/cloud.gif"
+                className="absolute object-cover translate-y-[-120px]"
+              />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
       <div className="border-t border-zinc-800">
