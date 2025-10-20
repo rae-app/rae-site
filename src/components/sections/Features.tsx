@@ -21,7 +21,7 @@ const Feature = ({
       className={`w-full tracking-tighter text-sm cursor-pointer select-none ${
         active
           ? "bg-accent/5 border-accent"
-          : "hover:bg-border/30 border-transparent"
+          : "hover:bg-border/30 border-transparent focus:bg-border/30"
       } rounded-sm border p-2 px-3 `}
       onClick={onClick}
     >

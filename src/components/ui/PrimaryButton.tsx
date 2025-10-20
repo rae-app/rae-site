@@ -13,7 +13,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, PrimaryButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "button rounded-sm flex cursor-pointer hover:brightness-[90%] transition-[filter] duration-75 gap-2 items-center text-sm text-background dark:text-white px-3 shadow-button bg-gradient-to-t from-black to-zinc-800 dark:from-accent/80 dark:to-accent font-medium",
+          "button rounded-sm flex cursor-pointer hover:brightness-[90%] focus:brightness-[90%] transition-[filter] duration-75 gap-2 items-center text-sm text-background dark:text-white px-3 shadow-button bg-gradient-to-t from-black to-zinc-800 dark:from-accent/80 dark:to-accent font-medium",
           className,
         )}
         {...props}
