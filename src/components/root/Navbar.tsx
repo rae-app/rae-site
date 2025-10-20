@@ -8,28 +8,29 @@ const Navbar = ({}) => {
   const { scrollToSection } = useSmoothScroll();
   return (
     <div className="h-[58px] z-50 shrink-0 flex w-full border-b border-border fixed top-0 bg-gradient-to-b  from-background to-background/20 backdrop-blur-xs ">
-      <div className="mx-auto border-x border-border px-8 w-[1200px] h-full flex items-center ">
+      <div className="mx-auto border-x border-border px-8 w-full sm:max-w-[1200px] h-full flex items-center ">
         <button
           onClick={() => scrollToSection("home")}
-          className="text-xl cursor-pointer font-medium !m-0 flex gap-2 items-center "
+          className="text-xl cursor-pointer font-medium sm:flex hidden !m-0 flex gap-2 items-center "
         >
           <div className=" size-4 rounded-full border-3 border-accent "></div>{" "}
           Rae
         </button>
         {/*<div className="ml-auto gap-2 text-sm flex h-full items-center"></div>*/}
 
-        <div className=" h-full ml-auto text-sm flex gap-2 items-center">
-          <div
-            onClick={() => scrollToSection("about")}
-            className="cursor-pointer h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
-          >
-            About
-          </div>
+        <div className=" h-full sm:ml-auto w-full sm:w-fit text-sm flex gap-2 items-center">
+          
           <div
             onClick={() => scrollToSection("features")}
             className="cursor-pointer h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
           >
             Features
+          </div>
+          <div
+            onClick={() => scrollToSection("about")}
+            className="cursor-pointer h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors duration-200"
+          >
+            About
           </div>
           <div
             onClick={() => scrollToSection("contact")}
@@ -54,10 +55,11 @@ const Navbar = ({}) => {
           </PrimaryButton>*/}
           <PrimaryButton
             onClick={() => scrollToSection("waitlist")}
-            className="h-[32px]"
+            className="h-[32px] ml-auto sm:ml-0"
           >
             <EnvelopeIcon weight="fill" size={20} />
-            Join waitlist
+            <span className="hidden sm:flex" >Join waitlist</span>
+            <span className="flex sm:hidden" >Waitlist</span>
           </PrimaryButton>
         </div>
       </div>

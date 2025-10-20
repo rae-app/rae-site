@@ -60,7 +60,7 @@ export default function Features() {
   return (
     <div
       id="features"
-      className="border-b border-border h-[calc(100vh-58px)] sm:divide-x divide-border flex"
+      className="border-b border-border h-fit sm:h-[calc(100vh-58px)] sm:divide-x divide-border flex"
     >
       <div className="sm:w-1/2 w-full shrink-0 flex flex-col p-8 overflow-hidden">
         <div className="text-3xl tracking-tighter text-accent font-roboto-serif">

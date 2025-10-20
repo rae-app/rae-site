@@ -17,10 +17,10 @@ export default function Footer() {
     <div
       ref={pageRef}
       id="contact"
-      className="bg-zinc-900 text-white w-full h-[40vh] border-t border-border shrink-0 flex flex-col"
+      className="bg-zinc-900 text-white w-full h-fit sm:h-[40vh] border-t border-border shrink-0 flex flex-col"
     >
-      <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-[1200px] h-full flex">
-        <div className="h-full w-fit shrink-0 flex flex-col p-8">
+      <div className="mx-auto border-x divide-x divide-zinc-800  border-zinc-800 w-full max-w-[1200px] h-full flex sm:flex-row flex-col">
+        <div className="h-full w-full sm:w-fit shrink-0 flex flex-col p-8">
           <motion.div  className="text-4xl flex gap-3 items-center">
             <motion.div style={{scale: scrollYProgress}} className="size-7 border-4 border-accent rounded-full"></motion.div>
             <motion.div className="flex">
@@ -51,7 +51,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className=" w-full  overflow-hidden relative flex flex-col p-8">
+        <div className=" w-full  sm:flex hidden overflow-hidden relative flex flex-col p-8">
           <div className="size-full overflow-hidden relative rounded-sm">
             <div className="absolute z-10 size-full flex items-start mix-blend-lighten text-transparent bg-clip-text bg-gradient-to-r from-background to-yellow-100 justify-start p-4 font-roboto-serif text-6xl tracking-tighter text-left">
               The only assistant you'll ever need
