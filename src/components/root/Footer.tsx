@@ -55,7 +55,7 @@ export default function Footer() {
         <div className=" w-full  sm:flex hidden overflow-hidden relative flex flex-col p-8">
           <div className="size-full overflow-hidden relative rounded-sm">
             <div className="absolute z-10 size-full flex items-start mix-blend-lighten text-transparent bg-clip-text bg-gradient-to-r from-background to-yellow-100 justify-start p-4 font-roboto-serif text-6xl tracking-tighter text-left">
-              The only assistant you'll ever need
+              The only assistant you&apos;ll ever need
             </div>
             <img
               src="/assets/images/cloud.gif"
