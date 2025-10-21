@@ -1,6 +1,5 @@
 "use server";
 
-import { createAdminClient } from "@/utils/supabase/admin";
 import { createClient } from "@supabase/supabase-js";
 import { sendSingleWelcomeEmail } from "./email";
 
@@ -22,7 +21,6 @@ export async function addToWaitlist(formData: WaitlistData) {
   }
 
   try {
-    const supabase = createAdminClient();
     // Create client for main project
     const supabaseMain = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_MAIN_URL!,

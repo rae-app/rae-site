@@ -4,7 +4,6 @@ import {
   Flask,
   Smiley,
   SmileySadIcon,
-  XIcon,
   XLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import React, { useEffect, useState } from "react";

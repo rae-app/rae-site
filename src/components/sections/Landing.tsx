@@ -35,7 +35,7 @@ export default function Landing() {
     return () => {
       document.removeEventListener("mousemove", handleMove);
     };
-  }, []);
+  }, [screen]);
 
   useEffect(() => {
     console.log(pos);
@@ -137,10 +137,6 @@ export default function Landing() {
         <motion.div
           animate={{ x: pos[0] / 45, y: pos[1] / 45 }}
           className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/70 rounded-full "
-        />
-        <motion.div
-          animate={{ x: pos[0] / 50, y: pos[1] / 50 }}
-          className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full "
         />
         <motion.div
           animate={{ x: pos[0] / 70, y: pos[1] / 70 }}

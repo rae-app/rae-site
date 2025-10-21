@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="h-full w-full sm:w-[40%] shrink-0 flex flex-col p-8">
           <motion.div className="text-4xl flex gap-3 items-center">
             <motion.div style={{ scale: springY }} className="size-8 ">
-              <img src="/assets/favicon/rae.png" />
+              <img src="/assets/favicon/rae.png" alt="Rae logo" />
             </motion.div>
             <motion.div className="flex">
               <motion.div style={{ y: tY, scaleY: springY }}> R</motion.div>
@@ -97,6 +97,7 @@ export default function Footer() {
             <motion.div>
               <img
                 src="/assets/images/cloud.gif"
+                alt="Cloud animation"
                 className="absolute object-cover translate-y-[-120px]"
               />
             </motion.div>

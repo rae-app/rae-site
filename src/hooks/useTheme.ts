@@ -10,12 +10,7 @@ export const useTheme = () => {
 
   useEffect(() => {
     setMounted(true);
-    // Check for saved theme preference or default to system preference
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-
+    // Default to light theme
     const initialTheme = "light";
     setTheme(initialTheme);
 
