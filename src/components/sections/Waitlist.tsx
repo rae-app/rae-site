@@ -11,8 +11,6 @@ export default function Waitlist() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [waitlistCount, setWaitlistCount] = useState(0);
-  const [pos, setPos] = useState([0, 0]);
-  const [screen, setScreen] = useState([0, 0]);
 
   const { scrollYProgress } = useScroll({
     target: pageRef,
@@ -34,20 +32,6 @@ export default function Waitlist() {
       }
     };
     fetchCount();
-  }, []);
-
-  useEffect(() => {
-    function handleMove(e: MouseEvent) {
-      setPos([e.clientX - screen[0] / 2, e.clientY - screen[1] / 2]);
-    }
-    if (document) {
-      setScreen([window.innerWidth, window.innerHeight]);
-      document.addEventListener("mousemove", handleMove);
-    }
-
-    return () => {
-      document.removeEventListener("mousemove", handleMove);
-    };
   }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -125,34 +109,13 @@ export default function Waitlist() {
         style={{ scale: scaleT }}
         className="absolute left-[50%] bottom-[0] flex items-center justify-center opacity-80 "
       >
-        <motion.div
-          animate={{ x: pos[0] / 20, y: pos[1] / 20 }}
-          className="size-[30vw] absolute border bottom-0 translate-y-1/2 border-border  rounded-full "
-        />
-        <motion.div
-          animate={{ x: pos[0] / 30, y: pos[1] / 30 }}
-          className="size-[20vw] absolute border bottom-0 translate-y-1/2 border-border/90 rounded-full "
-        />
-        <motion.div
-          animate={{ x: pos[0] / 45, y: pos[1] / 45 }}
-          className="size-[40vw] absolute border bottom-0 translate-y-1/2 border-border/80 rounded-full "
-        />
-        <motion.div
-          animate={{ x: pos[0] / 50, y: pos[1] / 50 }}
-          className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/70 rounded-full "
-        />
-        <motion.div
-          animate={{ x: pos[0] / 70, y: pos[1] / 70 }}
-          className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full "
-        />
-        <motion.div
-          animate={{ x: pos[0] / 90, y: pos[1] / 90 }}
-          className="size-[50vw] absolute border bottom-0 translate-y-1/2 border-border/60 rounded-full "
-        />
-        <motion.div
-          animate={{ x: pos[0] / 100, y: pos[1] / 100 }}
-          className="size-[60vw] absolute border bottom-0 translate-y-1/2 border-border/40 rounded-full "
-        />
+        <div className="size-[30vw] absolute border bottom-0 translate-y-1/2 border-border  rounded-full " />
+        <div className="size-[20vw] absolute border bottom-0 translate-y-1/2 border-border/90 rounded-full " />
+        <div className="size-[40vw] absolute border bottom-0 translate-y-1/2 border-border/80 rounded-full " />
+        <div className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/70 rounded-full " />
+        <div className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full " />
+        <div className="size-[50vw] absolute border bottom-0 translate-y-1/2 border-border/60 rounded-full " />
+        <div className="size-[60vw] absolute border bottom-0 translate-y-1/2 border-border/40 rounded-full " />
       </motion.div>
       <div
         style={{ opacity: status == "success" ? 0 : 1 }}
