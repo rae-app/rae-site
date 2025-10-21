@@ -142,10 +142,6 @@ export default function Waitlist() {
           className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/70 rounded-full "
         />
         <motion.div
-          animate={{ x: pos[0] / 70, y: pos[1] / 70 }}
-          className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full "
-        />
-        <motion.div
           animate={{ x: pos[0] / 90, y: pos[1] / 90 }}
           className="size-[50vw] absolute border bottom-0 translate-y-1/2 border-border/60 rounded-full "
         />
