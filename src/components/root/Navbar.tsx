@@ -3,6 +3,7 @@
 import { useSmoothScroll } from "@/hooks/useScroll";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import { EnvelopeIcon } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 
 const Navbar = ({}) => {
   const { scrollToSection } = useSmoothScroll();
@@ -14,7 +15,7 @@ const Navbar = ({}) => {
           className="text-xl cursor-pointer font-medium sm:flex hidden !m-0 flex gap-2 items-center "
         >
           <div className="size-5 shrink-0 ">
-            <img src="/assets/favicon/rae.png" alt="Rae logo" />
+            <Image src="/assets/favicon/rae.png" alt="Rae logo" width={20} height={20} />
           </div>
           {/*<div className=" size-4 rounded-full border-3 border-accent "></div>{" "}*/}
           Rae

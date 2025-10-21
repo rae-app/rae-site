@@ -1,32 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import React from "react";
+import { motion } from "motion/react";
 
 interface FeatureProps {
   title: string;
   description: string;
-  active?: boolean;
   onClick?: () => void;
 }
 
 const Feature = ({
   title,
   description,
-  active = false,
   onClick,
 }: FeatureProps) => {
   return (
     <div
-      className={`w-full tracking-tighter text-sm cursor-pointer select-none ${
-        active
-          ? "bg-accent/5 border-accent"
-          : "hover:bg-border/30 border-transparent focus:bg-border/30"
-      } rounded-sm border p-2 px-3 `}
+      className={`w-full tracking-tighter text-sm cursor-pointer select-none hover:bg-border/30 border-transparent focus:bg-border/30rounded-sm border p-2 px-3 `}
       onClick={onClick}
     >
       <div className="">{title}</div>
-      <div className="text-text-muted  mt-1">{description}</div>
+      <div className="text-text-muted mt-1">{description}</div>
     </div>
   );
 };
@@ -59,14 +53,13 @@ const features = [
 ];
 
 export default function Features() {
-  const [activeFeature, setActiveFeature] = useState(0);
 
   return (
     <div
       id="features"
-      className="border-b border-border h-fit sm:h-[calc(100vh-58px)] sm:divide-x divide-border flex"
+      className="border-b border-border h-fit py-8"
     >
-      <div className="sm:w-1/2 w-full shrink-0 flex flex-col p-8 overflow-hidden">
+      <div className="px-8">
         <div className="text-3xl tracking-tighter text-accent font-roboto-serif">
           Engineered to perfection
         </div>
@@ -74,70 +67,62 @@ export default function Features() {
           Every feature is purposefully crafted to enhance your productivity and
           streamline your digital experience.
         </div>
-        <motion.div
-          viewport={{ once: true }}
-          whileInView={"visible"}
-          initial={"rest"}
-          className="flex flex-col gap-2 w-full mt-6"
-        >
-          {features.map((feature, index) => (
-            <motion.div
-              key={"feature" + index}
-              variants={{
-                visible: {
-                  opacity: 1,
-                  scale: 1,
-                  x: 0,
-                },
-                rest: {
-                  opacity: 0,
-                  scale: 1,
-                  x: -10,
-                },
-              }}
-              transition={{
-                duration: 0.5,
-                ease: "easeInOut",
-                delay: index * 0.05,
-              }}
-            >
+      </div>
+      
+      <motion.div
+        viewport={{ once: true }}
+        whileInView={"visible"}
+        initial={"rest"}
+        className="flex gap-4 mt-6 overflow-x-scroll px-8 pb-4 snap-x snap-mandatory scrollbar-thin scroll-smooth"
+        style={{
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'var(--border) transparent',
+        }}
+      >
+        {features.map((feature, index) => (
+          <motion.div
+            key={"feature" + index}
+            variants={{
+              visible: {
+                opacity: 1,
+                scale: 1,
+                x: 0,
+              },
+              rest: {
+                opacity: 0,
+                scale: 1,
+                x: -10,
+              },
+            }}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+              delay: index * 0.05,
+            }}
+            className="snap-center flex-shrink-0 w-[calc(100vw-4rem)] sm:w-[calc(50vw-3rem)] lg:w-[calc(33.333vw-3rem)]"
+          >
+            <div className="flex flex-col gap-3 h-full">
               <Feature
-                key={index}
                 title={feature.title}
                 description={feature.description}
-                active={activeFeature === index}
-                onClick={() => setActiveFeature(index)}
               />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-      <div className="w-1/2 p-8 sm:flex hidden">
-        {/* Video display for selected feature */}
-        <div className="w-full h-fit rounded-sm  sticky top-[92px] overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.1 }}
-              key={activeFeature}
-            >
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{ aspectRatio: "16/9" }}
-              >
-                <source src={features[activeFeature].video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
+              <div className="w-full rounded-sm overflow-hidden border border-border">
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ aspectRatio: "16/9" }}
+                >
+                  <source src={feature.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 }
