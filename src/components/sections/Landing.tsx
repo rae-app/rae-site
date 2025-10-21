@@ -56,7 +56,7 @@ export default function Landing() {
       >
         <motion.div
           animate={{ x: pos[0] / 20, y: pos[1] / 20 }}
-          className="size-[400px] absolute border bottom-0 translate-y-1/2 border-red-200/40 rounded-full "
+          className="size-[400px] absolute border bottom-0 translate-y-1/2 border-red-200/40 rounded-full " // Make it more red
         />
         <motion.div
           animate={{ x: pos[0] / 30, y: pos[1] / 30 }}
