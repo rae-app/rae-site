@@ -6,6 +6,7 @@ import {
   InstagramLogoIcon,
   XLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 
 export default function Footer() {
   const pageRef = useRef(null);
@@ -31,7 +32,7 @@ export default function Footer() {
         <div className="h-full w-full sm:w-[40%] shrink-0 flex flex-col p-8">
           <motion.div className="text-4xl flex gap-3 items-center">
             <motion.div style={{ scale: springY }} className="size-8 ">
-              <img src="/assets/favicon/rae.png" alt="Rae logo" />
+              <Image src="/assets/favicon/rae.png" alt="Rae logo" width={32} height={32} />
             </motion.div>
             <motion.div className="flex">
               <motion.div style={{ y: tY, scaleY: springY }}> R</motion.div>
