@@ -1,7 +1,7 @@
 "use client";
 import { HandHeartIcon, HeartIcon, User } from "@phosphor-icons/react/dist/ssr";
 import React, { useRef, useState, useEffect, FormEvent } from "react";
-import { motion, useScroll, useSpring } from "motion/react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import { addToWaitlist, getWaitlistCount } from "@/app/actions/waitlist";
 
@@ -48,7 +48,7 @@ export default function Waitlist() {
     return () => {
       document.removeEventListener("mousemove", handleMove);
     };
-  }, [screen]);
+  }, []);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -140,6 +140,10 @@ export default function Waitlist() {
         <motion.div
           animate={{ x: pos[0] / 50, y: pos[1] / 50 }}
           className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/70 rounded-full "
+        />
+        <motion.div
+          animate={{ x: pos[0] / 70, y: pos[1] / 70 }}
+          className="size-[45vw] absolute border bottom-0 translate-y-1/2 border-border/65 rounded-full "
         />
         <motion.div
           animate={{ x: pos[0] / 90, y: pos[1] / 90 }}
