@@ -1,7 +1,7 @@
 "use client";
 import { HandHeartIcon, HeartIcon, User } from "@phosphor-icons/react/dist/ssr";
 import React, { useRef, useState, useEffect, FormEvent } from "react";
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useScroll, useSpring } from "motion/react";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import { addToWaitlist, getWaitlistCount } from "@/app/actions/waitlist";
 
@@ -12,7 +12,7 @@ export default function Waitlist() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [waitlistCount, setWaitlistCount] = useState(0);
   const [pos, setPos] = useState([0, 0]);
-  const [screen, setScreen] = useState([0, 0]);
+  const screenRef = useRef([0, 0]);
 
   const { scrollYProgress } = useScroll({
     target: pageRef,
@@ -38,10 +38,10 @@ export default function Waitlist() {
 
   useEffect(() => {
     function handleMove(e: MouseEvent) {
-      setPos([e.clientX - screen[0] / 2, e.clientY - screen[1] / 2]);
+      setPos([e.clientX - screenRef.current[0] / 2, e.clientY - screenRef.current[1] / 2]);
     }
     if (document) {
-      setScreen([window.innerWidth, window.innerHeight]);
+      screenRef.current = [window.innerWidth, window.innerHeight];
       document.addEventListener("mousemove", handleMove);
     }
 

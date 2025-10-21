@@ -7,7 +7,7 @@ import { useSmoothScroll } from "@/hooks/useScroll";
 
 export default function Landing() {
   const [pos, setPos] = useState([0, 0]);
-  const [screen, setScreen] = useState([0, 0]);
+  const screenRef = useRef([0, 0]);
 
   const pageRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -25,17 +25,17 @@ export default function Landing() {
 
   useEffect(() => {
     function handleMove(e: MouseEvent) {
-      setPos([e.clientX - screen[0] / 2, e.clientY - screen[1] / 2]);
+      setPos([e.clientX - screenRef.current[0] / 2, e.clientY - screenRef.current[1] / 2]);
     }
     if (document) {
-      setScreen([window.innerWidth, window.innerHeight]);
+      screenRef.current = [window.innerWidth, window.innerHeight];
       document.addEventListener("mousemove", handleMove);
     }
 
     return () => {
       document.removeEventListener("mousemove", handleMove);
     };
-  }, [screen]);
+  }, []);
 
   useEffect(() => {
     console.log(pos);
