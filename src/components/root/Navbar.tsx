@@ -12,10 +12,16 @@ const Navbar = ({}) => {
       <div className="mx-auto border-x border-border px-8 w-full sm:max-w-[1600px] h-full flex items-center ">
         <button
           onClick={() => scrollToSection("home")}
-          className="text-xl cursor-pointer font-medium sm:flex hidden !m-0 flex gap-2 items-center "
+          className="text-xl cursor-pointer font-medium sm:flex hidden !m-0 flex gap-1 items-center "
         >
-          <div className="size-5 shrink-0 ">
-            <Image src="/assets/favicon/rae.png" alt="Rae logo" width={20} height={20} />
+          <div className="size-5 shrink-0 relative">
+            <Image
+              src="/assets/favicon/rae.png"
+              className=" size-full absolute"
+              alt="Rae logo"
+              width={20}
+              height={20}
+            />
           </div>
           {/*<div className=" size-4 rounded-full border-3 border-accent "></div>{" "}*/}
           Rae
