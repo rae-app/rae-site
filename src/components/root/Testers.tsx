@@ -12,6 +12,12 @@ import { AnimatePresence, motion } from "motion/react";
 export default function Testers() {
   const [open, setOpen] = useState(false);
   const [interested, setInterested] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    setIsMobile(userAgent.includes("Mobile") || userAgent.includes("Android"));
+  }, []);
 
   useEffect(() => {
     // Check if user has already interacted with the testers popup
@@ -32,15 +38,19 @@ export default function Testers() {
     <AnimatePresence>
       {open && (
         <motion.div
-          initial={{ y: "100%", width: "450px", height: "230px" }}
+          initial={{
+            y: "100%",
+            width: isMobile ? "100%" : "450px",
+            height: isMobile ? "auto" : "230px",
+          }}
           animate={{
             y: "0%",
-            width: interested ? "600px" : "450px",
-            height: interested ? "280px" : "230px",
+            width: isMobile ? "100%" : interested ? "600px" : "450px",
+            height: isMobile ? "auto" : interested ? "280px" : "230px",
           }}
           exit={{ y: "100%" }}
           transition={{ ease: "circInOut", duration: 0.5 }}
-          className="fixed bottom-0 right-0 z-50 p-8"
+          className="fixed  bottom-0 right-0 z-50 p-8"
         >
           <div className="size-full rounded-sm border border-accent/70  bg-background/90 backdrop-blur-[2px] p-2 px-3 z-30 flex flex-col">
             <div className="size-2 bg-accent absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full "></div>

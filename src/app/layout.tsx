@@ -143,23 +143,29 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         {/* Preload critical images */}
-        <link
-          rel="preload"
-          href="/assets/images/dragon.gif"
-          as="image"
-          type="image/gif"
-        />
 
         {/* Preload notch and agentic videos */}
         <link
           rel="preload"
-          href="/videos/notch.mp4"
+          href="/videos/listening.mp4"
           as="video"
           type="video/mp4"
         />
         <link
           rel="preload"
           href="/videos/agentic.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link
+          rel="preload"
+          href="/videos/insert.mp4"
+          as="video"
+          type="video/mp4"
+        />
+        <link
+          rel="preload"
+          href="/videos/at-rae.mp4"
           as="video"
           type="video/mp4"
         />

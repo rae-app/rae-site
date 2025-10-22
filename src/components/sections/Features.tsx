@@ -142,12 +142,12 @@ export default function Features() {
                 visible: {
                   opacity: 1,
                   scale: 1,
-                  x: 0,
+                  y: 0,
                 },
                 rest: {
                   opacity: 0,
                   scale: 1,
-                  x: -10,
+                  y: 10,
                 },
               }}
               transition={{

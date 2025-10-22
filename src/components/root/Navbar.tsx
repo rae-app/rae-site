@@ -43,7 +43,7 @@ const Navbar = ({}) => {
           </div>
           <div
             onClick={() => scrollToSection("contact")}
-            className="cursor-pointer border border-transparent hover:border-border h-[32px] px-2 hover:bg-border/40 flex items-center rounded-sm transition-colors mr-4 duration-75"
+            className="cursor-pointer hidden sm:flex border border-transparent hover:border-border h-[32px] px-2 hover:bg-border/40  items-center rounded-sm transition-colors mr-4 duration-75"
           >
             Contact
           </div>
