@@ -16,7 +16,7 @@ const Feature = ({ title, description, onClick }: FeatureProps) => {
       className={`w-full tracking-tighter text-sm  select-none  border-transparent focus:bg-border/30rounded-sm border`}
       onClick={onClick}
     >
-      <div className="group-hover:text-accent">{title}</div>
+      <div className="group-hover:text-accent font-semibold">{title}</div>
       <div className="text-text-muted mt-1 ">{description}</div>
     </div>
   );
