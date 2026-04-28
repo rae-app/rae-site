@@ -77,14 +77,7 @@ export default function Footer() {
             >
               <XLogoIcon /> @thisisraeai
             </a>
-            <a
-              href="https://instagram.com/nihal.iscooked"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline text-zinc-300 items-center cursor-pointer hover:text-white flex gap-2"
-            >
-              <InstagramLogoIcon /> @nihal.iscooked
-            </a>
+            
           </div>
         </div>
         <div className=" w-full  sm:flex hidden overflow-hidden relative flex flex-col p-8">
